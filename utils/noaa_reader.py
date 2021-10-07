@@ -4,10 +4,24 @@ The functions in this file can read CSV files like those in the NOAA GSOM data
 set.
 
 Output format is CSV, and can be filtered during read.
+
+TODO:
+* Interpolate across the spatially-uneven samples to get a map per variable,
+per month.
+* Using the interpolated GSOM data, create new maps with the annualized lowest,
+highest, and mean temperatures & precipitation for each location. Also create an
+annualized (low, mean, high) map for temperature * precipitation as a proxy for
+absolute humidity.
+* Spatially average the annualized maps across each country to estimate climate
+via (low, avg, high) values for precipitation and temperature. 
 '''
 
 from csv import DictReader, DictWriter
-from os import remove
+
+from os import getcwd, listdir, remove
+from os.path import join
+
+from pprint import pformat
 
 # Lower-level / independent functions are near the top.
 # Functions which depend on them are further down.
@@ -20,17 +34,23 @@ ID_COLUMNS = {
     "LONGITUDE",
 }
 
+
+# "<*>_ATTRIBUTES" columns describe dates of extremes, source of data, and
+# missing data. They have roughly the same format for the GSOM and GSOY
+# datasets.
 DATA_COLUMNS = {
-    "EMNT",
-    "EMNT_ATTRIBUTES",
-    "PRCP",
-    "PRCP_ATTRIBUTES",
-    "TAVG",
-    "TAVG_ATTRIBUTES",
-    "TMAX",
-    "TMAX_ATTRIBUTES",
-    "TMIN",
-    "TMIN_ATTRIBUTES",
+    "EMNT",  # Extreme minimum temperature
+#    "EMNT_ATTRIBUTES",
+    "PRCP",  # Total precipitation for the period
+#    "PRCP_ATTRIBUTES",
+    "TAVG",  # Average temperature
+#    "TAVG_ATTRIBUTES",
+    "EMXT",  # Extreme maximum temperature
+#    "EMXT_ATTRIBUTES",
+    "TMAX",  # Average maximum temperature
+#    "TMAX_ATTRIBUTES",
+    "TMIN",  # Average minimum temperature
+#    "TMIN_ATTRIBUTES",
 }
 
 # Functions with only external dependencies
@@ -135,3 +155,37 @@ def trim_file(
             id_fields,
             data_fields
         )
+
+
+def trim_noaa(source_dir, dest_dir):
+    '''Loop over all NOAA files, trimming target period & variables.
+
+    e.g. '/Users/Sarah/Documents/UMUC/DATA 670/datasets/NOAA GSOM Current Climate/'
+    fn = 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\NOAA GSOM Current Climate\\'
+    listdir(fn)
+    '''
+    file_count = 0
+    record_count = 0
+    counts = {field: 0 for field in DATA_COLUMNS}
+    
+    for filename in listdir(source_dir):
+        source_path = join(source_dir, filename)
+        dest_path = join(dest_dir, filename)
+
+        if filename.endswith('.csv'):
+            print(f'Trimming {filename}')
+            rows, columns = trim_file(source_path, dest_path, '1995-01')
+
+            for col in columns:
+                counts[col] += rows
+            
+            if rows:
+                file_count += 1
+                record_count += rows
+        else:
+            print(f'Skipping {filename}.')
+
+    print(f'Wrote {record_count} rows across {file_count} files.')
+    print(
+        f'These are the counts by data column: {pformat(counts)}'
+    )    

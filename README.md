@@ -1,10 +1,10 @@
 # Climate Mortality
 
-This repository contains code originally developed in partial fulfillment of my DATA 670 class at UMUC in Fall 2021. 
+This repository contains code originally developed in partial fulfillment of my DATA 670 Data Analytics Capstone class at UMUC in Fall 2021. 
 
-It is intended for processing a large set of data files from  NOAA, WHO, and the CMIP5 climate change projections.
+It is intended for processing a large set of data files from  NOAA, WHO, and the CMIP5 climate change projections. The overall project is to build a model projecting climate-change impacts on human mortality in the continental United States. This model will be built based on current NOAA weather records and WHO mortality data from around the world, on the assumption that local climate is a significant contributor to the causes and rates of death in different countries.
 
-- Sarah Messer
+Author: Sarah Messer
 
 ## References
 

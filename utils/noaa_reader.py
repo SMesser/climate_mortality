@@ -189,3 +189,32 @@ def trim_noaa(source_dir, dest_dir):
     print(
         f'These are the counts by data column: {pformat(counts)}'
     )    
+
+
+def group_noaa(source_dir, dest_dir):
+    '''Group all NOAA observations into separate files by month and variable.'''
+    source_list = listdir(source_dir)
+    
+    for year in range(1995, 2022):
+        for month in range(1, 13):
+            this_date = f'{year}-{month}'
+            
+            for var in DATA_COLUMNS:
+                out_cols = ['LONGITUDE', 'LATITUDE', var]
+                dest_name = f'{dest_dir}/{var}{year}-{month}.csv'
+
+                with open(dest_name, 'w') as dest_fp:
+                    writer = DictWriter(dest_fp, fieldnames=out_cols)
+                    writer.write_header()
+                    
+                    for source_name in source_list:
+                        with open(source_name, 'r') as source_fp:
+                            reader_dict = DictReader(source_file)
+
+                            for source_row in reader_dict:
+                                if source_row.has_key(var) and source_row[var] != '':
+                                    writer.write_row({
+                                        col: source_row[col]
+                                        for col in out_cols
+                                    })
+                        

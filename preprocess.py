@@ -2,7 +2,7 @@
 
 from yaml import safe_load
 
-from utils.noaa_reader import trim_noaa
+from utils.noaa_reader import group_noaa, trim_noaa
 
 
 if __name__ == '__main__':
@@ -11,4 +11,5 @@ if __name__ == '__main__':
 
     # NOAA GSOM data has been trimmed once. Code is retained in
     # case it needs to be run again, and to document the overall process.
-    # trim_noaa(settings['noaa_input_dir'], settings['noaa_output_dir'])
+    # trim_noaa(settings['noaa_input_dir'], settings['noaa_filtered_dir'])
+    group_noaa(settings['noaa_filtered_dir'], settings['noaa_output_dir'])

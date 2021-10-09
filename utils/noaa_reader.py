@@ -22,6 +22,7 @@ from os import getcwd, listdir, remove
 from os.path import join
 
 from pprint import pformat
+from sys import stdout
 
 # Lower-level / independent functions are near the top.
 # Functions which depend on them are further down.
@@ -188,7 +189,56 @@ def trim_noaa(source_dir, dest_dir):
     print(f'Wrote {record_count} rows across {file_count} files.')
     print(
         f'These are the counts by data column: {pformat(counts)}'
-    )    
+    )
+
+
+def __print_group_update(full_in_files, used_in_files, in_records):
+   print(
+       'Processed {} files, {} of which have been useful, for {} records'.format(
+           full_in_files,
+           used_in_files,
+           in_records
+        )
+    ) 
+
+
+def _make_one_group(source_dir, dest_dir, var, year, month, source_list):
+    '''Write a single one of the regrouped output files.'''
+    out_cols = ['LONGITUDE', 'LATITUDE', var]
+    dest_name = join(dest_dir, f'{var}{year}-{month}.csv')
+    print(f'Writing to {dest_name}')
+    stdout.flush()
+    full_in_files = 0
+    used_in_files = 0
+    in_records = 0
+
+    with open(dest_name, 'w') as dest_fp:
+        writer = DictWriter(dest_fp, fieldnames=out_cols)
+        writer.writeheader()
+                    
+        for source_name in source_list:
+            full_in_files += 1
+            
+            with open(join(source_dir, source_name), 'r') as source_fp:
+                reader_dict = DictReader(source_fp)
+                used_this = False
+
+                for source_row in reader_dict:
+                    if var in source_row and source_row[var] != '':
+                        used_this = True
+                        in_records += 1
+                        writer.writerow({
+                            col: source_row[col]
+                            for col in out_cols
+                        })
+
+                if used_this:
+                    used_in_files += 1
+            
+            if full_in_files % 10000 == 0:
+                __print_group_update(full_in_files, used_in_files, in_records)
+
+    __print_group_update(full_in_files, used_in_files, in_records)
 
 
 def group_noaa(source_dir, dest_dir):
@@ -200,21 +250,11 @@ def group_noaa(source_dir, dest_dir):
             this_date = f'{year}-{month}'
             
             for var in DATA_COLUMNS:
-                out_cols = ['LONGITUDE', 'LATITUDE', var]
-                dest_name = f'{dest_dir}/{var}{year}-{month}.csv'
-
-                with open(dest_name, 'w') as dest_fp:
-                    writer = DictWriter(dest_fp, fieldnames=out_cols)
-                    writer.write_header()
-                    
-                    for source_name in source_list:
-                        with open(source_name, 'r') as source_fp:
-                            reader_dict = DictReader(source_file)
-
-                            for source_row in reader_dict:
-                                if source_row.has_key(var) and source_row[var] != '':
-                                    writer.write_row({
-                                        col: source_row[col]
-                                        for col in out_cols
-                                    })
-                        
+                _make_one_group(
+                    source_dir,
+                    dest_dir,
+                    var,
+                    year,
+                    month,
+                    source_list
+                )

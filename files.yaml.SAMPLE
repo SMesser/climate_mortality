@@ -1,3 +1,4 @@
 this_file: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\code\\files.yaml'
 noaa_input_dir: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\NOAA GSOM Current Climate\\'
+noaa_filtered_dir: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\filtered NOAA\\'
 noaa_output_dir: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\processed NOAA\\'

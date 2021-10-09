@@ -96,7 +96,7 @@ def _trim_open_csv(
     all_fields = set(id_fields) | avail_data
 
     with open(output_name, 'w') as dest_file:
-        destination = DictWriter(dest_file, fieldnames=all_fields)
+        destination = DictWriter(dest_file, fieldnames=all_fields, dialect='unix')
         destination.writeheader()
         written = 0
         
@@ -192,7 +192,7 @@ def trim_noaa(source_dir, dest_dir):
     )
 
 
-def __print_group_update(full_in_files, used_in_files, in_records):
+def _print_group_update(full_in_files, used_in_files, in_records):
    print(
        'Processed {} files, {} of which have been useful, for {} records'.format(
            full_in_files,
@@ -202,18 +202,24 @@ def __print_group_update(full_in_files, used_in_files, in_records):
     ) 
 
 
+def _to_be_written(var, source_row, date_str):
+    '''Return True iff this row should be written out.'''
+    return var in source_row and (source_row[var] != '') and (source_row['DATE']==date_str)
+
+
 def _make_one_group(source_dir, dest_dir, var, year, month, source_list):
     '''Write a single one of the regrouped output files.'''
     out_cols = ['LONGITUDE', 'LATITUDE', var]
+    date_str = f'{year}-{month}'
     dest_name = join(dest_dir, f'{var}{year}-{month}.csv')
     print(f'Writing to {dest_name}')
     stdout.flush()
     full_in_files = 0
     used_in_files = 0
-    in_records = 0
+    out_records = 0
 
     with open(dest_name, 'w') as dest_fp:
-        writer = DictWriter(dest_fp, fieldnames=out_cols)
+        writer = DictWriter(dest_fp, fieldnames=out_cols, dialect='unix')
         writer.writeheader()
                     
         for source_name in source_list:
@@ -224,9 +230,9 @@ def _make_one_group(source_dir, dest_dir, var, year, month, source_list):
                 used_this = False
 
                 for source_row in reader_dict:
-                    if var in source_row and source_row[var] != '':
+                    if _to_be_written(var, source_row, date_str):
                         used_this = True
-                        in_records += 1
+                        out_records += 1
                         writer.writerow({
                             col: source_row[col]
                             for col in out_cols
@@ -236,9 +242,12 @@ def _make_one_group(source_dir, dest_dir, var, year, month, source_list):
                     used_in_files += 1
             
             if full_in_files % 10000 == 0:
-                __print_group_update(full_in_files, used_in_files, in_records)
+                _print_group_update(full_in_files, used_in_files, out_records)
 
-    __print_group_update(full_in_files, used_in_files, in_records)
+    _print_group_update(full_in_files, used_in_files, out_records)
+    
+    if not out_records:
+        remove(dest_name)
 
 
 def group_noaa(source_dir, dest_dir):

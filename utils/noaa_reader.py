@@ -256,8 +256,6 @@ def group_noaa(source_dir, dest_dir):
     
     for year in range(1995, 2022):
         for month in range(1, 13):
-            this_date = f'{year}-{month}'
-            
             for var in DATA_COLUMNS:
                 _make_one_group(
                     source_dir,

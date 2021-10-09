@@ -210,7 +210,7 @@ def _to_be_written(var, source_row, date_str):
 def _make_one_group(source_dir, dest_dir, var, year, month, source_list):
     '''Write a single one of the regrouped output files.'''
     out_cols = ['LONGITUDE', 'LATITUDE', var]
-    date_str = f'{year}-{month}'
+    date_str = f'{year}-{month:02}'
     dest_name = join(dest_dir, f'{var}{year}-{month}.csv')
     print(f'Writing to {dest_name}')
     stdout.flush()

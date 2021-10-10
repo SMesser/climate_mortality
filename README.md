@@ -6,6 +6,19 @@ It is intended for processing a large set of data files from  NOAA, WHO, and the
 
 Author: Sarah Messer
 
+## Setup
+
+* Install python dependencies, typically with a command like this one:
+```
+$ pip install -r requirements.txt
+```
+
+* Copy "files.yaml.SAMPLE" to "files.yaml" in the same directory. 
+* Download and uncompress the source data. 
+* Alter the paths in "files.yaml" to match the download locations and local directory structure.
+* Create empty directories for the "filtered_dir" and "output_dir"  locations specified in your modified files.yaml.
+
+
 ## References
 
 Sources describing and providing the data used in these files follow. The actual data files are not included here, but questions about source-file format and contents may be resolved by reviewing these references:

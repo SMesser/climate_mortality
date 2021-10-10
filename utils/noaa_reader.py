@@ -18,7 +18,7 @@ via (low, avg, high) values for precipitation and temperature.
 
 from csv import DictReader, DictWriter
 
-from os import getcwd, listdir, remove
+from os import listdir, remove
 from os.path import join
 
 from pprint import pformat
@@ -158,7 +158,7 @@ def trim_file(
         )
 
 
-def trim_noaa(source_dir, dest_dir):
+def trim_NOAA(source_dir, dest_dir):
     '''Loop over all NOAA files, trimming target period & variables.
 
     e.g. '/Users/Sarah/Documents/UMUC/DATA 670/datasets/NOAA GSOM Current Climate/'
@@ -250,7 +250,7 @@ def _make_one_group(source_dir, dest_dir, var, year, month, source_list):
         remove(dest_name)
 
 
-def group_noaa(source_dir, dest_dir):
+def group_NOAA(source_dir, dest_dir):
     '''Group all NOAA observations into separate files by month and variable.'''
     source_list = listdir(source_dir)
     

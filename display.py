@@ -13,6 +13,10 @@ from yaml import safe_load
 with open('./files.yaml', 'r') as fp:
     settings = safe_load(fp)
 
+##### utility functions #####
+
+# NOAA utils
+
 def load_NOAA(var, year, month):
     '''Load NOAA data for a single variable in a given month.'''
     return pd.read_csv(
@@ -54,6 +58,12 @@ def get_NOAA_colorscale(var):
     else:
         return 'bluered'
 
+# WHO utils
+
+def get_WHO_data():
+    df = pd.read_csv(join(settings['who_output_dir'], 'mortality.csv'))
+
+##### direct-output data-plot functions #####
 
 # NOAA data
 def plot_NOAA_var(var, year, month):
@@ -79,15 +89,26 @@ def plot_NOAA_var(var, year, month):
     fig.show()
 
 
-# Script entry point
+# WHO data
+
+def plot_WHO_chloropleth(cause, year):
+    '''Compare global death rates for a single cause of death in a year.'''
+    raise NotImplementedError('Fill in this function.')
+
+
+def plot_WHO_bar(cause, year):
+    '''Compare global death rates for a single cause of death in a year.'''
+    raise NotImplementedError('Fill in this function.')
+
+##### Script entry point #####
 
 if __name__ == '__main__':
     with open('./files.yaml', 'r') as fp:
         settings = safe_load(fp)
 
     plot_NOAA_var('PRCP', 1995, 10)
-    plot_NOAA_var('EMNT', 1996, 12)
+    plot_NOAA_var('EMNT', 2013, 7)
     plot_NOAA_var('TAVG', 1998, 8)
     plot_NOAA_var('TMIN', 2001, 11)
     plot_NOAA_var('TMAX', 1997, 9)
-    plot_NOAA_var('EMXT', 2003, 10)
+    #plot_NOAA_var('EMXT', 2003, 10)

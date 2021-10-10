@@ -1,4 +1,8 @@
-'''This file includes scripts intended to generate plots for output.'''
+'''This file includes scripts intended to generate plots for output.
+
+Plotly figures can be saved to JPG interactively through the browser, but saving
+them programmatically requires installing an "orca" executable.
+'''
 import pandas as pd
 import plotly.graph_objects as go
 
@@ -8,7 +12,6 @@ from yaml import safe_load
 
 with open('./files.yaml', 'r') as fp:
     settings = safe_load(fp)
-
 
 def load_NOAA(var, year, month):
     '''Load NOAA data for a single variable in a given month.'''
@@ -82,9 +85,9 @@ if __name__ == '__main__':
     with open('./files.yaml', 'r') as fp:
         settings = safe_load(fp)
 
-    #plot_NOAA_var('PRCP', 1995, 10)
-    #plot_NOAA_var('EMNT', 1995, 1)
-    #plot_NOAA_var('TAVG', 1995, 1)
-    #plot_NOAA_var('TMIN', 1995, 1)
-    #plot_NOAA_var('TMAX', 1995, 1)
-    plot_NOAA_var('EMXT', 2000, 2)
+    plot_NOAA_var('PRCP', 1995, 10)
+    plot_NOAA_var('EMNT', 1996, 12)
+    plot_NOAA_var('TAVG', 1998, 8)
+    plot_NOAA_var('TMIN', 2001, 11)
+    plot_NOAA_var('TMAX', 1997, 9)
+    plot_NOAA_var('EMXT', 2003, 10)

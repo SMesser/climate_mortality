@@ -71,6 +71,15 @@ def read_source_header(source_file, id_fields, data_fields):
     return source, filtered_data_fields
 
 
+def _to_be_written(var, source_row, date_str):
+    '''Return True iff this row should be written out.'''
+    if not (var in source_row):
+        return False
+    if source_row[var]=='':
+        return False
+    return (source_row['DATE']==date_str)
+
+
 # Functions with internal dependencies
 
 def _trim_open_csv(
@@ -200,11 +209,6 @@ def _print_group_update(full_in_files, used_in_files, in_records):
            in_records
         )
     ) 
-
-
-def _to_be_written(var, source_row, date_str):
-    '''Return True iff this row should be written out.'''
-    return var in source_row and (source_row[var] != '') and (source_row['DATE']==date_str)
 
 
 def _make_one_group(source_dir, dest_dir, var, year, month, source_list):

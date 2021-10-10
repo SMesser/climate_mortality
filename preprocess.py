@@ -12,6 +12,6 @@ if __name__ == '__main__':
     # NOAA GSOM data has been trimmed once. Code is retained in
     # case it needs to be run again, and to document the overall process.
     # trim_NOAA(settings['noaa_input_dir'], settings['noaa_filtered_dir'])
-    group_NOAA(settings['noaa_filtered_dir'], settings['noaa_output_dir'])
+    # group_NOAA(settings['noaa_filtered_dir'], settings['noaa_output_dir'])
 
     process_WHO(settings['who_input_dir'], settings['who_output_dir'])

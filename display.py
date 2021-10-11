@@ -111,4 +111,4 @@ if __name__ == '__main__':
     plot_NOAA_var('TAVG', 1998, 8)
     plot_NOAA_var('TMIN', 2001, 11)
     plot_NOAA_var('TMAX', 1997, 9)
-    #plot_NOAA_var('EMXT', 2003, 10)
+    plot_NOAA_var('EMXT', 1999, 4)

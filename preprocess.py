@@ -2,7 +2,7 @@
 
 from yaml import safe_load
 
-from utils.noaa_reader import group_noaa, trim_noaa
+from utils.noaa_reader import group_NOAA, trim_NOAA
 
 
 if __name__ == '__main__':

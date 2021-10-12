@@ -100,6 +100,24 @@ def plot_WHO_bar(cause, year):
     '''Compare global death rates for a single cause of death in a year.'''
     raise NotImplementedError('Fill in this function.')
 
+
+def plot_WHO_death_bar(df, countries):
+    '''Plot raw death counts''' 
+    go.Figure(
+        data=[
+            go.Bar(
+                name=c + ' ' + s,
+                x=df[df['name']==c][df['Gender']==s]['Year'],
+                y=df[df['name']==c][df['Gender']==s]['Deaths1']
+                #color={'Male': 'blue', 'Female': 'red', 'Unknown': 'green'}[s]
+            )
+            for c in ['Russian Federation', 'Ukraine']
+            for s in ['Male', 'Female']
+        ],
+        layout={'title': {'text': 'Malaria deaths'}}
+    ).show()
+
+
 ##### Script entry point #####
 
 if __name__ == '__main__':
@@ -112,3 +130,4 @@ if __name__ == '__main__':
     plot_NOAA_var('TMIN', 2001, 11)
     plot_NOAA_var('TMAX', 1997, 9)
     plot_NOAA_var('EMXT', 1999, 4)
+

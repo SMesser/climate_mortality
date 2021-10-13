@@ -1,0 +1,1683 @@
+List,Code,ListCode,Detailed code,Cause
+07A,A000,07A-A000,,All causes
+07A,A001,07A-A001,001-008,Tuberculosis of respiratory system
+07A,A002,07A-A002,10,Tuberculosis of meninges and central nervous system
+07A,A003,07A-A003,11,"Tuberculosis of intestines, peritoneum, and mesenteric glands"
+07A,A004,07A-A004,"012, 013",Tuberculosis of bones and joints
+07A,A005,07A-A005,014-019,"Tuberculosis, all other forms"
+07A,A006,07A-A006,20,Congenital syphilis
+07A,A007,07A-A007,21,Early syphilis
+07A,A008,07A-A008,24,Tabes dorsalis
+07A,A009,07A-A009,25,General paralysis of insane
+07A,A010,07A-A010,"022, 023, 026-029",All other syphilis
+07A,A011,07A-A011,030-035,Gonococcal infection
+07A,A012,07A-A012,40,Typhoid fever
+07A,A013,07A-A013,"041, 042",Paratyphoid fever and other Salmonella infections
+07A,A014,07A-A014,43,Cholera
+07A,A015,07A-A015,44,Brucellosis (undulant fever)
+07A,A016,07A-A016,045-048,"Dysentery, all forms"
+07A,A017,07A-A017,50,Scarlet fever
+07A,A018,07A-A018,51,Streptococcal sore throat
+07A,A019,07A-A019,52,Erysipelas
+07A,A020,07A-A020,53,Septicaemia and pyaemia
+07A,A021,07A-A021,55,Diphtheria
+07A,A022,07A-A022,56,Whooping cough
+07A,A023,07A-A023,57,Meningococcal infections
+07A,A024,07A-A024,58,Plague
+07A,A025,07A-A025,60,Leprosy
+07A,A026,07A-A026,61,Tetanus
+07A,A027,07A-A027,62,Anthrax
+07A,A028,07A-A028,80,Acute poliomyelitis
+07A,A029,07A-A029,82,Acute infectious encephalitis
+07A,A030,07A-A030,"081, 083",Late effects of acute poliomyelitis and acute infectious encephalitis
+07A,A031,07A-A031,84,Smallpox
+07A,A032,07A-A032,85,Measles
+07A,A033,07A-A033,91,Yellow fever
+07A,A034,07A-A034,92,Infectious hepatitis
+07A,A035,07A-A035,94,Rabies
+07A,A036,07A-A036,100-108,Typhus and other rickettsial diseases
+07A,A037,07A-A037,110-117,Malaria
+07A,A038,07A-A038,123,Schistosomiasis
+07A,A039,07A-A039,125,Hydatid disease
+07A,A040,07A-A040,127,Filariasis
+07A,A041,07A-A041,129,Ankylostomiasis
+07A,A042,07A-A042,"124, 126, 128, 130",Other diseases due to helminths
+07A,A043,07A-A043,"036-039, 049, 054, 059, 063-074, 086-090, 093, 095, 096, 120-122, 131-138",All other diseases classified as infective and parasitic
+07A,A044,07A-A044,140-148,Malignant neoplasm of buccal cavity and pharynx
+07A,A045,07A-A045,150,Malignant neoplasm of oesophagus
+07A,A046,07A-A046,151,Malignant neoplasm of stomach
+07A,A047,07A-A047,"152, 153","Malignant neoplasm of intestine, except rectum"
+07A,A048,07A-A048,154,Malignant neoplasm of rectum
+07A,A049,07A-A049,161,Malignant neoplasm of larynx
+07A,A050,07A-A050,"162, 163","Malignant neoplasm of trachea, bronchus and lung, not specified as secondary"
+07A,A051,07A-A051,170,Malignant neoplasm of breast
+07A,A052,07A-A052,171,Malignant neoplasm of cervix uteri
+07A,A053,07A-A053,172-174,Malignant neoplasm of other and unspecified parts of uterus
+07A,A054,07A-A054,177,Malignant neoplasm of prostate
+07A,A055,07A-A055,"190, 191",Malignant neoplasm of skin
+07A,A056,07A-A056,"196, 197",Malignant neoplasm of bone and connective tissue
+07A,A057,07A-A057,"155-160, 164, 165, 175, 176, 178-181, 192-195, 198, 199",Malignant neoplasm of all other and unspecified sites
+07A,A058,07A-A058,204,Leukaemia and aleukaemia
+07A,A059,07A-A059,"200-203, 205",Lymphosarcoma and other neoplasms of lymphatic and haematopoietic system
+07A,A060,07A-A060,210-239,Benign neoplasms and neoplasms of unspecified nature
+07A,A061,07A-A061,"250, 251",Non-toxic goitre
+07A,A062,07A-A062,252,Thyrotoxicosis with or without goitre
+07A,A063,07A-A063,260,Diabetes mellitus
+07A,A064,07A-A064,280-286,Avitaminosis and other deficiency states
+07A,A065,07A-A065,290-293,Anaemias
+07A,A066,07A-A066,"240-245, 253, 254, 270-277, 287-289, 294-299","Allergic disorders; all other endocrine, metabolic, and blood diseases"
+07A,A067,07A-A067,300-309,Psychoses
+07A,A068,07A-A068,"310-324, 326",Psychoneuroses and disorders of personality
+07A,A069,07A-A069,325,Mental deficiency
+07A,A070,07A-A070,330-334,Vascular lesions affecting central nervous system
+07A,A071,07A-A071,340,Non-meningococcal meningitis
+07A,A072,07A-A072,345,Multiple sclerosis
+07A,A073,07A-A073,353,Epilepsy
+07A,A074,07A-A074,370-379,Inflammatory diseases of eye
+07A,A075,07A-A075,385,Cataract
+07A,A076,07A-A076,387,Glaucoma
+07A,A077,07A-A077,391-393,Otitis media and mastoiditis
+07A,A078,07A-A078,"341-344, 350-352, 354-369, 380-384, 386, 388-390, 394-398",All other diseases of the nervous system and sense organs
+07A,A079,07A-A079,400-402,Rheumatic fever
+07A,A080,07A-A080,410-416,Chronic rheumatic heart disease
+07A,A081,07A-A081,420-422,Arteriosclerotic and degenerative heart disease
+07A,A082,07A-A082,430-434,Other diseases of heart
+07A,A083,07A-A083,440-443,Hypertension with heart disease
+07A,A084,07A-A084,444-447,Hypertension without mention of heart
+07A,A085,07A-A085,450-456,Diseases of arteries
+07A,A086,07A-A086,460-468,Other diseases of circulatory system
+07A,A087,07A-A087,470-475,Acute upper respiratory infections
+07A,A088,07A-A088,480-483,Influenza
+07A,A089,07A-A089,490,Lobar pneumonia
+07A,A090,07A-A090,491,Bronchopneumonia
+07A,A091,07A-A091,"492, 493","Primary atypical, other, and unspecified pneumonia"
+07A,A092,07A-A092,500,Acute bronchitis
+07A,A093,07A-A093,"501, 502","Bronchitis, chronic and unqualified"
+07A,A094,07A-A094,510,Hypertrophy of tonsils and adenoids
+07A,A095,07A-A095,"518, 521",Empyema and abscess of lung
+07A,A096,07A-A096,519,Pleurisy
+07A,A097,07A-A097,"511-517, 520, 522-527",All other respiratory diseases
+07A,A098,07A-A098,530-535,Diseases of teeth and supporting structures
+07A,A099,07A-A099,540,Ulcer of stomach
+07A,A100,07A-A100,541,Ulcer of duodenum
+07A,A101,07A-A101,543,Gastritis and duodenitis
+07A,A102,07A-A102,550-553,Appendicitis
+07A,A103,07A-A103,"560, 561, 570",Intestinal obstruction and hernia
+07A,A104,07A-A104,"571, 572","Gastro-enteritis and colitis, except diarrhoea of the newborn"
+07A,A105,07A-A105,581,Cirrhosis of liver
+07A,A106,07A-A106,"584, 585",Cholelithiasis and cholecystitis
+07A,A107,07A-A107,"536-539, 542, 544, 545, 573-580, 582, 583, 586, 587",Other diseases of digestive system
+07A,A108,07A-A108,590,Acute nephritis
+07A,A109,07A-A109,591-594,"Chronic, other, and unspecified nephritis"
+07A,A110,07A-A110,600,Infections of kidney
+07A,A111,07A-A111,"602, 604",Calculi of urinary system
+07A,A112,07A-A112,610,Hyperplasia of prostate
+07A,A113,07A-A113,"620, 621",Diseases of breast
+07A,A114,07A-A114,"601, 603, 605-609, 611-617, 622-637",Other diseases of genito-urinary system
+07A,A115,07A-A115,"640, 641, 681, 682, 684","Sepsis of pregnancy, childbirth, and the puerperium"
+07A,A116,07A-A116,"642, 652, 685, 686",Toxaemias of pregnancy and the puerperium
+07A,A117,07A-A117,"643, 644, 670-672",Haemorrhage of pregnancy and childbirth
+07A,A118,07A-A118,650,Abortion without mention of sepsis or toxaemia
+07A,A119,07A-A119,651,Abortion with sepsis
+07A,A120,07A-A120,"645-649, 660, 673-680, 683, 687-689","Other complications of pregnancy, childbirth, and the puerperium. "
+07A,A121,07A-A121,690-698,Infections of skin and subcutaneous tissue
+07A,A122,07A-A122,720-725,Arthritis and spondylitis
+07A,A123,07A-A123,"726, 727",Muscular rheumatism and rheumatism unspecified
+07A,A124,07A-A124,730,Osteomyelitis and periostitis
+07A,A125,07A-A125,"737, 745-749",Ankylosis and acquired musculoskeletal deformities
+07A,A126,07A-A126,"700-716, 731-736, 738-744",All other diseases of skin and musculoskeletal system
+07A,A127,07A-A127,751,Spina bifida and meningocele
+07A,A128,07A-A128,754,Congenital malformations of circulatory system
+07A,A129,07A-A129,"750, 752, 753, 755-759",All other congenital malformations
+07A,A130,07A-A130,"760, 761",Birth injuries
+07A,A131,07A-A131,762,Postnatal asphyxia and atelectasis
+07A,A132,07A-A132,763-768,Infections of the newborn
+07A,A133,07A-A133,770,Haemolytic disease of the newborn
+07A,A134,07A-A134,"769, 771, 772",All other defined diseases of early infancy
+07A,A135,07A-A135,773-776,"Ill-defined diseases peculiar to early infancy, and immaturity unqualified"
+07A,A136,07A-A136,794,Senility without mention of psychosis
+07A,A137,07A-A137,"780-793, 795",Ill-defined and unknown causes of morbidity and mortality
+07A,A138,07A-A138,E810-E835,Motor vehicle accidents
+07A,A139,07A-A139,"E800-E802, E840-E866",Other transport accidents
+07A,A140,07A-A140,E870-E895,Accidental poisoning
+07A,A141,07A-A141,E900-E904,Accidental falls
+07A,A142,07A-A142,E912,Accident caused by machinery
+07A,A143,07A-A143,E916,Accident caused by fire and explosion of combustible material
+07A,A144,07A-A144,"E917, E918","Accident caused by hot substance, corrosive liquid, steam, and radiation"
+07A,A145,07A-A145,E919,Accident caused by firearm
+07A,A146,07A-A146,E929,Accidental drowning and submersion
+07A,A147,07A-A147,"E910, E911, E913-E915, E920-E928, E930-E962",All other accidental causes
+07A,A148,07A-A148,"E963, E970-E979",Suicide and self-inflicted injury
+07A,A149,07A-A149,"E964, E980-E985",Homicide and injury purposely inflicted by other persons (not in war)
+07A,A150,07A-A150,"E965, E990-E999",Injury resulting from operations of war
+07A,S47,07A-S47,"E800-E802, E840-E962","All other accidental causes  (only applied for Trinidad and Tobago, 1967 and 1968 where the data do not contain a breakdown of all other accidental causes (A139-A147)."
+07A,CH17,07A-CH17,E800-E999,"CHAPTER XVII Ð Accidents, Poisoning, and Violence (Only applied for some countries-years when the data do not contain a breakdown of all external causes (A138-A150)."
+07A,140,07A-140,140,MN of lip
+07A,141,07A-141,141,MN of tongue
+07A,142,07A-142,142,MN of salivary gland
+07A,143,07A-143,143,MN of floor of mouth
+07A,144,07A-144,144,"MN of other pars of mouth, and of mouth, unspecified"
+07A,145,07A-145,145,MN of oral mesopharynx
+07A,146,07A-146,146,MN of nasopharynx
+07A,147,07A-147,147,MN of hypopharynx
+07A,148,07A-148,148,"MN of pharynx, unspecified"
+07A,150,07A-150,150,MN of oesophagus
+07A,151,07A-151,151,MN of stomach
+07A,152,07A-152,152,"MN of small intestine, including dueoenum"
+07A,153,07A-153,153,"MN of large intesting, except rectum"
+07A,154,07A-154,154,MN of rectum
+07A,155,07A-155,155,MN of biliary passages and of liver (stated to be primary site)
+07A,1550,07A-1550,1550,MN of liver (stated to be primary site)
+07A,1551,07A-1551,1551,"MN of gallbladder and extrahepatic gall ducts, including ampulla of Vater"
+07A,156,07A-156,156,MN of liver (secondary and unspecified)
+07A,157,07A-157,157,MN of pancreas
+07A,158,07A-158,158,MN of peritoneum
+07A,159,07A-159,159,MN of unspecified digestive organs
+07A,160,07A-160,160,"MN of nose, nasal cavities, middle ear, and accessory sinuses"
+07A,161,07A-161,161,MN of larynx
+07A,162,07A-162,162,"MN of bronchus and trachea, and of lung specified as primary"
+07A,163,07A-163,163,"MN of lung, unspecified as to whether primary or secondary"
+07A,164,07A-164,164,MN of mediastinum
+07A,165,07A-165,165,MN of thoracic organs (secondary)
+07A,170,07A-170,170,MN of breast
+07A,171,07A-171,171,MN of cervix uteri
+07A,172,07A-172,172,MN of corpus uteri
+07A,173,07A-173,173,"MN of other parts of uterus, incuding chorionepithelioma"
+07A,174,07A-174,174,"MN of uterus, unspecified"
+07A,175,07A-175,175,"MN of ovary, Fallopian tube and broad ligament"
+07A,176,07A-176,176,MN of other and unspecified female genital organs
+07A,177,07A-177,177,MN of prostate
+07A,178,07A-178,178,MN of testis
+07A,179,07A-179,179,MN of other and unspecified male genital organs
+07A,1790,07A-1790,1790,MN of penis
+07A,180,07A-180,180,MN of kidney
+07A,181,07A-181,181,MN of bladder and other urinary organs
+07A,1810,07A-1810,1810,MN of bladder
+07A,190,07A-190,190,Malignant melanoma of skin
+07A,191,07A-191,191,Other malignant neoplasm of skin
+07A,192,07A-192,192,MN of eye
+07A,193,07A-193,193,MN of brain and other parts of nervous system
+07A,194,07A-194,194,MN of thyroid gland
+07A,195,07A-195,195,MN of other endocrine glands
+07A,196,07A-196,196,MN of bone
+07A,197,07A-197,197,MN of connective tissue
+07A,198,07A-198,198,Secondary and unspecified malignant neoplasm of lymph nodes
+07A,199,07A-199,199,MN of other and unspecified sites
+07A,200,07A-200,200,Lymphosarcoma and reticulosarcoma
+07A,201,07A-201,201,Hodgkin's disease
+07A,202,07A-202,202,Other forms of lymphoma (reticulosis)
+07A,203,07A-203,203,Multiple myeloma (plasmocytoma)
+07A,204,07A-204,204,Leukaemia and aleukaemia
+07A,205,07A-205,205,Mycosis fungoides
+07B,B000,07B-B000,,All causes
+07B,B001,07B-B001,001-008,Tuberculosis of respiratory system
+07B,B002,07B-B002,010-019,"Tuberculosis, other forms"
+07B,B003,07B-B003,020-029,Syphilis and its sequelae
+07B,B004,07B-B004,40,Typhoid fever
+07B,B005,07B-B005,43,Cholera
+07B,B006,07B-B006,045-048,"Dysentery, all forms"
+07B,B007,07B-B007,"050, 051",Scarlet fever and streptococcal sore throat
+07B,B008,07B-B008,55,Diphtheria
+07B,B009,07B-B009,56,Whooping cough
+07B,B010,07B-B010,57,Meningococcal infections
+07B,B011,07B-B011,58,Plague
+07B,B012,07B-B012,80,Acute poliomyelitis
+07B,B013,07B-B013,84,Smallpox
+07B,B014,07B-B014,85,Measles
+07B,B015,07B-B015,100-108,Typhus and other rickettsial diseases
+07B,B016,07B-B016,110-117,Malaria
+07B,B017,07B-B017,"030-039, 041, 042, 044, 049, 052-054, 059-074, 081-083, 086-096, 120-138",All other diseases classified as infective and parasitic
+07B,B018,07B-B018,140-205,"Malignant neoplasms, including neoplasms of lymphatic and haematopoietic tissues"
+07B,B019,07B-B019,210-239,Benign neoplasms and neoplasms of unspecified nature
+07B,B020,07B-B020,260,Diabetes mellitus
+07B,B021,07B-B021,290-293,Anaemias
+07B,B022,07B-B022,330-334,Vascular lesions affecting central nervous system
+07B,B023,07B-B023,340,Non-meningococcal meningitis
+07B,B024,07B-B024,400-402,Rheumatic fever
+07B,B025,07B-B025,410-416,Chronic rheumatic heart disease
+07B,B026,07B-B026,420-422,Arteriosclerotic and degenerative heart disease
+07B,B027,07B-B027,430-434,Other diseases of heart
+07B,B028,07B-B028,440-443,Hypertension with heart disease
+07B,B029,07B-B029,444-447,Hypertension without mention of heart
+07B,B030,07B-B030,480-483,Influenza
+07B,B031,07B-B031,490-493,Pneumonia
+07B,B032,07B-B032,500-502,Bronchitis
+07B,B033,07B-B033,"540, 541",Ulcer of stomach and duodenum
+07B,B034,07B-B034,550-553,Appendicitis
+07B,B035,07B-B035,"560, 561, 570",Intestinal obstruction and hernia
+07B,B036,07B-B036,"543, 571, 572","Gastritis, duodenitis, enteritis, and colitis, except diarrhoea of the newborn"
+07B,B037,07B-B037,581,Cirrhosis of liver
+07B,B038,07B-B038,590-594,Nephritis and nephrosis
+07B,B039,07B-B039,610,Hyperplasia of prostate
+07B,B040,07B-B040,640-689,"Deliveries and complications of pregnancy, childbirth, and the puerperium"
+07B,B041,07B-B041,750-759,Congenital malformations
+07B,B042,07B-B042,760-762,"Birth injuries, postnatal asphyxia and atelectasis"
+07B,B043,07B-B043,763-768,Infections of the newborn
+07B,B044,07B-B044,769-776,"Other diseases peculiar to early infancy, and immaturity unqualified"
+07B,B045,07B-B045,780-795,"Senility without mention of psychosis, ill-defined and unknown causes"
+07B,B046,07B-B046,Residual,All other diseases
+07B,B047,07B-B047,E810-E835,Motor vehicle accidents
+07B,B048,07B-B048,"E800-E802, E840-E962",All other accidents
+07B,B049,07B-B049,"E963, E970-E979",Suicide and self-inflicted injury
+07B,B050,07B-B050,"E964, E965, E980-E999",Homicide and operations of war
+08A,A000,08A-A000,,All causes
+08A,A001,08A-A001,0,Cholera
+08A,A002,08A-A002,1,Typhoid fever
+08A,A003,08A-A003,"002, 003",Paratyphoid fever and other salmonella infections
+08A,A004,08A-A004,"004, 006",Bacillary dysentery and amoebiasis
+08A,A005,08A-A005,"008, 009",Enteritis and other diarrhoeal diseases
+08A,A006,08A-A006,010-012,Tuberculosis of respiratory system
+08A,A007,08A-A007,13,Tuberculosis of meninges and central nervous system
+08A,A008,08A-A008,14,"Tuberculosis of intestines, peritoneum and mesenteric glands"
+08A,A009,08A-A009,15,Tuberculosis of bones and joints
+08A,A010,08A-A010,016-019,"Other tuberculosis, including late effects"
+08A,A011,08A-A011,20,Plague
+08A,A012,08A-A012,22,Anthrax
+08A,A013,08A-A013,23,Brucellosis
+08A,A014,08A-A014,30,Leprosy
+08A,A015,08A-A015,32,Diphtheria
+08A,A016,08A-A016,33,Whooping cough
+08A,A017,08A-A017,34,Streptococcal sore throat and scarlet fever
+08A,A018,08A-A018,35,Erysipelas
+08A,A019,08A-A019,36,Meningococcal infection
+08A,A020,08A-A020,37,Tetanus
+08A,A021,08A-A021,"005, 007, 021, 024-027, 031, 038, 039",Other bacterial diseases
+08A,A022,08A-A022,040-043,Acute poliomyelitis
+08A,A023,08A-A023,44,Late effects of acute poliomyelitis
+08A,A024,08A-A024,50,Smallpox
+08A,A025,08A-A025,55,Measles
+08A,A026,08A-A026,60,Yellow fever
+08A,A027,08A-A027,062-065,Viral encephalitis
+08A,A028,08A-A028,70,Infectious hepatitis
+08A,A029,08A-A029,"045, 046, 051-054, 056, 057, 061, 066-068, 071-079",Other viral diseases
+08A,A030,08A-A030,080-083,Typhus and other rickettsioses
+08A,A031,08A-A031,84,Malaria
+08A,A032,08A-A032,"086, 087",Trypanosomiasis
+08A,A033,08A-A033,88,Relapsing fever
+08A,A034,08A-A034,90,Congenital syphilis
+08A,A035,08A-A035,91,"Early syphilis, symptomatic"
+08A,A036,08A-A036,94,Syphilis of central nervous system
+08A,A037,08A-A037,"092, 093, 095-097",Other syphilis
+08A,A038,08A-A038,98,Gonococcal infections
+08A,A039,08A-A039,120,Schistosomiasis
+08A,A040,08A-A040,122,Hydatidosis
+08A,A041,08A-A041,125,Filarial infection
+08A,A042,08A-A042,126,Ancylostomiasis
+08A,A043,08A-A043,"121, 123, 124, 127-129",Other helminthiases
+08A,A044,08A-A044,"085, 089, 099, 100-117, 130-136",All other infective and parasitic diseases
+08A,A045,08A-A045,140-149,Malignant neoplasm of buccal cavity and pharynx
+08A,A046,08A-A046,150,Malignant neoplasm of oesophagus
+08A,A047,08A-A047,151,Malignant neoplasm of stomach
+08A,A048,08A-A048,"152, 153","Malignant neoplasm of intestine, except rectum"
+08A,A049,08A-A049,154,Malignant neoplasm of rectum and rectosigmoid junction
+08A,A050,08A-A050,161,Malignant neoplasm of larynx
+08A,A051,08A-A051,162,"Malignant neoplasm of trachea, bronchus and lung"
+08A,A052,08A-A052,170,Malignant neoplasm of bone
+08A,A053,08A-A053,"172, 173",Malignant neoplasm of skin
+08A,A054,08A-A054,174,Malignant neoplasm of breast
+08A,A055,08A-A055,180,Malignant neoplasm of cervix uteri
+08A,A056,08A-A056,"181, 182",Other malignant neoplasm of uterus
+08A,A057,08A-A057,185,Malignant neoplasm of prostate
+08A,A058,08A-A058,"155-160, 163, 171, 183, 184, 186-199",Malignant neoplasm of other and unspecified sites
+08A,A059,08A-A059,204-207,Leukaemia
+08A,A060,08A-A060,"200-203, 208, 209",Other neoplasms of lymphatic and haemotopoietic tissue
+08A,A061,08A-A061,210-239,Benign neoplasms and neoplasms of unspecified nature
+08A,A062,08A-A062,"240, 241",Non-toxic goitre
+08A,A063,08A-A063,242,Thyrotoxicosis with or without goitre
+08A,A064,08A-A064,250,Diabetes mellitus
+08A,A065,08A-A065,260-269,Avitaminoses and other nutritional deficiency
+08A,A066,08A-A066,"243-246, 251-258, 270-279",Other endocrine and metabolic diseases
+08A,A067,08A-A067,280-285,Anaemias
+08A,A068,08A-A068,286-289,Other diseases of blood and blood-forming organs
+08A,A069,08A-A069,290-299,Psychoses
+08A,A070,08A-A070,300-309,"Neuroses, personality disorders and other non-psychotic mental disorders"
+08A,A071,08A-A071,310-315,Mental retardation
+08A,A072,08A-A072,320,Meningitis
+08A,A073,08A-A073,340,Multiple sclerosis
+08A,A074,08A-A074,345,Epilepsy
+08A,A075,08A-A075,360-369,Inflammatory diseases of eye
+08A,A076,08A-A076,374,Cataract
+08A,A077,08A-A077,375,Glaucoma
+08A,A078,08A-A078,381-383,Otitis media and mastoiditis
+08A,A079,08A-A079,"321-333, 341-344, 346-358, 370-373, 376-380, 384-389",Other diseases of nervous system and sense organs
+08A,A080,08A-A080,390-392,Active rheumatic fever
+08A,A081,08A-A081,393-398,Chronic rheumatic heart disease
+08A,A082,08A-A082,400-404,Hypertensive disease
+08A,A083,08A-A083,410-414,Ischaemic heart disease
+08A,A084,08A-A084,420-429,Other forms of heart disease
+08A,A085,08A-A085,430-438,Cerebrovascular disease
+08A,A086,08A-A086,440-448,"Diseases of arteries, arterioles and capillaries"
+08A,A087,08A-A087,450-453,Venous thrombosis and embolism
+08A,A088,08A-A088,454-458,Other diseases of circulatory system
+08A,A089,08A-A089,460-466,Acute respiratory infections
+08A,A090,08A-A090,470-474,Influenza
+08A,A091,08A-A091,480,Viral pneumonia
+08A,A092,08A-A092,481-486,Other pneumonia
+08A,A093,08A-A093,490-493,"Bronchitis, emphysema and asthma"
+08A,A094,08A-A094,500,Hypertrophy of tonsils and adenoids
+08A,A095,08A-A095,"510, 513",Empyema and abscess of lung
+08A,A096,08A-A096,"501-508, 511, 512, 514-519",Other diseases of respiratory system
+08A,A097,08A-A097,520-525,Diseases of teeth and supporting structures
+08A,A098,08A-A098,531-533,Peptic ulcer
+08A,A099,08A-A099,535,Gastritis and duodenitis
+08A,A100,08A-A100,540-543,Appendicitis
+08A,A101,08A-A101,"550-553, 560",Intestinal obstruction and hernia
+08A,A102,08A-A102,571,Cirrhosis of liver
+08A,A103,08A-A103,"574, 575",Cholelithiasis and cholecystitis
+08A,A104,08A-A104,"526-530, 534, 536, 537, 561-570, 572, 573, 576, 577",Other diseases of digestive system
+08A,A105,08A-A105,580,Acute nephritis
+08A,A106,08A-A106,581-584,Other nephritis and nephrosis
+08A,A107,08A-A107,590,Infections of kidney
+08A,A108,08A-A108,"592, 594",Calculus of urinary system
+08A,A109,08A-A109,600,Hyperplasia of prostate
+08A,A110,08A-A110,"610, 611",Diseases of breast
+08A,A111,08A-A111,"591, 593, 595-599, 601-607, 612-629",Other diseases of genito-urinary system
+08A,A112,08A-A112,636-639,Toxaemias of pregnancy and the puerperium
+08A,A113,08A-A113,"632, 651-653",Haemorrhage of pregnancy and childbirth
+08A,A114,08A-A114,"640, 641",Abortion induced for legal indications
+08A,A115,08A-A115,642-645,Other and unspecified abortion
+08A,A116,08A-A116,"670, 671, 673",Sepsis of childbirth and the puerperium
+08A,A117,08A-A117,"630, 631, 633-635, 654-662, 672, 674-678","Other complications of pregnancy, childbirth and the puerperium"
+08A,A118,08A-A118,650,Delivery without mention of complication
+08A,A119,08A-A119,680-686,Infections of skin and subcutaneous tissue
+08A,A120,08A-A120,690-709,Other diseases of skin and subcutaneous tissue
+08A,A121,08A-A121,710-715,Arthritis and spondylitis
+08A,A122,08A-A122,716-718,Non-articular rheumatism and rheumatism unspecified
+08A,A123,08A-A123,720,Osteomyelitis and periostitis
+08A,A124,08A-A124,"727, 735-738",Ankylosis and acquired musculoskeletal deformities
+08A,A125,08A-A125,"721-726, 728-734",Other diseases of musculoskeletal system and connective tissue
+08A,A126,08A-A126,741,Spina bifida
+08A,A127,08A-A127,746,Congenital anomalies of heart
+08A,A128,08A-A128,747,Other congenital anomalies of circulatory system
+08A,A129,08A-A129,749,Cleft palate and cleft lip
+08A,A130,08A-A130,"740, 742-745, 748, 750-759",All other congenital anomalies
+08A,A131,08A-A131,"764-768, 772",Birth injury and difficult labour
+08A,A132,08A-A132,"770, 771",Conditions of placenta and cord
+08A,A133,08A-A133,"774, 775",Haemolytic disease of newborn
+08A,A134,08A-A134,776,Anoxic and hypoxic conditions not elsewhere classified
+08A,A135,08A-A135,"760-763, 769, 773, 777-779",Other causes of perinatal morbidity and mortality
+08A,A136,08A-A136,794,Senility without mention of psychosis
+08A,A137,08A-A137,"780-793, 795, 796",Symptoms and other ill-defined conditions
+08A,A138,08A-A138,E810-E823,Motor vehicle accidents
+08A,A139,08A-A139,"E800-E807, E825-E845",Other transport accidents
+08A,A140,08A-A140,E850-E877,Accidental poisoning
+08A,A141,08A-A141,E880-E887,Accidental falls
+08A,A142,08A-A142,E890-E899,Accidents caused by fires
+08A,A143,08A-A143,E910,Accidental drowning and submersion
+08A,A144,08A-A144,E922,Accident caused by firearm missiles
+08A,A145,08A-A145,"E916-E921, E923-E928",Accidents mainly of industrial type
+08A,A146,08A-A146,"E900-E909, E911-E915, E929-E949",All other accidents
+08A,A147,08A-A147,E950-E959,Suicide and self inflicted injury
+08A,A148,08A-A148,E960-E978,Homicide and injury purposely inflicted by other persons; legal intervention
+08A,A149,08A-A149,E980-E989,Injury undetermined whether accidentally or purposely inflicted
+08A,A150,08A-A150,E990-E999,Injury resulting from operations of war
+08A,S47,08A-S47,E800-E949,All accidental causes  (Only applied for Poland 1972-1979 where the data do not contain a breakdown of all accidental causes by A138-A146).
+08A,CH17,08A-CH17,E800-E999,"CHAPTER XVII Ð Accidents, Poisoning, and Violence (Only applied for some countries-years when the data do not contain a breakdown of all external causes by A138-A150)."
+08A,140,08A-140,140,MN of lip
+08A,141,08A-141,141,MN of tongue
+08A,142,08A-142,142,MN of salivary gland
+08A,143,08A-143,143,MN of gum
+08A,1431,08A-1431,1431,MN of lower gum
+08A,144,08A-144,144,MN of floor of mouth
+08A,145,08A-145,145,MN of other and unspecified parts of mouth
+08A,146,08A-146,146,MN neoplasm of oropharynx
+08A,147,08A-147,147,MN of nasopharynx
+08A,148,08A-148,148,MN of hypopharynx
+08A,149,08A-149,149,"MN of pharynx, unspecified"
+08A,150,08A-150,150,MN of oesophagus
+08A,151,08A-151,151,MN of stomach
+08A,152,08A-152,152,"MN of small intestine, including duodenum"
+08A,153,08A-153,153,"MN of large intestine, except rectum"
+08A,154,08A-154,154,MN of rectum and rectosigmoid junction
+08A,155,08A-155,155,"MN of liver and intrahepatic bile ducts, specified as primary"
+08A,156,08A-156,156,MN of gallbladder and bile ducts
+08A,157,08A-157,157,MN of pancreas
+08A,158,08A-158,158,MN of peritoneum and retroperitoneal tissue
+08A,159,08A-159,159,MN of unspecified digestive organs
+08A,160,08A-160,160,"MN of nose, nasal cavities, middle ear and accessory sinuses"
+08A,161,08A-161,161,MN of larynx
+08A,162,08A-162,162,"MN of trachea, bronchus and lung"
+08A,163,08A-163,163,MN of other and unspecified respiratory organs
+08A,1630,08A-1630,1630,MN of pleura
+08A,170,08A-170,170,MN of bone
+08A,171,08A-171,171,MN of connective and other soft tissue
+08A,172,08A-172,172,Malignant melanoma of skin
+08A,1725,08A-1725,1725,MN of scrotum
+08A,173,08A-173,173,Other malignant neoplasm of skin
+08A,1735,08A-1735,1735,Other malignant neoplasm of scrotum
+08A,174,08A-174,174,MN of breast
+08A,180,08A-180,180,MN of cervix uteri
+08A,181,08A-181,181,Chorionepithelioma
+08A,182,08A-182,182,Other malignant neoplasm of uterus
+08A,1820,08A-1820,1820,Other malignant neoplasm of corpus uteri
+08A,183,08A-183,183,"MN of ovary, fallopian tube and broad ligament"
+08A,184,08A-184,184,MN of other and unspecified female genital organs
+08A,185,08A-185,185,MN of prostate
+08A,186,08A-186,186,MN of testis
+08A,187,08A-187,187,MN of other and unspecified male genital organs
+08A,188,08A-188,188,MN of bladder
+08A,189,08A-189,189,MN of other and unspecified urinary organs
+08A,1890,08A-1890,1890,"MN of kidney, except pelvis"
+08A,1891,08A-1891,1891,MN of pelvis of kidney
+08A,1892,08A-1892,1892,MN of ureter
+08A,1899,08A-1899,1899,MN of other and unspecified
+08A,190,08A-190,190,MN of eye
+08A,191,08A-191,191,MN of brain
+08A,192,08A-192,192,MN of other parts of nervous system
+08A,1920,08A-1920,1920,MN of cranial nerves (including optic)
+08A,1921,08A-1921,1921,MN of cerebral meninges
+08A,1922,08A-1922,1922,MN of spinal cord
+08A,1925,08A-1925,1925,MN of sympathetic nervous system
+08A,193,08A-193,193,MN of thyroid gland
+08A,194,08A-194,194,MN of other endocrine glands
+08A,195,08A-195,195,MN of ill-defined sites
+08A,196,08A-196,196,Secondary and unspecified malignant neoplasm of lymph nodes
+08A,197,08A-197,197,Secondary malignant neoplasm of respiratory and digestive systems
+08A,1970,08A-1970,1970,Lung specified as secondary
+08A,1971,08A-1971,1971,"Mediastinum, specified as secondary"
+08A,1972,08A-1972,1972,"Pleura, specified as secondary"
+08A,1973,08A-1973,1973,"Other respiratory organs, specified as secondary"
+08A,1974,08A-1974,1974,"Small intestine, including duodenum, specified as secondary"
+08A,1975,08A-1975,1975,"Large intestine and rectum, specified as secondary"
+08A,1976,08A-1976,1976,"Peritoneum, specified as secondary"
+08A,1977,08A-1977,1977,"Liver, specified as secondary"
+08A,1978,08A-1978,1978,"Liver, unspecified"
+08A,1979,08A-1979,1979,"Other digestive organs, specified as secondary"
+08A,198,08A-198,198,Other secondary malignant neoplasm
+08A,199,08A-199,199,MN without specification of site
+08A,200,08A-200,200,Lymphosarcoma and reticulum-cell sarcoma
+08A,2000,08A-2000,2000,Reticulum-cell sarcoma
+08A,2001,08A-2001,2001,Lymphosarcoma
+08A,201,08A-201,201,Hodgkin's disease
+08A,202,08A-202,202,Other neoplasms of lymphoid tissue
+08A,2020,08A-2020,2020,Giant follicular lymphoma
+08A,2021,08A-2021,2021,Mycosis fungoides
+08A,2022,08A-2022,2022,Other primary malignant neoplams of lymphoid tissue
+08A,2029,08A-2029,2029,Other forms of lymphoma
+08A,203,08A-203,203,Multiple myeloma
+08A,204,08A-204,204,Lymphatic leukaemia
+08A,205,08A-205,205,Myeloid leukaemia
+08A,206,08A-206,206,Monocytic leukaemia
+08A,207,08A-207,207,Other and unspecified leukaemia
+08A,208,08A-208,208,Polycythaemia vera
+08A,209,08A-209,209,Myelofibrosis
+08A,210,08A-210,210,Benign neoplasm of buccal cavity and pharynx
+08A,211,08A-211,211,Benign neoplasm other parts of digestive system
+08A,212,08A-212,212,Benign neoplasm of respiratory system
+08A,213,08A-213,213,Benign neoplasm of bone and cartilage
+08A,214,08A-214,214,Lipoma
+08A,215,08A-215,215,Other benign neoplasm of muscular and connective tissue
+08A,216,08A-216,216,Benign neoplasm of skin
+08A,217,08A-217,217,Benign neoplasm of breast
+08A,218,08A-218,218,Uterine fibroma
+08A,219,08A-219,219,Other benign neoplasm of uterus
+08A,220,08A-220,220,Benign neoplasm of ovary
+08A,221,08A-221,221,Benign neoplasm of other female genital organs
+08A,222,08A-222,222,Benign neoplasm of male genital organs
+08A,223,08A-223,223,Benign neoplasm of kidney and other urinary organs
+08A,224,08A-224,224,Benign neoplasm of eye
+08A,225,08A-225,225,Benign neoplasm of brain and other parts of nervous system
+08A,226,08A-226,226,Benign neoplasm of endocrine glands
+08A,227,08A-227,227,Haemangioma and lymphangioma
+08A,228,08A-228,228,Benign neoplam of other and unspecified organs and tissues
+08A,230,08A-230,230,Neoplasm of unspecified nature of digestive organs
+08A,231,08A-231,231,Neoplasm of unspecified nature of respiratory organs
+08A,232,08A-232,232,Neoplasm of unspecified nature of skin and musculoskeletal system
+08A,233,08A-233,233,Neoplasm of unspecified nature of breast
+08A,234,08A-234,234,Neoplasm of unspecified nature of uterus
+08A,235,08A-235,235,Neoplasm of unspecified nature of ovary
+08A,236,08A-236,236,Neoplasm of unspecified nature of other female genital organs
+08A,237,08A-237,237,Neoplasm of unspecified nature of other genito-urinary organs
+08A,238,08A-238,238,"Neoplasm of unspecified nature of eye, brain and other parts of nervous system"
+08A,239,08A-239,239,Neoplasm of unspecified nature of other and unspecified organs
+08B,B000,08B-B000,,All causes
+08B,B001,08B-B001,0,Cholera
+08B,B002,08B-B002,1,Typhoid fever
+08B,B003,08B-B003,"004, 006",Bacillary dysentery and amoebiasis
+08B,B004,08B-B004,"008, 009",Enteritis and other diarrhoeal diseases
+08B,B005,08B-B005,010-012,Tuberculosis of respiratory system
+08B,B006,08B-B006,013-019,"Other tuberculosis, including late effects"
+08B,B007,08B-B007,20,Plague
+08B,B008,08B-B008,32,Diphtheria
+08B,B009,08B-B009,33,Whooping cough
+08B,B010,08B-B010,34,Streptococcal sore throat and scarlet fever
+08B,B011,08B-B011,36,Meningococcal infection
+08B,B012,08B-B012,040-043,Acute poliomyelitis
+08B,B013,08B-B013,50,Smallpox
+08B,B014,08B-B014,55,Measles
+08B,B015,08B-B015,080-083,Typhus and other rickettsioses
+08B,B016,08B-B016,84,Malaria
+08B,B017,08B-B017,090-097,Syphilis and its sequelae
+08B,B018,08B-B018,Remainder of 000-136,All other infective and parasitic diseases
+08B,B019,08B-B019,140-209,"Malignant neoplasms, including neoplasms of lymphatic and haematopoietic tissue"
+08B,B020,08B-B020,210-239,Benign neoplasms and neoplasms of unspecified nature
+08B,B021,08B-B021,250,Diabetes mellitus
+08B,B022,08B-B022,260-269,Avitaminoses and other nutritional deficiency
+08B,B023,08B-B023,280-285,Anaemias
+08B,B024,08B-B024,320,Meningitis
+08B,B025,08B-B025,390-392,Active rheumatic fever
+08B,B026,08B-B026,393-398,Chronic rheumatic heart disease
+08B,B027,08B-B027,400-404,Hypertensive disease
+08B,B028,08B-B028,410-414,Ischaemic heart disease
+08B,B029,08B-B029,420-429,Other forms of heart disease
+08B,B030,08B-B030,430-438,Cerebrovascular disease
+08B,B031,08B-B031,470-474,Influenza
+08B,B032,08B-B032,480-486,Pneumonia
+08B,B033,08B-B033,490-493,"Bronchitis, emphysema and asthma"
+08B,B034,08B-B034,531-533,Peptic ulcer
+08B,B035,08B-B035,540-543,Appendicitis
+08B,B036,08B-B036,"550-553, 560",Intestinal obstruction and hernia
+08B,B037,08B-B037,571,Cirrhosis of liver
+08B,B038,08B-B038,580-584,Nephritis and nephrosis
+08B,B039,08B-B039,600,Hyperplasia of prostate
+08B,B040,08B-B040,640-645,Abortion
+08B,B041,08B-B041,"630-639, 650-678","Other complications of pregnancy, childbirth and the puerperium. Delivery without mention of complication"
+08B,B042,08B-B042,740-759,Congenital anomalies
+08B,B043,08B-B043,"764-768, 772, 776","Birth injury, difficult labour and other anoxic and hypoxic conditions"
+08B,B044,08B-B044,"760-763, 769-771, 773-775, 777-779",Other causes of perinatal mortality
+08B,B045,08B-B045,780-796,Symptoms and ill-defined conditions
+08B,B046,08B-B046,Remainder of 240-738,All other diseases
+08B,B047,08B-B047,E810-E823,Motor vehicle accidents
+08B,B048,08B-B048,"E800-E807, E825-E949",All other accidents
+08B,B049,08B-B049,E950-E959,Suicide and self-inflicted injuries
+08B,B050,08B-B050,E960-E999,All other external causes
+09A,B00,09A-B00,, All causes
+09A,B01,09A-B01,001-009,Intestinal infectious diseases
+09A,B010,09A-B010,1,Cholera
+09A,B011,09A-B011,2,Typhoid fever
+09A,B012,09A-B012,4,Shigellosis
+09A,B013,09A-B013,"003, 005",Food poisoning
+09A,B014,09A-B014,6,Amoebiasis
+09A,B015,09A-B015,"007, 008",Intestinal infections due to other specified organism
+09A,B016,09A-B016,9,Ill-defined intestinal infections
+09A,B019,09A-B019,,Remainder of B01
+09A,B02,09A-B02,010-018,Tuberculosis
+09A,B020,09A-B020,11,Pulmonary tuberculosis
+09A,B021,09A-B021,"010, 012",Other respiratory tuberculosis
+09A,B022,09A-B022,13,Tuberculosis of meninges and central nervous system
+09A,B023,09A-B023,14,"Tuberculosis of intestines, peritoneum and mesenteric glands"
+09A,B024,09A-B024,15,Tuberculosis of bones and joints
+09A,B025,09A-B025,16,Tuberculosis of genitourinary system
+09A,B029,09A-B029,,Remainder of B02
+09A,B03,09A-B03,020-041,Other bacterial diseases
+09A,B030,09A-B030,20,Plague
+09A,B031,09A-B031,23,Brucellosis
+09A,B032,09A-B032,30,Leprosy
+09A,B033,09A-B033,32,Diphtheria
+09A,B034,09A-B034,33,Whooping cough
+09A,B035,09A-B035,"034, 035","Streptococcal sore throat, scarlatina and erysipelas"
+09A,B036,09A-B036,36,Meningococcal infection
+09A,B037,09A-B037,37,Tetanus
+09A,B038,09A-B038,38,Septicaemia
+09A,B039,09A-B039,,Remainder of B03
+09A,B04,09A-B04,045-079,Viral diseases
+09A,B040,09A-B040,45,Acute poliomyelitis
+09A,B041,09A-B041,50,Smallpox
+09A,B042,09A-B042,55,Measles
+09A,B043,09A-B043,56,Rubella
+09A,B044,09A-B044,60,Yellow fever
+09A,B045,09A-B045,062-064,Arthropod-borne encephalitis
+09A,B046,09A-B046,70,Viral hepatitis
+09A,B047,09A-B047,71,Rabies
+09A,B048,09A-B048,76,Trachoma
+09A,B049,09A-B049,,Remainder of B04
+09A,B05,09A-B05,080-088,Rickettsiosis and other arthropod-borne diseases
+09A,B050,09A-B050,80,Louse-borne typhus
+09A,B051,09A-B051,081-083,Other rickettsiosis
+09A,B052,09A-B052,84,Malaria
+09A,B053,09A-B053,85,Leishmaniasis
+09A,B054,09A-B054,86,Trypanosomiasis
+09A,B059,09A-B059,,Remainder of B05
+09A,B06,09A-B06,090-099,Venereal diseases
+09A,B060,09A-B060,090-097,Syphilis
+09A,B061,09A-B061,98,Gonococcal infections
+09A,B069,09A-B069,,Remainder of B06
+09A,B07,09A-B07,100-139,Other infectious and parasitic diseases and late effects of infectious and parasitic diseases
+09A,B070,09A-B070,100-104,Non-syphilitic spirochaetal diseases
+09A,B071,09A-B071,110-118,Mycosis
+09A,B072,09A-B072,120,Schistosomiasis
+09A,B073,09A-B073,122,Echinococcosis
+09A,B074,09A-B074,125,Filarial infection and dracontiasis
+09A,B075,09A-B075,126,Ancylostomiasis and necatoriasis
+09A,B076,09A-B076,"121, 123, 124, 127-129       ",Other helminthiasis
+09A,B077,09A-B077,137,Late effects of tuberculosis
+09A,B078,09A-B078,138,Late effects of acute poliomyelitis
+09A,B079,09A-B079,,Remainder of B07
+09A,B08,09A-B08,140-149,"Malignant neoplasm of lip, oral cavity and pharynx"
+09A,B09,09A-B09,150-159,Malignant neoplasm of digestive organs and peritoneum
+09A,B090,09A-B090,150,Malignant neoplasm of oesophagus
+09A,B091,09A-B091,151,Malignant neoplasm of stomach
+09A,B092,09A-B092,152,"Malignant neoplasm of small intestine, including duodenum"
+09A,B093,09A-B093,153,Malignant neoplasm of colon
+09A,B094,09A-B094,154,"Malignant neoplasm of rectum, rectosigmoid junction and anus"
+09A,B095,09A-B095,155,"Malignant neoplasm of liver, specified as primary"
+09A,B096,09A-B096,157,Malignant neoplasm of pancreas
+09A,B099,09A-B099,,Remainder of B09
+09A,B10,09A-B10,,Malignant neoplasm of respiratory and intrathoracic organs 160-165
+09A,B100,09A-B100,161,Malignant neoplasm of larynx
+09A,B101,09A-B101,162,"Malignant neoplasm of trachea, bronchus and lung"
+09A,B109,09A-B109,,Remainder of B10
+09A,B11,09A-B11,170-175,"Malignant neoplasm of bone, connective tissue, skin and breast"
+09A,B110,09A-B110,170,Malignant neoplasm of bone and articular cartilage
+09A,B111,09A-B111,172,Malignant melanoma of skin
+09A,B112,09A-B112,173,Other malignant neoplasm of skin
+09A,B113,09A-B113,174,Malignant neoplasm of female breast
+09A,B119,09A-B119,,Remainder of B11
+09A,B12,09A-B12,179-189,Malignant neoplasm of genitourinary organs
+09A,B120,09A-B120,180,Malignant neoplasm of cervix uteri
+09A,B121,09A-B121,181,Malignant neoplasm of placenta
+09A,B122,09A-B122,"179, 182","Malignant neoplasm of uterus, other and unspecified"
+09A,B123,09A-B123,183,Malignant neoplasm of ovary and other uterine adnexa
+09A,B124,09A-B124,185,Malignant neoplasm of prostate
+09A,B125,09A-B125,186,Malignant neoplasm of testis
+09A,B126,09A-B126,188,Malignant neoplasm of bladder
+09A,B129,09A-B129,,Remainder of B12
+09A,B13,09A-B13,190-199,Malignant neoplasm of other and unspecified sites
+09A,B130,09A-B130,191,Malignant neoplasm of brain
+09A,B139,09A-B139,,Remainder of B13
+09A,B14,09A-B14,200-208,Malignant neoplasm of lymphatic and haemopoietic tissue
+09A,B140,09A-B140,201,Hodgkin's disease
+09A,B141,09A-B141,204-208,Leukaemia
+09A,B149,09A-B149,,Remainder of B14
+09A,B15,09A-B15,210-229,Benign neoplasm
+09A,B150,09A-B150,216,Benign neoplasm of skin
+09A,B151,09A-B151,217,Benign neoplasm of breast
+09A,B152,09A-B152,"218, 219",Benign neoplasm of uterus
+09A,B153,09A-B153,220,Benign neoplasm of ovary
+09A,B154,09A-B154,223,Benign neoplasm of kidney and other urinary organs
+09A,B155,09A-B155,225,Benign neoplasm of nervous system
+09A,B156,09A-B156,226,Benign neoplasm of thyroid
+09A,B159,09A-B159,,Remainder of B15
+09A,B16,09A-B16,230-234,Carcinoma in situ
+09A,B17,09A-B17,235-239,Other and unspecified neoplasm
+09A,B18,09A-B18,"240-259, 270-279","Endocrine and metabolic diseases, immunity disorders"
+09A,B180,09A-B180,240-246,Disorders of thyroid gland
+09A,B181,09A-B181,250,Diabetes mellitus
+09A,B182,09A-B182,"272.0, 272.1",Hyperlipoproteinaemia
+09A,B183,09A-B183,278,Obesity of non-endocrine origin
+09A,B184,09A-B184,279.5,Human immunodeficiency virus [HIV] disease [AIDS]
+09A,B185,09A-B185,2796,AIDS-related complex
+09A,B189,09A-B189,,Remainder of B18
+09A,B19,09A-B19,260-269,Nutritional deficiencies
+09A,B190,09A-B190,260,Kwashiorkor
+09A,B191,09A-B191,261,Nutritional marasmus
+09A,B192,09A-B192,"262, 263",Other protein-calorie malnutrition
+09A,B193,09A-B193,264-269,Avitaminosis
+09A,B199,09A-B199,,Remainder of B19
+09A,B20,09A-B20,280-289,Diseases of blood and blood-forming organs
+09A,B200,09A-B200,280-285,Anaemias
+09A,B209,09A-B209,,Remainder of B20
+09A,B21,09A-B21,290-319,Mental disorders
+09A,B210,09A-B210,290,Senile and presenile organic psychotic conditions
+09A,B211,09A-B211,295,Schizophrenic psychoses
+09A,B212,09A-B212,296,Affective psychoses
+09A,B213,09A-B213,"291-294, 297-299",Other psychoses
+09A,B214,09A-B214,"300, 301",Neurotic and personality disorders
+09A,B215,09A-B215,303,Alcohol dependence syndrome
+09A,B216,09A-B216,304,Drug dependence
+09A,B217,09A-B217,306,Physiological malnutrition arising from mental factors
+09A,B218,09A-B218,317-319,Mental retardation
+09A,B219,09A-B219,,Remainder of B21
+09A,B22,09A-B22,320-359,Diseases of the nervous system
+09A,B220,09A-B220,320-322,Meningitis
+09A,B221,09A-B221,332,Parkinson's disease
+09A,B222,09A-B222,"330, 331, 333-336",Other degenerative and hereditary disorders of the central nervous system
+09A,B223,09A-B223,340,Multiple sclerosis
+09A,B224,09A-B224,"343, 344",Infantile cerebral palsy and other paralytic syndromes
+09A,B225,09A-B225,345,Epilepsy
+09A,B229,09A-B229,,Remainder of B22
+09A,B23,09A-B23,360-379,Disorders of the eye and adnexa
+09A,B230,09A-B230,365,Glaucoma
+09A,B231,09A-B231,366,Cataract
+09A,B232,09A-B232,369,Blindness and low vision
+09A,B233,09A-B233,372.0-372.3,Conjunctivitis
+09A,B234,09A-B234,375,Disorders of lacrimal system
+09A,B235,09A-B235,378,Strabismus and other disorders of binocular eye movements
+09A,B239,09A-B239,,Remainder of B23
+09A,B24,09A-B24,380-389,Diseases of the ear and mastoid process
+09A,B240,09A-B240,381-383,Otitis media and mastoiditis
+09A,B241,09A-B241,389,Deafness
+09A,B249,09A-B249,,Remainder of B24
+09A,B25,09A-B25,390-398,Rheumatic fever and rheumatic heart disease
+09A,B250,09A-B250,390-392,Acute rheumatic fever
+09A,B251,09A-B251,393-398,Chronic rheumatic heart disease
+09A,B259,09A-B259,,Remainder of B25
+09A,B26,09A-B26,401-405,Hypertensive disease
+09A,B260,09A-B260,"402, 404",Hypertensive heart disease
+09A,B269,09A-B269,,Remainder of B26
+09A,B27,09A-B27,410-414,Ischaemic heart disease
+09A,B270,09A-B270,410,Acute myocardial infarction
+09A,B279,09A-B279,,Remainder of B27
+09A,B28,09A-B28,415-429,Diseases of pulmonary circulation and other forms of heart disease
+09A,B280,09A-B280,415.1,Pulmonary embolism
+09A,B281,09A-B281,427,Cardiac dysrhythmias
+09A,B289,09A-B289,,Remainder of B28
+09A,B29,09A-B29,430-438,Cerebrovascular disease
+09A,B290,09A-B290,430,Subarachnoid haemorrhage
+09A,B291,09A-B291,"431, 432",Intracerebral and other intracranial haemorrhage
+09A,B292,09A-B292,"433, 434",Cerebral infarction
+09A,B293,09A-B293,436,Acute but ill-defined cerebrovascular disease
+09A,B294,09A-B294,437,Cerebral atherosclerosis
+09A,B299,09A-B299,,Remainder of B29
+09A,B30,09A-B30,440-459,Other diseases of the circulatory system
+09A,B300,09A-B300,440,Atherosclerosis
+09A,B301,09A-B301,444,Arterial embolism and thrombosis
+09A,B302,09A-B302,"441-443, 446-448","Other diseases of arteries, arterioles and capillaries"
+09A,B303,09A-B303,451-453,"Phlebitis, thrombophlebitis, venous embolism and thrombosis"
+09A,B304,09A-B304,454,Varicose veins of lower extremities
+09A,B305,09A-B305,455,Haemorrhoids
+09A,B309,09A-B309,,Remainder of B30
+09A,B31,09A-B31,"460-465, 470-478",Diseases of the upper respiratory tract
+09A,B310,09A-B310,463,Acute tonsillitis
+09A,B311,09A-B311,464,Acute laryngitis and tracheitis
+09A,B312,09A-B312,"460-462, 465",Other acute upper respiratory infections
+09A,B313,09A-B313,"470, 471",Deflected nasal septum and nasal polyps
+09A,B314,09A-B314,"472, 473","Chronic pharyngitis, nasopharyngitis and sinusitis"
+09A,B315,09A-B315,474,Chronic diseases of tonsils and adenoids
+09A,B319,09A-B319,,Remainder of B31
+09A,B32,09A-B32,"466, 480-519",Other diseases of the respiratory system
+09A,B320,09A-B320,466,Acute bronchitis and bronchiolitis
+09A,B321,09A-B321,480-486,Pneumonia
+09A,B322,09A-B322,487,Influenza
+09A,B323,09A-B323,490-493,"Bronchitis, chronic and unspecified, emphysema and asthma"
+09A,B324,09A-B324,494,Bronchiectasis
+09A,B325,09A-B325,"495, 496",Other chronic obstructive pulmonary disease
+09A,B326,09A-B326,500-508,Pneumoconiosis and other lung disease due to external agents
+09A,B327,09A-B327,511,Pleurisy
+09A,B329,09A-B329,,Remainder of B32
+09A,B33,09A-B33,520-529,"Diseases of oral cavity, salivary glands and jaws"
+09A,B330,09A-B330,520-525,Diseases of teeth and supporting structures
+09A,B331,09A-B331,526,Diseases of the jaws
+09A,B339,09A-B339,,Remainder of B33
+09A,B34,09A-B34,530-579,Diseases of other parts of the digestive system
+09A,B340,09A-B340,530,Diseases of oesophagus
+09A,B341,09A-B341,531-533,Ulcer of stomach and duodenum
+09A,B342,09A-B342,540-543,Appendicitis
+09A,B343,09A-B343,550-553,Hernia of abdominal cavity
+09A,B344,09A-B344,560,Intestinal obstruction without mention of hernia
+09A,B345,09A-B345,562,Diverticula of intestine
+09A,B346,09A-B346,564,Other functional digestive disorders
+09A,B347,09A-B347,571,Chronic liver disease and cirrhosis
+09A,B348,09A-B348,574-575.1,Cholelithiasis and cholecystitis
+09A,B349,09A-B349,,Remainder of B34
+09A,B35,09A-B35,580-599,Diseases of urinary system
+09A,B350,09A-B350,580-589,"Nephritis, nephrotic syndrome and nephrosis"
+09A,B351,09A-B351,590,Infections of kidney
+09A,B352,09A-B352,"592, 594",Urinary calculus
+09A,B353,09A-B353,595,Cystitis
+09A,B359,09A-B359,,Remainder of B35
+09A,B36,09A-B36,600-608,Diseases of male genital organs
+09A,B360,09A-B360,600,Hyperplasia of prostate
+09A,B361,09A-B361,603,Hydrocele
+09A,B362,09A-B362,605,Redundant prepuce and phimosis
+09A,B363,09A-B363,606,"Infertility, male"
+09A,B369,09A-B369,,Remainder of B36
+09A,B37,09A-B37,610-629,Diseases of female genital organs
+09A,B370,09A-B370,"610, 611",Diseases of breast
+09A,B371,09A-B371,614.0-614.2,Salpingitis and oophoritis
+09A,B372,09A-B372,614.3-614.9,Inflammatory diseases of pelvic cellular tissue and peritoneum
+09A,B373,09A-B373,"615, 616","Inflammatory diseases of uterus, vagina and vulva"
+09A,B374,09A-B374,618,Uterovaginal prolapse
+09A,B375,09A-B375,626.0-626.5,Menstrual disorders
+09A,B376,09A-B376,628,"Infertility, female"
+09A,B379,09A-B379,,Remainder of B37
+09A,B38,09A-B38,630-639,Abortion
+09A,B380,09A-B380,634,Spontaneous abortion
+09A,B381,09A-B381,635,Legally induced abortion
+09A,B382,09A-B382,636,Illegally induced abortion
+09A,B389,09A-B389,,Remainder of B38
+09A,B39,09A-B39,"640-646, 651-676",Direct obstetric causes
+09A,B390,09A-B390,"640, 641, 666",Haemorrhage of pregnancy and childbirth
+09A,B391,09A-B391,"642.4-642.9, 643",Toxaemia of pregnancy
+09A,B392,09A-B392,646.6,Infections of genitourinary tract in pregnancy
+09A,B393,09A-B393,660,Obstructed labour
+09A,B394,09A-B394,670-676,Complications of the puerperium
+09A,B399,09A-B399,,Remainder of B39
+09A,B40,09A-B40,"647, 648",Indirect obstetric causes
+09A,B41,09A-B41,650,Normal delivery
+09A,B42,09A-B42,680-709,Diseases of skin and subcutaneous tissue
+09A,B420,09A-B420,680-686,Infections of skin and subcutaneous tissue
+09A,B429,09A-B429,,Remainder of B42
+09A,B43,09A-B43,710-739,Diseases of the musculoskeletal system and connective tissue
+09A,B430,09A-B430,714,"Rheumatoid arthritis, except spine"
+09A,B431,09A-B431,"710-713, 715, 716",Other arthropathies
+09A,B432,09A-B432,717-719,Other disorders of joints
+09A,B433,09A-B433,720,Ankylosing spondylitis
+09A,B434,09A-B434,720.1-724,Other dorsopathies;
+09A,B435,09A-B435,725-729,"Rheumatism, excluding the back"
+09A,B436,09A-B436,730,"Osteomyelitis, periostitis and other infections involving bone"
+09A,B437,09A-B437,734-736,Acquired deformities of limbs
+09A,B439,09A-B439,,Remainder of B43
+09A,B44,09A-B44,740-759,Congenital anomalies
+09A,B440,09A-B440,"741, 742.3",Spina bifida and hydrocephalus
+09A,B441,09A-B441,"740, 742.0-742.2, 742.4-742.9",Other deformities of central nervous system
+09A,B442,09A-B442,745-747,Congenital anomalies of heart and circulatory system
+09A,B443,09A-B443,749,Cleft palate and cleft lip
+09A,B444,09A-B444,"750, 751",Other deformities of digestive system
+09A,B445,09A-B445,752.5,Undescended testicle
+09A,B446,09A-B446,754.3,Congenital dislocation of hip
+09A,B447,09A-B447,"754.0-754.2, 754.4-756",Other congenital anomalies of musculoskeletal system
+09A,B449,09A-B449,,Remainder of B44
+09A,B45,09A-B45,760-779,Certain conditions originating in the perinatal period
+09A,B450,09A-B450,760,Maternal conditions affecting fetus or newborn
+09A,B451,09A-B451,761-763,Obstetric complications affecting fetus or newborn
+09A,B452,09A-B452,"764, 765","Slow fetal growth, fetal malnutrition and immaturity"
+09A,B453,09A-B453,767,Birth trauma
+09A,B454,09A-B454,768-770,"Hypoxia, birth asphyxia and other respiratory conditions"
+09A,B455,09A-B455,773,Haemolytic disease of fetus or newborn
+09A,B459,09A-B459,,Remainder of B45
+09A,B46,09A-B46,780-799,"Signs, symptoms and ill-defined conditions"
+09A,B460,09A-B460,780.6,Pyrexia of unknown origin
+09A,B461,09A-B461,785.0-785.3,Symptoms involving heart
+09A,B462,09A-B462,788,Renal colic
+09A,B463,09A-B463,788.2,Retention of urine
+09A,B464,09A-B464,789,Abdominal pain
+09A,B465,09A-B465,797,Senility without mention of psychosis
+09A,B466,09A-B466,798,Sudden infant death syndrome
+09A,B467,09A-B467,799.1,Respiratory failure
+09A,B469,09A-B469,,Remainder of B46
+09A,B47,09A-B47,E800-E848,Transport accidents
+09A,B470,09A-B470,E800-E807,Railway accidents
+09A,B471,09A-B471,E810-E819,Motor vehicle traffic accidents
+09A,B472,09A-B472,E826-E829,Other road vehicle accidents
+09A,B473,09A-B473,E830-E838,Water transport accidents
+09A,B474,09A-B474,E840-E845,Air and space transport accidents
+09A,B479,09A-B479,,Remainder of B47
+09A,B48,09A-B48,E850-E869,Accidental poisoning
+09A,B480,09A-B480,E850-E858,"Accidental poisoning by drugs, medicaments and biologicals"
+09A,B481,09A-B481,E860-E866,Accidental poisoning by other solid and liquid substances
+09A,B482,09A-B482,E867-E869,Accidental poisoning by gases and vapours
+09A,B49,09A-B49,E870-E879,"Misadventures during medical care, abnormal reactions, late complications"
+09A,B50,09A-B50,E880-E888,Accidental falls
+09A,B51,09A-B51,E890-E899,Accidents caused by fire and flames
+09A,B52,09A-B52,E900-E929,"Other accidents, including late effects"
+09A,B520,09A-B520,E900-E909,Accidents due to natural and environmental factors
+09A,B521,09A-B521,E910,Accidental drowning and submersion
+09A,B522,09A-B522,"E914, E915",Foreign body accidentally entering orifice
+09A,B523,09A-B523,"E919, E920","Accidents caused by machinery, and by cutting and piercing instruments"
+09A,B524,09A-B524,E922,Accidents caused by firearm missile
+09A,B529,09A-B529,,Remainder of B52
+09A,B53,09A-B53,E930-E949,"Drugs, medicaments causing adverse effects in therapeutic use"
+09A,B54,09A-B54,E950-E959,Suicide and self-inflicted injury
+09A,B55,09A-B55,E960-E969,Homicide and injury purposely inflicted by other persons
+09A,B56,09A-B56,E970-E999,Other violence
+09A,B560,09A-B560,E980-E989,Injury undetermined whether accidentally or purposely inflicted
+09A,B561,09A-B561,E990-E999,Injury resulting from operation of war
+09A,B569,09A-B569,,Remainder of B56
+09A,S47,09A-S47,,All accidental causes  (Only applied for Bahamas 1983 where the data do not contain a breakdown of all accidental causes by B47-B52).
+09A,CH17,09A-CH17,,CHAPTER XVII Ð Injury and Poisoning (Only applied for some countries-years when the data do not contain a breakdown of all external causes by B47-B56).
+09A,140,09A-140,140,MN OF LIP
+09A,141,09A-141,141,MN OF TONGUE
+09A,1410,09A-1410,1410,MN OF BASE OF TONGUE
+09A,142,09A-142,142,MN OF MAJOR SALIVARY GLANDS
+09A,143,09A-143,143,MN OF GUM
+09A,144,09A-144,144,MN OF FLOOR OF MOUTH
+09A,145,09A-145,145,MN OF OTHER AND UNSPECIFIED PARTS OF MOUTH
+09A,146,09A-146,146,MN OF OROPHARYNX
+09A,1460,09A-1460,1460,MN OF TONSIL
+09A,147,09A-147,147,MN OF NASOPHARYNX
+09A,148,09A-148,148,MN OF HYPOPHARYNX
+09A,149,09A-149,149,MN OF OTHER AND ILL-DEFINED SITES WITHIN THE LIP ETC.
+09A,1533,09A-1533,1533,MN OF SIGMOID COLON
+09A,1540,09A-1540,1540,MN OF RECTOSIGMOID JUNCTION
+09A,1541,09A-1541,1541,MN OF RECTUM
+09A,1551,09A-1551,1551,MN OF INTRAHEPATIC BILE DUCTS
+09A,1552,09A-1552,1552,"MN OF LIVER, NOT SPECIFIED AS PRIMARY OR SECONDARY"
+09A,156,09A-156,156,MN OF GALLBLADDER AND EXTRAHEPATIC BILE DUCTS
+09A,1560,09A-1560,1560,MN OF GALLBLADDER
+09A,158,09A-158,158,MN OF RETROPERITONEUM AND PERITONEUM
+09A,159,09A-159,159,MN OF OTHER SITES WITHIN THE DIGESTIVE ORGANS ETC.
+09A,160,09A-160,160,"MN OF NASAL CAVITIES, MIDDLE EAR AND ACCESSORY SINUSES"
+09A,1600,09A-1600,1600,MN OF NASAL CAVITIES
+09A,1602,09A-1602,1602,MN OF MAXILLARY SINUS
+09A,1610,09A-1610,1610,MN OF GLOTTIS
+09A,163,09A-163,163,MN OF PLEURA
+09A,164,09A-164,164,"MN OF THYMUS, HEART AND MEDIASTINUM"
+09A,165,09A-165,165,MN OF OTHER SITES WITHIN THE RESPIRATORY SYSTEM ETC.
+09A,171,09A-171,171,MN OF CONNECTIVE AND OTHER SOFT TISSUE
+09A,175,09A-175,175,MN OF MALE BREAST
+09A,179,09A-179,179,"MN OF UTERUS, PART UNSPECIFIED"
+09A,182,09A-182,182,MN OF BODY OF UTERUS
+09A,1830,09A-1830,1830,MN OF OVARY
+09A,184,09A-184,184,MN OF OTHER AND UNSPECIFIED FEMALE GENITAL ORGANS
+09A,187,09A-187,187,MN OF PENIS AND OTHER MALE GENITAL ORGANS
+09A,1877,09A-1877,1877,MN OF SCROTUM
+09A,189,09A-189,189,MN OF KIDNEY AND OTHER UNSPECIFIED URINARY ORGANS
+09A,1890,09A-1890,1890,"MN OF KIDNEY, EXCEPT PELVIS"
+09A,1891,09A-1891,1891,MN OF RENAL PELVIS
+09A,1892,09A-1892,1892,MN OF URETER
+09A,190,09A-190,190,MN OF EYE
+09A,192,09A-192,192,MN OF OTHER AND UNSPECIFIED PARTS OF NERVOUS SYSTEM
+09A,193,09A-193,193,MN OF THYROID GLAND
+09A,194,09A-194,194,MN OF OTHER ENDOCRINE GLANDS AND RELATED STRUCTURES
+09A,195,09A-195,195,MN OF OTHER AND ILL-DEFINED SITES
+09A,196,09A-196,196,SECONDARY AND UNSPECIFIED MN OF LYMPH NODES
+09A,197,09A-197,197,SECONDARY MN OF RESPIRATORY AND DIGESTIVE SYSTEM
+09A,198,09A-198,198,SECONDARY MN OF OTHER SPECIFIED SITES
+09A,199,09A-199,199,MN WITHOUT SPECIFICATION OF SITE
+09A,200,09A-200,200,LYMPHOSARCOMA AND RETICULOSARCOMA
+09A,2000,09A-2000,2000,RETICULOSARCOMA
+09A,2001,09A-2001,2001,LYMPHOSARCOMA
+09A,2002,09A-2002,2002,BURKITT'S TUMOUR
+09A,202,09A-202,202,OTHER MN OF LYMPHOID AND HISTIOCYTIC TISSUE
+09A,203,09A-203,203,MULTIPLE MYELOMA AND IMMUNOPROLIFERATIVE NEOPLASMS
+09A,2030,09A-2030,2030,MULTIPLE MYELOMA
+09A,204,09A-204,204,LYMPHOID LEUKAEMIA
+09A,2040,09A-2040,2040,ACUTE LYMPHOID LEUKAEMIA
+09A,205,09A-205,205,MYELOID LEUKAEMIA
+09A,2050,09A-2050,2050,ACUTE MYELOID LEUKAEMIA
+09A,206,09A-206,206,MONOCYTIC LEUKAEMIA
+09A,207,09A-207,207,OTHER SPECIFIED LEUKAEMIA
+09A,208,09A-208,208,LEUKAEMIA OF UNSPECIFIED CELL TYPE
+09A,235,09A-235,235,NEOPLASM OF UNCERTAIN BEHAVIOUR OF DIGESTIVE ETC. SYSTEMS
+09A,236,09A-236,236,NEOPLASM OF UNCERTAIN BEHAVIOUR OF GENITOURINARY ORGANS
+09A,237,09A-237,237,NEOPLASM OF UNCERTAIN BEHAVIOUR OF ENDOCRINE GLANDS ETC.
+09A,238,09A-238,238,NEOPLASM OF UNCERTAIN BEHAVIOUR OF OTHER SITES ETC.
+09A,239,09A-239,239,NEOPLASM OF UNSPECIFIED NATURE
+09A,416,09A-416,416,CHRONIC PULMONARY HEART DISEASE
+09B,B00,09B-B00,, All causes
+09B,B01,09B-B01,001-009,Intestinal infectious diseases
+09B,B010,09B-B010,1,Cholera
+09B,B011,09B-B011,2,Typhoid fever
+09B,B012,09B-B012,4,Shigellosis
+09B,B013,09B-B013,"003, 005",Food poisoning
+09B,B014,09B-B014,6,Amoebiasis
+09B,B015,09B-B015,"007, 008",Intestinal infections due to other specified organism
+09B,B016,09B-B016,9,Ill-defined intestinal infections
+09B,B019,09B-B019,,Remainder of B01
+09B,B02,09B-B02,010-018,Tuberculosis
+09B,B020,09B-B020,11,Pulmonary tuberculosis
+09B,B021,09B-B021,"010, 012",Other respiratory tuberculosis
+09B,B022,09B-B022,13,Tuberculosis of meninges and central nervous system
+09B,B023,09B-B023,14,"Tuberculosis of intestines, peritoneum and mesenteric glands"
+09B,B024,09B-B024,15,Tuberculosis of bones and joints
+09B,B025,09B-B025,16,Tuberculosis of genitourinary system
+09B,B029,09B-B029,,Remainder of B02
+09B,B03,09B-B03,020-041,Other bacterial diseases
+09B,B030,09B-B030,20,Plague
+09B,B031,09B-B031,23,Brucellosis
+09B,B032,09B-B032,30,Leprosy
+09B,B033,09B-B033,32,Diphtheria
+09B,B034,09B-B034,33,Whooping cough
+09B,B035,09B-B035,"034, 035","Streptococcal sore throat, scarlatina and erysipelas"
+09B,B036,09B-B036,36,Meningococcal infection
+09B,B037,09B-B037,37,Tetanus
+09B,B038,09B-B038,38,Septicaemia
+09B,B039,09B-B039,,Remainder of B03
+09B,B04,09B-B04,045-079,Viral diseases
+09B,B040,09B-B040,45,Acute poliomyelitis
+09B,B041,09B-B041,50,Smallpox
+09B,B042,09B-B042,55,Measles
+09B,B043,09B-B043,56,Rubella
+09B,B044,09B-B044,60,Yellow fever
+09B,B045,09B-B045,062-064,Arthropod-borne encephalitis
+09B,B046,09B-B046,70,Viral hepatitis
+09B,B047,09B-B047,71,Rabies
+09B,B048,09B-B048,76,Trachoma
+09B,B049,09B-B049,,Remainder of B04
+09B,B05,09B-B05,080-088,Rickettsiosis and other arthropod-borne diseases
+09B,B050,09B-B050,80,Louse-borne typhus
+09B,B051,09B-B051,081-083,Other rickettsiosis
+09B,B052,09B-B052,84,Malaria
+09B,B053,09B-B053,85,Leishmaniasis
+09B,B054,09B-B054,86,Trypanosomiasis
+09B,B059,09B-B059,,Remainder of B05
+09B,B06,09B-B06,090-099,Venereal diseases
+09B,B060,09B-B060,090-097,Syphilis
+09B,B061,09B-B061,98,Gonococcal infections
+09B,B069,09B-B069,,Remainder of B06
+09B,B07,09B-B07,100-139,Other infectious and parasitic diseases and late effects of infectious and parasitic diseases
+09B,B070,09B-B070,100-104,Non-syphilitic spirochaetal diseases
+09B,B071,09B-B071,110-118,Mycosis
+09B,B072,09B-B072,120,Schistosomiasis
+09B,B073,09B-B073,122,Echinococcosis
+09B,B074,09B-B074,125,Filarial infection and dracontiasis
+09B,B075,09B-B075,126,Ancylostomiasis and necatoriasis
+09B,B076,09B-B076,"121, 123, 124, 127-129       ",Other helminthiasis
+09B,B077,09B-B077,137,Late effects of tuberculosis
+09B,B078,09B-B078,138,Late effects of acute poliomyelitis
+09B,B079,09B-B079,,Remainder of B07
+09B,B08,09B-B08,140-149,"Malignant neoplasm of lip, oral cavity and pharynx"
+09B,B09,09B-B09,150-159,Malignant neoplasm of digestive organs and peritoneum
+09B,B090,09B-B090,150,Malignant neoplasm of oesophagus
+09B,B091,09B-B091,151,Malignant neoplasm of stomach
+09B,B092,09B-B092,152,"Malignant neoplasm of small intestine, including duodenum"
+09B,B093,09B-B093,153,Malignant neoplasm of colon
+09B,B094,09B-B094,154,"Malignant neoplasm of rectum, rectosigmoid junction and anus"
+09B,B095,09B-B095,155,"Malignant neoplasm of liver, specified as primary"
+09B,B096,09B-B096,157,Malignant neoplasm of pancreas
+09B,B099,09B-B099,,Remainder of B09
+09B,B10,09B-B10,,Malignant neoplasm of respiratory and intrathoracic organs 160-165
+09B,B100,09B-B100,161,Malignant neoplasm of larynx
+09B,B101,09B-B101,162,"Malignant neoplasm of trachea, bronchus and lung"
+09B,B109,09B-B109,,Remainder of B10
+09B,B11,09B-B11,170-175,"Malignant neoplasm of bone, connective tissue, skin and breast"
+09B,B110,09B-B110,170,Malignant neoplasm of bone and articular cartilage
+09B,B111,09B-B111,172,Malignant melanoma of skin
+09B,B112,09B-B112,173,Other malignant neoplasm of skin
+09B,B113,09B-B113,174,Malignant neoplasm of female breast
+09B,B119,09B-B119,,Remainder of B11
+09B,B12,09B-B12,179-189,Malignant neoplasm of genitourinary organs
+09B,B120,09B-B120,180,Malignant neoplasm of cervix uteri
+09B,B121,09B-B121,181,Malignant neoplasm of placenta
+09B,B122,09B-B122,"179, 182","Malignant neoplasm of uterus, other and unspecified"
+09B,B123,09B-B123,183,Malignant neoplasm of ovary and other uterine adnexa
+09B,B124,09B-B124,185,Malignant neoplasm of prostate
+09B,B125,09B-B125,186,Malignant neoplasm of testis
+09B,B126,09B-B126,188,Malignant neoplasm of bladder
+09B,B129,09B-B129,,Remainder of B12
+09B,B13,09B-B13,190-199,Malignant neoplasm of other and unspecified sites
+09B,B130,09B-B130,191,Malignant neoplasm of brain
+09B,B139,09B-B139,,Remainder of B13
+09B,B14,09B-B14,200-208,Malignant neoplasm of lymphatic and haemopoietic tissue
+09B,B140,09B-B140,201,Hodgkin's disease
+09B,B141,09B-B141,204-208,Leukaemia
+09B,B149,09B-B149,,Remainder of B14
+09B,B15,09B-B15,210-229,Benign neoplasm
+09B,B150,09B-B150,216,Benign neoplasm of skin
+09B,B151,09B-B151,217,Benign neoplasm of breast
+09B,B152,09B-B152,"218, 219",Benign neoplasm of uterus
+09B,B153,09B-B153,220,Benign neoplasm of ovary
+09B,B154,09B-B154,223,Benign neoplasm of kidney and other urinary organs
+09B,B155,09B-B155,225,Benign neoplasm of nervous system
+09B,B156,09B-B156,226,Benign neoplasm of thyroid
+09B,B159,09B-B159,,Remainder of B15
+09B,B16,09B-B16,230-234,Carcinoma in situ
+09B,B17,09B-B17,235-239,Other and unspecified neoplasm
+09B,B18,09B-B18,"240-259, 270-279","Endocrine and metabolic diseases, immunity disorders"
+09B,B180,09B-B180,240-246,Disorders of thyroid gland
+09B,B181,09B-B181,250,Diabetes mellitus
+09B,B182,09B-B182,"272.0, 272.1",Hyperlipoproteinaemia
+09B,B183,09B-B183,278,Obesity of non-endocrine origin
+09B,B184,09B-B184,279.5,Human immunodeficiency virus [HIV] disease [AIDS]
+09B,B185,09B-B185,2796,AIDS-related complex
+09B,B189,09B-B189,,Remainder of B18
+09B,B19,09B-B19,260-269,Nutritional deficiencies
+09B,B190,09B-B190,260,Kwashiorkor
+09B,B191,09B-B191,261,Nutritional marasmus
+09B,B192,09B-B192,"262, 263",Other protein-calorie malnutrition
+09B,B193,09B-B193,264-269,Avitaminosis
+09B,B199,09B-B199,,Remainder of B19
+09B,B20,09B-B20,280-289,Diseases of blood and blood-forming organs
+09B,B200,09B-B200,280-285,Anaemias
+09B,B209,09B-B209,,Remainder of B20
+09B,B21,09B-B21,290-319,Mental disorders
+09B,B210,09B-B210,290,Senile and presenile organic psychotic conditions
+09B,B211,09B-B211,295,Schizophrenic psychoses
+09B,B212,09B-B212,296,Affective psychoses
+09B,B213,09B-B213,"291-294, 297-299",Other psychoses
+09B,B214,09B-B214,"300, 301",Neurotic and personality disorders
+09B,B215,09B-B215,303,Alcohol dependence syndrome
+09B,B216,09B-B216,304,Drug dependence
+09B,B217,09B-B217,306,Physiological malnutrition arising from mental factors
+09B,B218,09B-B218,317-319,Mental retardation
+09B,B219,09B-B219,,Remainder of B21
+09B,B22,09B-B22,320-359,Diseases of the nervous system
+09B,B220,09B-B220,320-322,Meningitis
+09B,B221,09B-B221,332,Parkinson's disease
+09B,B222,09B-B222,"330, 331, 333-336",Other degenerative and hereditary disorders of the central nervous system
+09B,B223,09B-B223,340,Multiple sclerosis
+09B,B224,09B-B224,"343, 344",Infantile cerebral palsy and other paralytic syndromes
+09B,B225,09B-B225,345,Epilepsy
+09B,B229,09B-B229,,Remainder of B22
+09B,B23,09B-B23,360-379,Disorders of the eye and adnexa
+09B,B230,09B-B230,365,Glaucoma
+09B,B231,09B-B231,366,Cataract
+09B,B232,09B-B232,369,Blindness and low vision
+09B,B233,09B-B233,372.0-372.3,Conjunctivitis
+09B,B234,09B-B234,375,Disorders of lacrimal system
+09B,B235,09B-B235,378,Strabismus and other disorders of binocular eye movements
+09B,B239,09B-B239,,Remainder of B23
+09B,B24,09B-B24,380-389,Diseases of the ear and mastoid process
+09B,B240,09B-B240,381-383,Otitis media and mastoiditis
+09B,B241,09B-B241,389,Deafness
+09B,B249,09B-B249,,Remainder of B24
+09B,B25,09B-B25,390-398,Rheumatic fever and rheumatic heart disease
+09B,B250,09B-B250,390-392,Acute rheumatic fever
+09B,B251,09B-B251,393-398,Chronic rheumatic heart disease
+09B,B259,09B-B259,,Remainder of B25
+09B,B26,09B-B26,401-405,Hypertensive disease
+09B,B260,09B-B260,"402, 404",Hypertensive heart disease
+09B,B269,09B-B269,,Remainder of B26
+09B,B27,09B-B27,410-414,Ischaemic heart disease
+09B,B270,09B-B270,410,Acute myocardial infarction
+09B,B279,09B-B279,,Remainder of B27
+09B,B28,09B-B28,415-429,Diseases of pulmonary circulation and other forms of heart disease
+09B,B280,09B-B280,415.1,Pulmonary embolism
+09B,B281,09B-B281,427,Cardiac dysrhythmias
+09B,B289,09B-B289,,Remainder of B28
+09B,B29,09B-B29,430-438,Cerebrovascular disease
+09B,B290,09B-B290,430,Subarachnoid haemorrhage
+09B,B291,09B-B291,"431, 432",Intracerebral and other intracranial haemorrhage
+09B,B292,09B-B292,"433, 434",Cerebral infarction
+09B,B293,09B-B293,436,Acute but ill-defined cerebrovascular disease
+09B,B294,09B-B294,437,Cerebral atherosclerosis
+09B,B299,09B-B299,,Remainder of B29
+09B,B30,09B-B30,440-459,Other diseases of the circulatory system
+09B,B300,09B-B300,440,Atherosclerosis
+09B,B301,09B-B301,444,Arterial embolism and thrombosis
+09B,B302,09B-B302,"441-443, 446-448","Other diseases of arteries, arterioles and capillaries"
+09B,B303,09B-B303,451-453,"Phlebitis, thrombophlebitis, venous embolism and thrombosis"
+09B,B304,09B-B304,454,Varicose veins of lower extremities
+09B,B305,09B-B305,455,Haemorrhoids
+09B,B309,09B-B309,,Remainder of B30
+09B,B31,09B-B31,"460-465, 470-478",Diseases of the upper respiratory tract
+09B,B310,09B-B310,463,Acute tonsillitis
+09B,B311,09B-B311,464,Acute laryngitis and tracheitis
+09B,B312,09B-B312,"460-462, 465",Other acute upper respiratory infections
+09B,B313,09B-B313,"470, 471",Deflected nasal septum and nasal polyps
+09B,B314,09B-B314,"472, 473","Chronic pharyngitis, nasopharyngitis and sinusitis"
+09B,B315,09B-B315,474,Chronic diseases of tonsils and adenoids
+09B,B319,09B-B319,,Remainder of B31
+09B,B32,09B-B32,"466, 480-519",Other diseases of the respiratory system
+09B,B320,09B-B320,466,Acute bronchitis and bronchiolitis
+09B,B321,09B-B321,480-486,Pneumonia
+09B,B322,09B-B322,487,Influenza
+09B,B323,09B-B323,490-493,"Bronchitis, chronic and unspecified, emphysema and asthma"
+09B,B324,09B-B324,494,Bronchiectasis
+09B,B325,09B-B325,"495, 496",Other chronic obstructive pulmonary disease
+09B,B326,09B-B326,500-508,Pneumoconiosis and other lung disease due to external agents
+09B,B327,09B-B327,511,Pleurisy
+09B,B329,09B-B329,,Remainder of B32
+09B,B33,09B-B33,520-529,"Diseases of oral cavity, salivary glands and jaws"
+09B,B330,09B-B330,520-525,Diseases of teeth and supporting structures
+09B,B331,09B-B331,526,Diseases of the jaws
+09B,B339,09B-B339,,Remainder of B33
+09B,B34,09B-B34,530-579,Diseases of other parts of the digestive system
+09B,B340,09B-B340,530,Diseases of oesophagus
+09B,B341,09B-B341,531-533,Ulcer of stomach and duodenum
+09B,B342,09B-B342,540-543,Appendicitis
+09B,B343,09B-B343,550-553,Hernia of abdominal cavity
+09B,B344,09B-B344,560,Intestinal obstruction without mention of hernia
+09B,B345,09B-B345,562,Diverticula of intestine
+09B,B346,09B-B346,564,Other functional digestive disorders
+09B,B347,09B-B347,571,Chronic liver disease and cirrhosis
+09B,B348,09B-B348,574-575.1,Cholelithiasis and cholecystitis
+09B,B349,09B-B349,,Remainder of B34
+09B,B35,09B-B35,580-599,Diseases of urinary system
+09B,B350,09B-B350,580-589,"Nephritis, nephrotic syndrome and nephrosis"
+09B,B351,09B-B351,590,Infections of kidney
+09B,B352,09B-B352,"592, 594",Urinary calculus
+09B,B353,09B-B353,595,Cystitis
+09B,B359,09B-B359,,Remainder of B35
+09B,B36,09B-B36,600-608,Diseases of male genital organs
+09B,B360,09B-B360,600,Hyperplasia of prostate
+09B,B361,09B-B361,603,Hydrocele
+09B,B362,09B-B362,605,Redundant prepuce and phimosis
+09B,B363,09B-B363,606,"Infertility, male"
+09B,B369,09B-B369,,Remainder of B36
+09B,B37,09B-B37,610-629,Diseases of female genital organs
+09B,B370,09B-B370,"610, 611",Diseases of breast
+09B,B371,09B-B371,614.0-614.2,Salpingitis and oophoritis
+09B,B372,09B-B372,614.3-614.9,Inflammatory diseases of pelvic cellular tissue and peritoneum
+09B,B373,09B-B373,"615, 616","Inflammatory diseases of uterus, vagina and vulva"
+09B,B374,09B-B374,618,Uterovaginal prolapse
+09B,B375,09B-B375,626.0-626.5,Menstrual disorders
+09B,B376,09B-B376,628,"Infertility, female"
+09B,B379,09B-B379,,Remainder of B37
+09B,B38,09B-B38,630-639,Abortion
+09B,B380,09B-B380,634,Spontaneous abortion
+09B,B381,09B-B381,635,Legally induced abortion
+09B,B382,09B-B382,636,Illegally induced abortion
+09B,B389,09B-B389,,Remainder of B38
+09B,B39,09B-B39,"640-646, 651-676",Direct obstetric causes
+09B,B390,09B-B390,"640, 641, 666",Haemorrhage of pregnancy and childbirth
+09B,B391,09B-B391,"642.4-642.9, 643",Toxaemia of pregnancy
+09B,B392,09B-B392,646.6,Infections of genitourinary tract in pregnancy
+09B,B393,09B-B393,660,Obstructed labour
+09B,B394,09B-B394,670-676,Complications of the puerperium
+09B,B399,09B-B399,,Remainder of B39
+09B,B40,09B-B40,"647, 648",Indirect obstetric causes
+09B,B41,09B-B41,650,Normal delivery
+09B,B42,09B-B42,680-709,Diseases of skin and subcutaneous tissue
+09B,B420,09B-B420,680-686,Infections of skin and subcutaneous tissue
+09B,B429,09B-B429,,Remainder of B42
+09B,B43,09B-B43,710-739,Diseases of the musculoskeletal system and connective tissue
+09B,B430,09B-B430,714,"Rheumatoid arthritis, except spine"
+09B,B431,09B-B431,"710-713, 715, 716",Other arthropathies
+09B,B432,09B-B432,717-719,Other disorders of joints
+09B,B433,09B-B433,720,Ankylosing spondylitis
+09B,B434,09B-B434,720.1-724,Other dorsopathies;
+09B,B435,09B-B435,725-729,"Rheumatism, excluding the back"
+09B,B436,09B-B436,730,"Osteomyelitis, periostitis and other infections involving bone"
+09B,B437,09B-B437,734-736,Acquired deformities of limbs
+09B,B439,09B-B439,,Remainder of B43
+09B,B44,09B-B44,740-759,Congenital anomalies
+09B,B440,09B-B440,"741, 742.3",Spina bifida and hydrocephalus
+09B,B441,09B-B441,"740, 742.0-742.2, 742.4-742.9",Other deformities of central nervous system
+09B,B442,09B-B442,745-747,Congenital anomalies of heart and circulatory system
+09B,B443,09B-B443,749,Cleft palate and cleft lip
+09B,B444,09B-B444,"750, 751",Other deformities of digestive system
+09B,B445,09B-B445,752.5,Undescended testicle
+09B,B446,09B-B446,754.3,Congenital dislocation of hip
+09B,B447,09B-B447,"754.0-754.2, 754.4-756",Other congenital anomalies of musculoskeletal system
+09B,B449,09B-B449,,Remainder of B44
+09B,B45,09B-B45,760-779,Certain conditions originating in the perinatal period
+09B,B450,09B-B450,760,Maternal conditions affecting fetus or newborn
+09B,B451,09B-B451,761-763,Obstetric complications affecting fetus or newborn
+09B,B452,09B-B452,"764, 765","Slow fetal growth, fetal malnutrition and immaturity"
+09B,B453,09B-B453,767,Birth trauma
+09B,B454,09B-B454,768-770,"Hypoxia, birth asphyxia and other respiratory conditions"
+09B,B455,09B-B455,773,Haemolytic disease of fetus or newborn
+09B,B459,09B-B459,,Remainder of B45
+09B,B46,09B-B46,780-799,"Signs, symptoms and ill-defined conditions"
+09B,B460,09B-B460,780.6,Pyrexia of unknown origin
+09B,B461,09B-B461,785.0-785.3,Symptoms involving heart
+09B,B462,09B-B462,788,Renal colic
+09B,B463,09B-B463,788.2,Retention of urine
+09B,B464,09B-B464,789,Abdominal pain
+09B,B465,09B-B465,797,Senility without mention of psychosis
+09B,B466,09B-B466,798,Sudden infant death syndrome
+09B,B467,09B-B467,799.1,Respiratory failure
+09B,B469,09B-B469,,Remainder of B46
+09B,B47,09B-B47,E800-E848,Transport accidents
+09B,B470,09B-B470,E800-E807,Railway accidents
+09B,B471,09B-B471,E810-E819,Motor vehicle traffic accidents
+09B,B472,09B-B472,E826-E829,Other road vehicle accidents
+09B,B473,09B-B473,E830-E838,Water transport accidents
+09B,B474,09B-B474,E840-E845,Air and space transport accidents
+09B,B479,09B-B479,,Remainder of B47
+09B,B48,09B-B48,E850-E869,Accidental poisoning
+09B,B480,09B-B480,E850-E858,"Accidental poisoning by drugs, medicaments and biologicals"
+09B,B481,09B-B481,E860-E866,Accidental poisoning by other solid and liquid substances
+09B,B482,09B-B482,E867-E869,Accidental poisoning by gases and vapours
+09B,B49,09B-B49,E870-E879,"Misadventures during medical care, abnormal reactions, late complications"
+09B,B50,09B-B50,E880-E888,Accidental falls
+09B,B51,09B-B51,E890-E899,Accidents caused by fire and flames
+09B,B52,09B-B52,E900-E929,"Other accidents, including late effects"
+09B,B520,09B-B520,E900-E909,Accidents due to natural and environmental factors
+09B,B521,09B-B521,E910,Accidental drowning and submersion
+09B,B522,09B-B522,"E914, E915",Foreign body accidentally entering orifice
+09B,B523,09B-B523,"E919, E920","Accidents caused by machinery, and by cutting and piercing instruments"
+09B,B524,09B-B524,E922,Accidents caused by firearm missile
+09B,B529,09B-B529,,Remainder of B52
+09B,B53,09B-B53,E930-E949,"Drugs, medicaments causing adverse effects in therapeutic use"
+09B,B54,09B-B54,E950-E959,Suicide and self-inflicted injury
+09B,B55,09B-B55,E960-E969,Homicide and injury purposely inflicted by other persons
+09B,B56,09B-B56,E970-E999,Other violence
+09B,B560,09B-B560,E980-E989,Injury undetermined whether accidentally or purposely inflicted
+09B,B561,09B-B561,E990-E999,Injury resulting from operation of war
+09B,B569,09B-B569,,Remainder of B56
+09B,S47,09B-S47,,All accidental causes  (Only applied for Bahamas 1983 where the data do not contain a breakdown of all accidental causes by B47-B52).
+09B,CH17,09B-CH17,,CHAPTER XVII Ð Injury and Poisoning (Only applied for some countries-years when the data do not contain a breakdown of all external causes by B47-B56).
+09B,140,09B-140,140,MN OF LIP
+09B,141,09B-141,141,MN OF TONGUE
+09B,1410,09B-1410,1410,MN OF BASE OF TONGUE
+09B,142,09B-142,142,MN OF MAJOR SALIVARY GLANDS
+09B,143,09B-143,143,MN OF GUM
+09B,144,09B-144,144,MN OF FLOOR OF MOUTH
+09B,145,09B-145,145,MN OF OTHER AND UNSPECIFIED PARTS OF MOUTH
+09B,146,09B-146,146,MN OF OROPHARYNX
+09B,1460,09B-1460,1460,MN OF TONSIL
+09B,147,09B-147,147,MN OF NASOPHARYNX
+09B,148,09B-148,148,MN OF HYPOPHARYNX
+09B,149,09B-149,149,MN OF OTHER AND ILL-DEFINED SITES WITHIN THE LIP ETC.
+09B,1533,09B-1533,1533,MN OF SIGMOID COLON
+09B,1540,09B-1540,1540,MN OF RECTOSIGMOID JUNCTION
+09B,1541,09B-1541,1541,MN OF RECTUM
+09B,1551,09B-1551,1551,MN OF INTRAHEPATIC BILE DUCTS
+09B,1552,09B-1552,1552,"MN OF LIVER, NOT SPECIFIED AS PRIMARY OR SECONDARY"
+09B,156,09B-156,156,MN OF GALLBLADDER AND EXTRAHEPATIC BILE DUCTS
+09B,1560,09B-1560,1560,MN OF GALLBLADDER
+09B,158,09B-158,158,MN OF RETROPERITONEUM AND PERITONEUM
+09B,159,09B-159,159,MN OF OTHER SITES WITHIN THE DIGESTIVE ORGANS ETC.
+09B,160,09B-160,160,"MN OF NASAL CAVITIES, MIDDLE EAR AND ACCESSORY SINUSES"
+09B,1600,09B-1600,1600,MN OF NASAL CAVITIES
+09B,1602,09B-1602,1602,MN OF MAXILLARY SINUS
+09B,1610,09B-1610,1610,MN OF GLOTTIS
+09B,163,09B-163,163,MN OF PLEURA
+09B,164,09B-164,164,"MN OF THYMUS, HEART AND MEDIASTINUM"
+09B,165,09B-165,165,MN OF OTHER SITES WITHIN THE RESPIRATORY SYSTEM ETC.
+09B,171,09B-171,171,MN OF CONNECTIVE AND OTHER SOFT TISSUE
+09B,175,09B-175,175,MN OF MALE BREAST
+09B,179,09B-179,179,"MN OF UTERUS, PART UNSPECIFIED"
+09B,182,09B-182,182,MN OF BODY OF UTERUS
+09B,1830,09B-1830,1830,MN OF OVARY
+09B,184,09B-184,184,MN OF OTHER AND UNSPECIFIED FEMALE GENITAL ORGANS
+09B,187,09B-187,187,MN OF PENIS AND OTHER MALE GENITAL ORGANS
+09B,1877,09B-1877,1877,MN OF SCROTUM
+09B,189,09B-189,189,MN OF KIDNEY AND OTHER UNSPECIFIED URINARY ORGANS
+09B,1890,09B-1890,1890,"MN OF KIDNEY, EXCEPT PELVIS"
+09B,1891,09B-1891,1891,MN OF RENAL PELVIS
+09B,1892,09B-1892,1892,MN OF URETER
+09B,190,09B-190,190,MN OF EYE
+09B,192,09B-192,192,MN OF OTHER AND UNSPECIFIED PARTS OF NERVOUS SYSTEM
+09B,193,09B-193,193,MN OF THYROID GLAND
+09B,194,09B-194,194,MN OF OTHER ENDOCRINE GLANDS AND RELATED STRUCTURES
+09B,195,09B-195,195,MN OF OTHER AND ILL-DEFINED SITES
+09B,196,09B-196,196,SECONDARY AND UNSPECIFIED MN OF LYMPH NODES
+09B,197,09B-197,197,SECONDARY MN OF RESPIRATORY AND DIGESTIVE SYSTEM
+09B,198,09B-198,198,SECONDARY MN OF OTHER SPECIFIED SITES
+09B,199,09B-199,199,MN WITHOUT SPECIFICATION OF SITE
+09B,200,09B-200,200,LYMPHOSARCOMA AND RETICULOSARCOMA
+09B,2000,09B-2000,2000,RETICULOSARCOMA
+09B,2001,09B-2001,2001,LYMPHOSARCOMA
+09B,2002,09B-2002,2002,BURKITT'S TUMOUR
+09B,202,09B-202,202,OTHER MN OF LYMPHOID AND HISTIOCYTIC TISSUE
+09B,203,09B-203,203,MULTIPLE MYELOMA AND IMMUNOPROLIFERATIVE NEOPLASMS
+09B,2030,09B-2030,2030,MULTIPLE MYELOMA
+09B,204,09B-204,204,LYMPHOID LEUKAEMIA
+09B,2040,09B-2040,2040,ACUTE LYMPHOID LEUKAEMIA
+09B,205,09B-205,205,MYELOID LEUKAEMIA
+09B,2050,09B-2050,2050,ACUTE MYELOID LEUKAEMIA
+09B,206,09B-206,206,MONOCYTIC LEUKAEMIA
+09B,207,09B-207,207,OTHER SPECIFIED LEUKAEMIA
+09B,208,09B-208,208,LEUKAEMIA OF UNSPECIFIED CELL TYPE
+09B,235,09B-235,235,NEOPLASM OF UNCERTAIN BEHAVIOUR OF DIGESTIVE ETC. SYSTEMS
+09B,236,09B-236,236,NEOPLASM OF UNCERTAIN BEHAVIOUR OF GENITOURINARY ORGANS
+09B,237,09B-237,237,NEOPLASM OF UNCERTAIN BEHAVIOUR OF ENDOCRINE GLANDS ETC.
+09B,238,09B-238,238,NEOPLASM OF UNCERTAIN BEHAVIOUR OF OTHER SITES ETC.
+09B,239,09B-239,239,NEOPLASM OF UNSPECIFIED NATURE
+09B,416,09B-416,416,CHRONIC PULMONARY HEART DISEASE
+09N,CH01,09N-CH01,,Infectious and and Parasitic Diseases
+09N,CH02,09N-CH02,,Neoplasms
+09N,CH03,09N-CH03,,"Endocrine, Nutritional and Metabolic Diseases"
+09N,CH04,09N-CH04,,Diseases of the Blood and Blood-forming Organs
+09N,CH05,09N-CH05,,Mental Disorders
+09N,CH06,09N-CH06,,Diseases of the Nervous System and Sense Organs
+09N,CH07,09N-CH07,,Diseases of the Circulatory System
+09N,CH08,09N-CH08,,Diseases of the Respiratory System
+09N,CH09,09N-CH09,,Diseases of the Digestive System
+09N,CH10,09N-CH10,,Diseases of the Genitourinary System
+09N,CH11,09N-CH11,,Obstetric Complications
+09N,CH12,09N-CH12,,Diseases of the Skin and Subcutaneous Tissue
+09N,CH13,09N-CH13,,Diseases of the Musculoskeletal System and Connective Tissue
+09N,CH14,09N-CH14,,Congenital Anomalies
+09N,CH15,09N-CH15,,Certain Conditions originating in the Perinatal Period
+09N,CH16,09N-CH16,,"Symptoms, Signs and Ill-defined Conditions"
+09N,CH17,09N-CH17,,External Causes
+09N,S020,09N-S020,,Respiratory Tuberculosis
+09N,S06,09N-S06,,Venereal and other Infectious and Parasitic Diseases
+09N,S08,09N-S08,,Malignant Neoplasms
+09N,S15,09N-S15,,Benign and Unspecified Neoplasms and Carcinoma in situ
+09N,S300,09N-S300,,Atherosclerosis and other Arterial Diseases
+09N,S310,09N-S310,,Acute Respiratory Diseases
+09N,S343,09N-S343,,Hernia and Intestinal Obstruction
+09N,S347,09N-S347,,Cirrhosis and other Digestive Disorders
+09N,S47,09N-S47,,Accidents and Adverse Effects
+09N,S019,09N-S019,,Rest of B01
+09N,S029,09N-S029,,Rest of B02
+09N,S039,09N-S039,,Rest of B03
+09N,S049,09N-S049,,Rest of B04
+09N,S059,09N-S059,,Rest of B05
+09N,S149,09N-S149,,Rest of B14
+09N,S189,09N-S189,,"Rest of B18, B19"
+09N,S229,09N-S229,,"Rest of B22, B23, B24"
+09N,S309,09N-S309,,Rest of B30
+09N,S329,09N-S329,,"Rest of B31, B32"
+09N,S349,09N-S349,,"Rest of B33, B34"
+09N,S359,09N-S359,,"Rest of B35, B36, B37"
+09N,S399,09N-S399,,"Rest of B39, B40, B41"
+09N,S449,09N-S449,,Rest of B44
+09N,S459,09N-S459,,Rest of B45
+09N,S469,09N-S469,,Rest of B46
+09N,S479,09N-S479,,Rest of B47
+09N,S08x,09N-S08x,,Rest of B08 - B13
+09C,C001,09C-C001,,All causes
+09C,C002,09C-C002,01-139,Infectious and parasitic diseases
+09C,C003,09C-C003,"001-005, 008-083, 087-118, 130, 137, 138, part of 136, 139",Selected infectious diseases
+09C,C004,09C-C004,2,Typhoid and paratyphoid fevers
+09C,C005,09C-C005,4,Shigellosis
+09C,C006,09C-C006,"001, 003, 005, 008, 009",Other intestinal infectious diseases
+09C,C007,09C-C007,11,Pulmonary tuberculosis
+09C,C008,09C-C008,"010, 012-018","Tuberculosis, other forms"
+09C,C009,09C-C009,33,Whooping cough
+09C,C010,09C-C010,36,Meningococcal meningitis
+09C,C011,09C-C011,37,Tetanus
+09C,C012,09C-C012,38,Septicaemia
+09C,C013,09C-C013,55,Measles
+09C,C014,09C-C014,62,Japanese encephalities
+09C,C015,09C-C015,"065, 078.6",Viral haemorrhagic fever
+09C,C016,09C-C016,70,Viral hepatitis
+09C,C017,09C-C017,100,Leptospirosis
+09C,C018,09C-C018,"006-007, 084-086, 120-129, 131-135, part of 136, 139",Parasitic diseases
+09C,C019,09C-C019,84,Malaria
+09C,C020,09C-C020,120,Schistosomiasis
+09C,C021,09C-C021,140-239,Neoplasms
+09C,C022,09C-C022,"140-208, 230-234",Malignant neoplasms
+09C,C023,09C-C023,"147, 230.0",Mal. neoplasms of nasopharynx
+09C,C024,09C-C024,"150, 230.1",Mal. neoplasms of oesophagus
+09C,C025,09C-C025,"151, 230.2",Mal. neoplasm of stomach
+09C,C026,09C-C026,"153-154, 230.3-230.6","Mal. neoplasm of colon, rectum, rectosigmoid junction and anus"
+09C,C027,09C-C027,"155, 230.8",Mal. neoplasm of liver
+09C,C028,09C-C028,"162, 231.1-231.2","Mal. neoplasm of trachea, bronchus and lung"
+09C,C029,09C-C029,"174, 233.0",Mal. neoplasm of female breast
+09C,C030,09C-C030,"180, 233.1",Mal. neoplasm of cervix uteri
+09C,C031,09C-C031,"188, 233.7",Malign neoplasm of bladder
+09C,C032,09C-C032,204-208,Leukaemia
+09C,C033,09C-C033,210-229,Benign neoplasms
+09C,C034,09C-C034,240-279,"Endocrine, nutritional and metabolic diseases"
+09C,C035,09C-C035,250,Diabetes mellitus
+09C,C036,09C-C036,280-289,Diseases of blood and blood-forming organs
+09C,C037,09C-C037,280-285,Anaemias
+09C,C038,09C-C038,290-319,Mental disorders
+09C,C039,09C-C039,320-359,Diseases of the nervous system
+09C,C040,09C-C040,320-322,Meningitis
+09C,C041,09C-C041,390-459,Diseases of the circulatory system
+09C,C042,09C-C042,390-392,Acute rheumatic fever
+09C,C043,09C-C043,"393-398, 402, 404, 410-416, 420-429",Heart diseases
+09C,C044,09C-C044,393-398,Chronic rheumatic heart disease
+09C,C045,09C-C045,"402, 404",Hypertensive heart disease
+09C,C046,09C-C046,410,Acute myocardial infarction
+09C,C047,09C-C047,411-414,Other ischaemic heart disease
+09C,C048,09C-C048,"415, 416",Pulmonary heart disease
+09C,C049,09C-C049,420-429,Other forms of heart disease
+09C,C050,09C-C050,"401, 403",Other hypertensive disease
+09C,C051,09C-C051,430-438,Cerebrovascular disease
+09C,C052,09C-C052,460-519,Disease of the respiratory system
+09C,C053,09C-C053,480-486,Pneumonia
+09C,C054,09C-C054,490-493,"Bronchitis, chronic and unspecified emphysema and asthma"
+09C,C055,09C-C055,500-505,Pneumoconioses
+09C,C056,09C-C056,520-579,Disease of digestive system
+09C,C057,09C-C057,531-533,Ulcer of stomach and duodenum
+09C,C058,09C-C058,540-543,Appendicitis
+09C,C059,09C-C059,560,Intestinal obstruction
+09C,C060,09C-C060,571,Chronic liver disease and cirrhosis
+09C,C061,09C-C061,580-629,Disease of genitourinary system
+09C,C062,09C-C062,580-589,"Nephritis, nephrotic syndrome and nephrosis"
+09C,C063,09C-C063,600,Hyperplasia of prostate
+09C,C064,09C-C064,630-676,"Complications of pregnancy, childbirth and puerperium"
+09C,C065,09C-C065,"630-646, 651-676",Direct obstetric causes
+09C,C066,09C-C066,630-638,Abortion
+09C,C067,09C-C067,642.4-643,Toxaemia of pregnancy
+09C,C068,09C-C068,"664, 665, 674.1-674.3",Obstetrical trauma
+09C,C069,09C-C069,"670, 672, 675",Infections of the puerperium
+09C,C070,09C-C070,666,Postpartum haemorrhage
+09C,C071,09C-C071,710-739,Diseases of the musculoskeletal system and connective tissue
+09C,C072,09C-C072,740-759,Congenital anomalies
+09C,C073,09C-C073,"745, 746",Congenital anomalies of heart
+09C,C074,09C-C074,760-779,Certain conditions originating in the perinatal period
+09C,C075,09C-C075,"764, 765","Slow fetal growth, fetal malnutrition and immaturity"
+09C,C076,09C-C076,767-770,"Birth trauma, hypoxia, birth asphyxia and other respiratory conditions"
+09C,C077,09C-C077,771.3,Tetanus neonatorum
+09C,C078,09C-C078,773,Haemolytic disease of foetus or newborn
+09C,C079,09C-C079,778.1,Sclerema neonatorum
+09C,C080,09C-C080,"360-389, 680-709, 780-796",Other specified diseases and symptoms
+09C,C081,09C-C081,797-799,Ill-defined and unknown causes
+09C,C089,09C-C089,E800-E999,External causes of injury and poisoning
+09C,C090,09C-C090,E810-E819,Motor vehicle trafic accidents
+09C,C091,09C-C091,E800-E807,Other transport accidents
+09C,C092,09C-C092,E850-E869,Accidental poisoning
+09C,C093,09C-C093,E880-E888,Accidental falls
+09C,C094,09C-C094,E890-E899,Accidents caused by fire and flames
+09C,C095,09C-C095,E900-E909,Accidents due to natural and environmental factors
+09C,C096,09C-C096,E910,Accidental drowning and submersion
+09C,C097,09C-C097,E913,Accidental mechanical suffocation
+09C,C098,09C-C098,E916,Struck accidentally by falling object
+09C,C099,09C-C099,"E919, E920",Accidents caused by machinery and by cutting and piercing instruments
+09C,C100,09C-C100,E925,Accidents caused by electric current
+09C,C101,09C-C101,,"Other accidents, adverse and late effects"
+09C,C102,09C-C102,E950-E959,Suicide and self-inflicted injury
+09C,C103,09C-C103,E960-E969,Homicide and injury purposely inflicted by other persons
+101,1000,101-1000,,All causes
+101,1001,101-1001,A00-B99,Certain infectious and parasitic diseases
+101,1002,101-1002,A00,Cholera
+101,1003,101-1003,A09,Diarrhoea and gastroenteritis of presumed infectious origin
+101,1004,101-1004,A01-A08,Other intestinal infectious diseases
+101,1005,101-1005,A15-A16,Respiratory tuberculosis
+101,1006,101-1006,A17-A19,Other tuberculosis
+101,1007,101-1007,A20,Plague
+101,1008,101-1008,A33-A35,Tetanus
+101,1009,101-1009,A36,Diphtheria
+101,1010,101-1010,A37,Whooping cough
+101,1011,101-1011,A39,Meningococcal infection
+101,1012,101-1012,A40-A41,Septicaemia
+101,1013,101-1013,A50-A64,Infections with a predominantly sexual mode of transmission
+101,1014,101-1014,A80,Acute poliomyelitis
+101,1015,101-1015,A82,Rabies
+101,1016,101-1016,A95,Yellow fever
+101,1017,101-1017,"A90-A94, A96-A99",Other arthropod-borne viral fevers and viral haemorrhagic fevers
+101,1018,101-1018,B05,Measles
+101,1019,101-1019,B15-B19,Viral hepatitis
+101,1020,101-1020,B20-B24,Human immunodeficiency virus [HIV] disease
+101,1021,101-1021,B50-B54,Malaria
+101,1022,101-1022,B55,Leishmaniasis
+101,1023,101-1023,B56-B57,Trypanosomiasis
+101,1024,101-1024,B65,Schistosomiasis
+101,1025,101-1025,"A21-A32, A38, A42-A49, A65-A79, A81, A83-A89, B00-B04, B06-B09, B25-B49, B58-B64, B66-B94, B99",Remainder of certain infectious and parasitic diseases
+101,1026,101-1026,C00-D48,Neoplasms
+101,1027,101-1027,C00-C14,"Malignant neoplasm of lip, oral cavity and pharynx"
+101,1028,101-1028,C15,Malignant neoplasm of oesophagus
+101,1029,101-1029,C16,Malignant neoplasm of stomach
+101,1030,101-1030,C18-C21,"Malignant neoplasm of colon, rectum and anus"
+101,1031,101-1031,C22,Malignant neoplasm of liver and intrahepatic bile ducts
+101,1032,101-1032,C25,Malignant neoplasm of pancreas
+101,1033,101-1033,C32,Malignant neoplasm of larynx
+101,1034,101-1034,C33-C34,"Malignant neoplasm of trachea, bronchus and lung"
+101,1035,101-1035,C43,Malignant melanoma of skin
+101,1036,101-1036,C50,Malignant neoplasm of breast
+101,1037,101-1037,C53,Malignant neoplasm of cervix uteri
+101,1038,101-1038,C54-C55,Malignant neoplasm of other and unspecified parts of uterus
+101,1039,101-1039,C56,Malignant neoplasm of ovary
+101,1040,101-1040,C61,Malignant neoplasm of prostate
+101,1041,101-1041,C67,Malignant neoplasm of bladder
+101,1042,101-1042,C70-C72,"Malignant neoplasm of meninges, brain and other parts of central nervous system"
+101,1043,101-1043,C82-C85,Non-Hodgkin's lymphoma
+101,1044,101-1044,C90,Multiple myeloma and malignant plasma cell neoplasms
+101,1045,101-1045,C91-C95,Leukaemia
+101,1046,101-1046,"C17, C23-C24, C26-C31, C37-C41, C44-C49, C51-C52, C57-C60, C62-C66,C68-C69,C73-C81,C88,C96-C97",Remainder of malignant neoplasms
+101,1047,101-1047,D00-D48,Remainder of neoplasms 
+101,1048,101-1048,D50-D89,Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism
+101,1049,101-1049,D50-D64,Anaemias
+101,1050,101-1050,D65-D89,Remainder of diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism
+101,1051,101-1051,E00-E88,"Endocrine, nutritional and metabolic diseases"
+101,1052,101-1052,E10-E14,Diabetes mellitus
+101,1053,101-1053,E40-E46,Malnutrition
+101,1054,101-1054,"E00-E07, E15-E34, E50-E88","Remainder of endocrine, nutritional and metabolic diseases"
+101,1055,101-1055,F01-F99,Mental and behavioural disorders
+101,1056,101-1056,F10-F19,Mental and behavioural disorders due to psychoactive substance use
+101,1057,101-1057,F20-F99,Remainder of mental and behavioural disorders
+101,1058,101-1058,G00-G98,Diseases of the nervous system
+101,1059,101-1059,"G00, G03",Meningitis
+101,1060,101-1060,G30,Alzheimer's disease
+101,1061,101-1061,"G04-G25, G31-G98",Remainder of diseases of the nervous system
+101,1062,101-1062,H00-H57,Diseases of the eye and adnexa
+101,1063,101-1063,H60-H93,Diseases of the ear and mastoid process
+101,1064,101-1064,I00-I99,Diseases of the circulatory system
+101,1065,101-1065,I00-I09,Acute rheumatic fever and chronic rheumatic heart diseases
+101,1066,101-1066,I10-I13,Hypertensive diseases
+101,1067,101-1067,I20-I25,Ischaemic heart diseases
+101,1068,101-1068,I26-I51,Other heart diseases
+101,1069,101-1069,I60-I69,Cerebrovascular diseases
+101,1070,101-1070,I70,Atherosclerosis
+101,1071,101-1071,I71-I99,Remainder of diseases of the circulatory system
+101,1072,101-1072,J00-J98,Diseases of the respiratory system
+101,1073,101-1073,J10-J11,Influenza
+101,1074,101-1074,J12-J18,Pneumonia
+101,1075,101-1075,J20-J22,Other acute lower respiratory infections
+101,1076,101-1076,J40-J47,Chronic lower respiratory diseases
+101,1077,101-1077,"J00-J06, J30-J39, J60-J98",Remainder of diseases of the respiratory system
+101,1078,101-1078,K00-K92,Diseases of the digestive system
+101,1079,101-1079,K25-K27,Gastric and duodenal ulcer
+101,1080,101-1080,K70-K76,Diseases of the liver
+101,1081,101-1081,"K00-K22, K28-K66, K80-K92",Remainder of diseases of the digestive system
+101,1082,101-1082,L00-L98,Diseases of the skin and subcutaneous tissue
+101,1083,101-1083,M00-M99,Diseases of the musculoskeletal system and connective tissue
+101,1084,101-1084,N00-N98,Diseases of the genitourinary system
+101,1085,101-1085,N00-N15,Glomerular and renal tubulo-interstitial diseases
+101,1086,101-1086,N17-N98,Remainder of diseases of the genitourinary system
+101,1087,101-1087,O00-O99,"Pregnancy, childbirth and the puerperium"
+101,1088,101-1088,O00-O07,Pregnancy with abortive outcome
+101,1089,101-1089,O10-O92,Other direct obstetric deaths
+101,1090,101-1090,O98-O99,Indirect obstetric deaths
+101,1091,101-1091,O95-O97,"Remainder of pregnancy, childbirth and the puerperium"
+101,1092,101-1092,P00-P96,Certain conditions originating in the perinatal period
+101,1093,101-1093,Q00-Q99,"Congenital malformations, deformations and chromosomal abnormalities"
+101,1094,101-1094,R00-R99,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"
+101,1095,101-1095,V01-Y89,External causes of morbidity and mortality
+101,1096,101-1096,V01-V99,Transport accidents
+101,1097,101-1097,W00-W19,Falls
+101,1098,101-1098,W65-W74,Accidental drowning and submersion
+101,1099,101-1099,X00-X09,"Exposure to smoke, fire and flames"
+101,1100,101-1100,X40-X49,Accidental poisoning by and exposure to noxious substances
+101,1101,101-1101,X60-X84,Intentional self-harm
+101,1102,101-1102,X85-Y09,Assault
+101,1103,101-1103,"W20-W64, W75-W99, X10-X39, X50-X59, Y10-Y89",All other external causes
+UE1,CH00,UE1-CH00,A00-Y89,ALL CAUSES OF DEATH
+UE1,CH01,UE1-CH01,A00-B99,CERTAIN INFECTIOUS  AND PARASITIC DISEASES 
+UE1,UE02,UE1-UE02,"A15-A19, B90",Tuberculosis
+UE1,UE03,UE1-UE03,A39,Meningococcal infection
+UE1,UE04,UE1-UE04,B20-B24,AIDS (HIV disease) 
+UE1,UE05,UE1-UE05,B15-B19,Viral hepatitis
+UE1,CH02,UE1-CH02,C00-D48,NEOPLASMS
+UE1,UE07,UE1-UE07,C00-C97,Malignant neoplasms
+UE1,UE08,UE1-UE08,C00-C14,"of which malignant neoplasm of lip, oral cavity, pharynx"
+UE1,UE09,UE1-UE09,C15,of which malignant neoplasm of oesophagus
+UE1,UE10,UE1-UE10,C16,of which malignant neoplasm of stomach
+UE1,UE11,UE1-UE11,C18,of which malignant neoplasm of colon
+UE1,UE12,UE1-UE12,C19-C21,of which malignant neoplasm of rectum and anus
+UE1,UE13,UE1-UE13,C22,of which malignant neoplasm of liver and the intrahepatic bile ducts
+UE1,UE14,UE1-UE14,C25,of which malignant neoplasm of pancreas
+UE1,UE15,UE1-UE15,C32-C34,of which malignant neoplasm of larynx and trachea/bronchus/lung
+UE1,UE16,UE1-UE16,C43,of which malignant neoplasm of skin
+UE1,UE17,UE1-UE17,C50,of which malignant neoplasm of breast
+UE1,UE18,UE1-UE18,C53,of which malignant neoplasm of cervix uteri
+UE1,UE19,UE1-UE19,C54-C55,of which malignant neoplasm of other parts of uterus
+UE1,UE20,UE1-UE20,C56,of which malignant neoplasm of ovary
+UE1,UE21,UE1-UE21,C61,of which malignant neoplasm of prostate
+UE1,UE22,UE1-UE22,C64,of which malignant neoplasm of kidney
+UE1,UE23,UE1-UE23,C67,of which malignant neoplasm of bladder
+UE1,UE24,UE1-UE24,C81-C96,of which malignant neoplasm of lymph/haematopoietic tissue
+UE1,CH03,UE1-CH03,D50-D89,DISEASES OF THE BLOOD AND BLOOD-FORMING ORGANS AND CERTAIN DISORDERS INVOLVING THE IMMUNE MECHANISM
+UE1,CH04,UE1-CH04,E00-E90,"ENDOCRINE,  NUTRITIONAL AND METABOLIC DISEASES"
+UE1,UE27,UE1-UE27,E10-E14,Diabetes mellitus
+UE1,CH05,UE1-CH05,F00-F99,MENTAL AND BEHAVIOURAL DISORDERS
+UE1,UE29,UE1-UE29,F10,Mental and behavioural disorders due to the use of alcohol
+UE1,UE30,UE1-UE30,"F11-F16, F18-F19","Drug dependence, toxicomania"
+UE1,CH06,UE1-CH06,G00-G99,DISEASES OF THE NERVOUS SYSTEM
+UE1,CH07,UE1-CH07,H00-H59,DISEASES OF THE EYE AND ADNEXA
+UE1,CH08,UE1-CH08,H60-H95,DISEASES OF THE EAR AND MASTOID PROCESS
+UE1,UE32,UE1-UE32,G00-G03,Meningitis (other than A39)
+UE1,CH09,UE1-CH09,I00-I99,DISEASES OF THE CIRCULATORY SYSTEM
+UE1,UE34,UE1-UE34,I20-I25,Ischaemic heart diseases
+UE1,UE35,UE1-UE35,"I30-I33, I39-I52",Other heart diseases
+UE1,UE36,UE1-UE36,I60-I69,Cerebrovascular diseases
+UE1,CH10,UE1-CH10,J00-J99,DISEASES OF THE RESPIRATORY SYSTEM
+UE1,UE38,UE1-UE38,J10-J11,Influenza
+UE1,UE39,UE1-UE39,J12-J18,Pneumonia
+UE1,UE40,UE1-UE40,J40-J47,Chronic lower respiratory diseases
+UE1,UE41,UE1-UE41,J45-J46,of which asthma
+UE1,CH11,UE1-CH11,K00-K93,DISEASES OF THE DIGESTIVE SYSTEM
+UE1,UE43,UE1-UE43,K25-K28,"Ulcer of the stomach, duodenum and jejunum"
+UE1,UE44,UE1-UE44,"K70, K73-K74",Chronic liver disease
+UE1,CH12,UE1-CH12,L00-L99,DISEASES OF THE SKIN AND SUBCUTANEOUS TISSUE
+UE1,CH13,UE1-CH13,M00-M99,DISEASES OF THE MUSCULOSKELETAL SYSTEM/CONNECTIVE TISSUE
+UE1,UE47,UE1-UE47,"M05-M06, M15-M19",Rheumatoid arthritis and osteoarthrosis
+UE1,CH14,UE1-CH14,N00-N99,DISEASES OF THE GENITOURINARY SYSTEM
+UE1,UE49,UE1-UE49,N00-N29,Diseases of the kidney and ureter
+UE1,CH15,UE1-CH15,O00-O99,"PREGNANCY, CHILDBIRTH AND THE PUERPERIUM"
+UE1,CH16,UE1-CH16,P00-P96,CERTAIN CONDITIONS ORIGINATING IN THE PERINATL PERIOD
+UE1,CH17,UE1-CH17,Q00-Q99,"CONGENITAL MALFORMATIONS, DEFORMATIONS AND CHROMOSOMAL ABNORMALITIES"
+UE1,UE53,UE1-UE53,Q00-Q07,Congenital malformations of the nervous system
+UE1,UE54,UE1-UE54,Q20-Q28,Congenital malformations of the circulatory system
+UE1,CH18,UE1-CH18,R00-R99,"SYMPTOMS, SIGNS AND ABNORMAL CLINICAL AND LABORATORY FINDINGS, NOT ELSEWHERE CLASSIFIED"
+UE1,UE56,UE1-UE56,R95,Sudden infant death syndrome
+UE1,UE57,UE1-UE57,R96-R99,Uknown and unspecified causes
+UE1,CH20,UE1-CH20,V01-Y89,EXTERNAL CAUSES OF INJURY AND POISONING
+UE1,UE59,UE1-UE59,V01-X59,Accidents
+UE1,UE60,UE1-UE60,V01-V99,of which transport accidents
+UE1,UE61,UE1-UE61,W00-W19,of which accidental falls
+UE1,UE62,UE1-UE62,X40-X49,of which accidental poisoning
+UE1,UE63,UE1-UE63,X60-X84,Suicide and intentional self-harm
+UE1,UE64,UE1-UE64,X85-Y09,"Homicide, assault"
+UE1,UE65,UE1-UE65,Y10-Y34,Events of undetermined intent

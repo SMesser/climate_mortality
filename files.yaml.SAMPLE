@@ -4,3 +4,4 @@ noaa_output_dir: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\process
 who_input_dir:  'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\WHO Mortality ICD-10\\'
 who_filtered_dir: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\filtered WHO\\'
 who_output_dir:  'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\processed WHO\\'
+custom_input_dir: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\climate_mortality\\supplemental_data\\'

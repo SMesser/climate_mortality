@@ -198,16 +198,16 @@ def plot_WHO_raw_death_bar(years):
     go.Figure(
         data=[
             go.Bar(
-                name='Mortality due to {} in {}'.format(l, c),
+                name='Mortality due to {}'.format(l, c),
                 x=full[full['CauseLabel']==l][full['CountryName']==c]['Year'],
                 y=full[full['CauseLabel']==l][full['CountryName']==c]['Mortality'],
                 text=full[full['CauseLabel']==l][full['CountryName']==c]['TextMort']
             )
             for l in sorted(set(full['CauseLabel']))[:40] # TODO: limit is arbitrary; find a better limit
-            for c in sorted(set(full['CountryName']))
+            for c in ['Ukraine']#sorted(set(full['CountryName']))
         ],
         layout={
-            'title': {'text': 'Mortality'},
+            'title': {'text': 'Mortality in Ukraine for various causes'},
             'hoverlabel': {'namelength': -1},
             'yaxis': {'type': 'log'}
         }

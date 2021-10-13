@@ -14,5 +14,16 @@ if __name__ == '__main__':
     # case it needs to be run again, and to document the overall process.
     # trim_NOAA(settings['noaa_input_dir'], settings['noaa_filtered_dir'])
     # group_NOAA(settings['noaa_filtered_dir'], settings['noaa_output_dir'])
+    
+    # WHO population has been trimmed once.
+    #process_WHO_pop(
+    #    settings['who_input_dir'],
+    #    settings['who_output_dir'],
+    #    settings['custom_input_dir']
+    #)
 
-    process_WHO(settings['who_input_dir'], settings['who_output_dir'])
+    process_WHO_dead(
+        settings['who_input_dir'],
+        settings['who_output_dir'],
+        settings['custom_input_dir']
+    )

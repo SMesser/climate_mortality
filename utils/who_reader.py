@@ -8,19 +8,17 @@ from os import listdir, remove
 from os.path import join
 
 from pprint import pformat
+from sys import stdout
 
-'''  # Disabled pyspark because it requires an extra install
-from pyspark import SparkContext
-from pyspark.sql import DataFrameReader
-from pyspark.sql.functions import col
-'''
-
+SEX_DICT = {
+    1: 'Male',
+    2: 'Female',
+    3: 'Unspecified'
+}
 SEX = pd.DataFrame.from_dict([
-    {'Sex': 1, 'Gender': 'Male'},
-    {'Sex': 2, 'Gender': 'Female'},
-    {'Sex': 3, 'Gender': 'Unspecified'}
+    {'Sex': n, 'Gender': s}
+    for n, s in SEX_DICT.items()
 ])
-#SPARK = SparkContext()
 
 # Functions with only external dependencies
 
@@ -102,93 +100,95 @@ def _process_pop_df(raw_population):
     return population
 
 
-def _prepare_mortality_df(source_mort_paths, dest_dir):
+def _prepare_mortality_df(source_mort_paths, dest_dir, population, causes):
     '''Process and return the raw mortality data.'''
+    # Create reference list of columns that are safe to convert to numbers.
+    numerical_columns = [
+        'Year',
+        'Sex'
+    ] + ['Deaths{n}' for n in range(1, 27)]
+    suffixes = [
+        'All',
+        '0',
+        '1-4',
+        '5-14',
+        '15-24',
+        '25-34',
+        '35-44',
+        '45-54',
+        '55-64',
+        '65+',
+        'Unk'
+    ]
     print('Reading mortality data from {}'.format(pformat(source_mort_paths)))
-    source_mort = DataFrameReader(SPARK).csv(path=source_mort_paths[0])
-    n = 1
     
-    while n < len(source_mort_paths):
-        source_mort = source_mort.unionByName(
-            DataFrameReader.csv(source_mort_paths[n])
+    for country_num in set(population['Country']):
+        country_name = set(
+            population[population['Country']==country_num]['CountryName']
         )
-        n += 1
+        print(f'Aggregating {country_name} (#{country_num}) data.')
+        stdout.flush()
+        records = []
+        
+        for file in source_mort_paths:
+            with open(file, 'r') as fp:
+                reader = DictReader(fp)
+                
+                # Filter the source file and drop columns we don't need.
+                for row in reader:
+                    if row['Country'] == country_num:
+                        list_cause = '{}-{}'.format(
+                                row['List'],
+                                row['Cause']
+                            )
+                        row = { # convert blanks to 0
+                            k: float(v) if v else 0
+                            for k, v in row.items()
+                        }
+                        records.append({
+                            'Country': country_num,
+                            'CountryName': country_name,
+                            'Year': row['Year'],
+                            'ListCause': list_cause,
+                            'Gender': SEX_DICT[row['Sex']],
+                            'DeathsAll': row['Deaths1'],
+                            'Deaths0': row['Deaths2'],
+                            'Deaths1-4': row['Deaths3'] + row['Deaths4'] + row['Deaths5'] +row['Deaths6'],
+                            'Deaths5-14': row['Deaths7'] + row['Deaths8'],
+                            'Deaths15-24': row['Deaths9'] + row['Deaths10'],
+                            'Deaths25-34': row['Deaths11'] + row['Deaths12'],
+                            'Deaths35-44': row['Deaths13'] + row['Deaths14'],
+                            'Deaths45-54': row['Deaths15'] + row['Deaths16'],
+                            'Deaths55-64': row['Deaths17'] + row['Deaths18'],
+                            'Deaths65+': row['Deaths19'] + row['Deaths20'] + row['Deaths21'] + row['Deaths22'] + row['Deaths23'] + row['Deaths24'] + row['Deaths25'],
+                            'DeathsUnk': row['Deaths26']
+                        })
+        
+        dead = pd.DataFrame.from_dict(records)
+        dead = pd.merge(
+            left=dead,
+            on=('CountryName', 'Year', 'Country', 'Gender'),
+            right=population
+        )
+        dead.rename(
+            columns={'Pop1': 'PopAll', 'Pop2': 'Pop0', 'Pop26': 'PopUnk'},
+            inplace=True
+        )
+        for suffix in suffixes:
+            dead['Mort'+suffix] = dead['Deaths'+suffix]/dead['Pop'+suffix]
 
-    mortality = source_mort.filter(mortality.Year >= 1995).fillna(0).drop([
-        'Frmat',
-        'IM_Frmat',
-        'IM_Deaths1',
-        'IM_Deaths2',
-        'IM_Deaths3',
-        'IM_Deaths4',
-        'Admin1',
-        'SubDiv'
-    ]).withColumn(
-    # Combine age groups to coarsest age format ("08")
-        "Deaths1-4",
-        col("Deaths3")+col('Deaths4')+col('Deaths5')+col('Deaths6')
-    ).withColumn(
-        "Deaths5-14",
-        col("Deaths7")+col('Deaths8')
-    ).withColumn(
-        "Deaths15-24",
-        col("Deaths10")+col('Deaths9')
-    ).withColumn(
-        "Deaths25-34",
-        col("Deaths12")+col('Deaths11')
-    ).withColumn(
-        "Deaths35-44",
-        col("Deaths14")+col('Deaths13')
-    ).withColumn(
-        "Deaths45-54",
-        col("Deaths16")+col('Deaths15')
-    ).withColumn(
-        "Deaths55-64",
-        col("Deaths18")+col('Deaths17')
-    ).withColumn(
-        "Deaths65+",
-        col("Deaths19")+col('Deaths20')+col('Deaths21')+col('Deaths22')+col('Deaths23')+col('Deaths24')+col('Deaths25')
-    ).drop([
-        'Deaths3', 'Deaths4', 'Deaths5', 'Deaths6', 'Deaths7', 'Deaths8',
-        'Deaths9', 'Deaths10', 'Deaths11', 'Deaths12', 'Deaths13', 'Deaths14',
-        'Deaths15', 'Deaths16', 'Deaths17', 'Deaths18', 'Deaths19', 'Deaths20',
-        'Deaths21', 'Deaths22', 'Deaths23', 'Deaths24', 'Deaths25'
-    # Aggregate by (Country, Year, Sex) to deduplicate  Admin1 and Subdiv1
-    ]).groupBy(['Country', 'Year', 'Sex', 'Cause']).agg(
-        sum('Deaths1').alias('AllDead'),
-        sum('Deaths2').alias('Dead0'),
-        sum('Deaths1-4').alias('Dead1-4'),
-        sum('Deaths5-14').alias('Dead5-14'),
-        sum('Deaths15-24').alias('Dead15-24'),
-        sum('Deaths25-34').alias('Dead25-34'),
-        sum('Deaths35-44').alias('Dead35-44'),
-        sum('Deaths45-54').alias('Dead45-54'),
-        sum('Deaths55-64').alias('Dead55-64'),
-        sum('Deaths65+').alias('Dead65+'),
-        sum('Deaths26').alias('DeadUnknown')
-    ).drop([
-        'Deaths1',
-        'Deaths2',
-        'Deaths1-4',
-        'Deaths5-14',
-        'Deaths15-24',
-        'Deaths25-34',
-        'Deaths35-44',
-        'Deaths45-54',
-        'Deaths55-64',
-        'Deaths65+',
-        'DeathsUnknown'
-    ])
-    mortality.write.csv(join(dest_dir, 'reformatted_mortality.csv'))
+        dead = pd.merge(left=dead, on='ListCause', right=causes)
+        del dead['List']
+        del dead['Code']
+        del dead['Detailed code']
+        dead.write.csv(join(dest_dir, '{}_mortality.csv'.format(country_name)))
     # Need mortality['List'] to correctly interpret mortality['Cause']
     # TODO: Check sum against "all ages" column Pop1
-    # TODO: Handle "Unknown age" column
     # TODO: Handle "IM" columns (infant mortality)
-    return mortality
 
 
-def process_WHO(source_dir, dest_dir):
-    '''Preprocess WHO mortality data
+def process_WHO_pop(source_dir, dest_dir, supp_dir):
+    '''Preprocess WHO population data
 
     * Drop IM mortality data after confirming the entries are either all blank
     or sum to the lowest regular age bracket's deaths (0-1 y.o.).
@@ -215,31 +215,33 @@ def process_WHO(source_dir, dest_dir):
     population = population.rename(columns={'name': 'CountryName'})
     print(population.columns)
     population.to_csv(join(dest_dir, 'population.csv'), index=False)
+
+
+def process_WHO_dead(source_dir, dest_dir, supp_dir):
+    '''Preprocess WHO mortality data
+
+    * Drop IM mortality data after confirming the entries are either all blank
+    or sum to the lowest regular age bracket's deaths (0-1 y.o.).
+    * Treat all blanks as zeroes.
+    * After ingestion, check the sum across all age groups matches the count in
+    the "all ages" column. Reject any rows that do not match, unless the
+    all-ages column was blank.
+    * Drop rows for which I cannot find a SHP boundary record.
+
+    Individual mortality files are too large for in-memory Pandas DataFrames.
+    Instead read them as CSVs
+    '''
+    # Process the raw population counts, via Pandas for simplicity
+    population = pd.read_csv(join(dest_dir, 'population.csv'))
     source_mort_paths = [
         join(source_dir, fname)
         for fname in listdir(source_dir)
         if fname.endswith('.csv') and fname.startswith('Morticd10')
     ]
-
-    #mortality = _prepare_mortality_df(source_mort_paths, dest_dir)
-    
-    
-    '''
-    for fname in listdir(source_dir):
-        if fname.endswith('.csv') and fname.startswith('Morticd10'):
-            fpath = join(source_dir, fname)
-            print(f'Processing {fpath}')
-            mortality_df_list.append(_prepare_mortality_df(pd.read_csv(fpath)))
-            
-    mortality = pd.concat(mortality_df_list)
-    del mortality_df_list
-    mortality = pd.merge(
-        left=mortality,
-        left_on='Country',
-        right=countries,
-        right_on='country'
+    causes = pd.read_csv(join(supp_dir, 'WHOCauseCodes.csv'))
+    _prepare_mortality_df(
+        source_mort_paths,
+        dest_dir,
+        population,
+        causes
     )
-    mortality.to_csv(join(dest_dir, 'death_counts.csv'), index=False)
-    #mortality = pd.merge(
-    del countries
-    '''

@@ -98,6 +98,9 @@ def plot_NOAA_samples():
     plot_NOAA_var('TMIN', 2001, 11)
     plot_NOAA_var('TMAX', 1997, 9)
     plot_NOAA_var('EMXT', 1999, 4)
+    plot_NOAA_var('PRCP', 1995, 10)
+    plot_NOAA_var('TAVG', 1995, 10)
+    plot_NOAA_var('PRCP', 2015, 10)
 
 # WHO data
 
@@ -165,6 +168,52 @@ def plot_WHO_death_bar(df, countries):
     ).show()
 
 
+def plot_WHO_raw_death_bar(years):
+    '''Plot death counters with ambiguous labels'''
+    raw_mort = pd.read_csv(
+        join(settings['who_input_dir'], 'Morticd10_part5.csv')
+    )
+    raw_mort = raw_mort[['Country', 'Year', 'List', 'Cause', 'Deaths1']]
+    names = pd.read_csv(join(settings['who_input_dir'], 'country_codes.csv'))
+    df = pd.merge(left=raw_mort, left_on='Country', right=names, right_on='country')
+    df = df.rename(columns={'name': 'CountryName'})
+    df = df.groupby(['CountryName', 'Year', 'List', 'Cause']).sum().reset_index()
+    df['CauseLabel'] = df['List'].map(str) + '-' + df['Cause'].map(str)
+    df = df[['CountryName', 'Year', 'CauseLabel', 'Deaths1']][df['Deaths1'] > 0]
+    print('There are {} causes and {} countries before merge with population data'.format(
+        len(set(df['CauseLabel'])),
+        len(set(df['CountryName']))
+    ))
+    pop = pd.read_csv(join(settings['who_output_dir'], 'population.csv'))
+    pop = pop[['CountryName', 'Year', 'Pop1']][pop['Pop1'] > 0]
+    pop = pop.groupby(['CountryName', 'Year']).sum()
+    full = pd.merge(left=df, on=('CountryName', 'Year'), right=pop)
+    full['Mortality'] = full['Deaths1']/full['Pop1']
+    full['TextMort'] = full['Deaths1'].map(str) + ' in ' + full['Pop1'].map(str)
+    full = full[['CountryName', 'Year', 'Mortality', 'CauseLabel', 'TextMort']][full['Year'].isin(years)]
+    print('There are {} causes and {} countries after merge with population data'.format(
+        len(set(full['CauseLabel'])),
+        len(set(full['CountryName']))
+    ))
+    go.Figure(
+        data=[
+            go.Bar(
+                name='Mortality due to {} in {}'.format(l, c),
+                x=full[full['CauseLabel']==l][full['CountryName']==c]['Year'],
+                y=full[full['CauseLabel']==l][full['CountryName']==c]['Mortality'],
+                text=full[full['CauseLabel']==l][full['CountryName']==c]['TextMort']
+            )
+            for l in sorted(set(full['CauseLabel']))[:40] # TODO: limit is arbitrary; find a better limit
+            for c in sorted(set(full['CountryName']))
+        ],
+        layout={
+            'title': {'text': 'Mortality'},
+            'hoverlabel': {'namelength': -1},
+            'yaxis': {'type': 'log'}
+        }
+    ).show()
+    
+
 ##### Script entry point #####
 
 if __name__ == '__main__':
@@ -174,7 +223,4 @@ if __name__ == '__main__':
     # Comment out plots which don't need to be regenerated.
     # plot_NOAA_samples()
     # plot_WHO_samples()
-    plot_NOAA_var('PRCP', 1995, 10)
-    plot_NOAA_var('TAVG', 1995, 10)
-    plot_NOAA_var('PRCP', 2015, 10)
-    
+    plot_WHO_raw_death_bar(years=[2018])

@@ -9,7 +9,6 @@ import plotly.graph_objects as go
 from os.path import join
 from yaml import safe_load
 
-
 with open('./files.yaml', 'r') as fp:
     settings = safe_load(fp)
 
@@ -60,8 +59,12 @@ def get_NOAA_colorscale(var):
 
 # WHO utils
 
-def get_WHO_data():
-    df = pd.read_csv(join(settings['who_output_dir'], 'mortality.csv'))
+def _get_WHO_population_df():
+    processed_dir = settings['who_output_dir']
+    population = pd.read_csv(join(processed_dir, 'population.csv'))
+    del population['Sex']
+    del population['Country']
+    return population
 
 ##### direct-output data-plot functions #####
 
@@ -84,13 +87,57 @@ def plot_NOAA_var(var, year, month):
         layout={
             'title': {'text': make_NOAA_title(var, year, month)}
         }
-    )
+    ).show()
 
-    fig.show()
 
+def plot_NOAA_samples():
+    '''A collection of several NOAA datasets demonstrating data breadth.'''
+    plot_NOAA_var('PRCP', 1995, 10)
+    plot_NOAA_var('EMNT', 2013, 7)
+    plot_NOAA_var('TAVG', 1998, 8)
+    plot_NOAA_var('TMIN', 2001, 11)
+    plot_NOAA_var('TMAX', 1997, 9)
+    plot_NOAA_var('EMXT', 1999, 4)
 
 # WHO data
 
+def plot_WHO_pop_growth(countries=None, years=None, barmode='group'):
+    '''Plot total population for multiple years and countries'''
+    pop = _get_WHO_population_df()
+    df = pop.groupby(
+        ['CountryName', 'Year']
+    ).sum().reset_index()[['CountryName', 'Year', 'Pop1']]
+
+    if countries is None:
+        country_list = sorted(set(df['CountryName']))
+    else:
+        country_list = sorted(countries)
+    
+    if years is not None:
+        df = df[df['Year'].isin(years)]
+        
+    go.Figure(
+        data=[
+            go.Bar(
+                x=df[df['CountryName']==name]['Year'],
+                y=df[df['CountryName']==name]['Pop1'],
+                name=name
+            )
+            for name in country_list
+        ],
+        layout={
+            'title': {'text': 'Population by year and country.'},
+            'barmode': barmode
+        }
+    ).show()
+
+
+def plot_WHO_samples():
+    '''Plot representative slices of WHO data.'''
+    plot_WHO_pop_growth(barmode='stack')
+    plot_WHO_pop_growth(countries=['Brazil', 'China', 'India', 'United States of America', 'Russian Federation'])
+
+    
 def plot_WHO_chloropleth(cause, year):
     '''Compare global death rates for a single cause of death in a year.'''
     raise NotImplementedError('Fill in this function.')
@@ -124,10 +171,10 @@ if __name__ == '__main__':
     with open('./files.yaml', 'r') as fp:
         settings = safe_load(fp)
 
+    # Comment out plots which don't need to be regenerated.
+    # plot_NOAA_samples()
+    # plot_WHO_samples()
     plot_NOAA_var('PRCP', 1995, 10)
-    plot_NOAA_var('EMNT', 2013, 7)
-    plot_NOAA_var('TAVG', 1998, 8)
-    plot_NOAA_var('TMIN', 2001, 11)
-    plot_NOAA_var('TMAX', 1997, 9)
-    plot_NOAA_var('EMXT', 1999, 4)
-
+    plot_NOAA_var('TAVG', 1995, 10)
+    plot_NOAA_var('PRCP', 2015, 10)
+    

@@ -6,14 +6,21 @@ from csv import DictReader, DictWriter
 
 from os import listdir, remove
 from os.path import join
+
+from pprint import pformat
+
+'''  # Disabled pyspark because it requires an extra install
+from pyspark import SparkContext
 from pyspark.sql import DataFrameReader
 from pyspark.sql.functions import col
+'''
 
 SEX = pd.DataFrame.from_dict([
     {'Sex': 1, 'Gender': 'Male'},
     {'Sex': 2, 'Gender': 'Female'},
     {'Sex': 3, 'Gender': 'Unspecified'}
 ])
+#SPARK = SparkContext()
 
 # Functions with only external dependencies
 
@@ -95,9 +102,10 @@ def _process_pop_df(raw_population):
     return population
 
 
-def _prepare_mortality_df(source_mort_paths):
+def _prepare_mortality_df(source_mort_paths, dest_dir):
     '''Process and return the raw mortality data.'''
-    source_mort = DataFrameReader.csv(source_mort_paths[0])
+    print('Reading mortality data from {}'.format(pformat(source_mort_paths)))
+    source_mort = DataFrameReader(SPARK).csv(path=source_mort_paths[0])
     n = 1
     
     while n < len(source_mort_paths):
@@ -116,6 +124,7 @@ def _prepare_mortality_df(source_mort_paths):
         'Admin1',
         'SubDiv'
     ]).withColumn(
+    # Combine age groups to coarsest age format ("08")
         "Deaths1-4",
         col("Deaths3")+col('Deaths4')+col('Deaths5')+col('Deaths6')
     ).withColumn(
@@ -144,22 +153,34 @@ def _prepare_mortality_df(source_mort_paths):
         'Deaths9', 'Deaths10', 'Deaths11', 'Deaths12', 'Deaths13', 'Deaths14',
         'Deaths15', 'Deaths16', 'Deaths17', 'Deaths18', 'Deaths19', 'Deaths20',
         'Deaths21', 'Deaths22', 'Deaths23', 'Deaths24', 'Deaths25'
-    ]).groupBy(['Country', 'Year', 'Sex', 'Cause']).agg(
-        sum('Deaths1').alias('AllDeaths'),
-        sum('Deaths1').alias(),
-        sum('Deaths1').alias(),
-        sum('Deaths1').alias(),
-        sum('Deaths1').alias(),
-        sum('Deaths1').alias(),
-        sum('Deaths1').alias(),
-    )
-    
-    # Need mortality['List'] to correctly interpret mortality['Cause']
     # Aggregate by (Country, Year, Sex) to deduplicate  Admin1 and Subdiv1
-    mortality = mortality.sum()
-    mortality = mortality.reset_index()
-    # Combine age groups to coarsest age format ("08")
-    mortality = _consolidate_age_groups(mortality, prefix='Died')
+    ]).groupBy(['Country', 'Year', 'Sex', 'Cause']).agg(
+        sum('Deaths1').alias('AllDead'),
+        sum('Deaths2').alias('Dead0'),
+        sum('Deaths1-4').alias('Dead1-4'),
+        sum('Deaths5-14').alias('Dead5-14'),
+        sum('Deaths15-24').alias('Dead15-24'),
+        sum('Deaths25-34').alias('Dead25-34'),
+        sum('Deaths35-44').alias('Dead35-44'),
+        sum('Deaths45-54').alias('Dead45-54'),
+        sum('Deaths55-64').alias('Dead55-64'),
+        sum('Deaths65+').alias('Dead65+'),
+        sum('Deaths26').alias('DeadUnknown')
+    ).drop([
+        'Deaths1',
+        'Deaths2',
+        'Deaths1-4',
+        'Deaths5-14',
+        'Deaths15-24',
+        'Deaths25-34',
+        'Deaths35-44',
+        'Deaths45-54',
+        'Deaths55-64',
+        'Deaths65+',
+        'DeathsUnknown'
+    ])
+    mortality.write.csv(join(dest_dir, 'reformatted_mortality.csv'))
+    # Need mortality['List'] to correctly interpret mortality['Cause']
     # TODO: Check sum against "all ages" column Pop1
     # TODO: Handle "Unknown age" column
     # TODO: Handle "IM" columns (infant mortality)
@@ -191,13 +212,16 @@ def process_WHO(source_dir, dest_dir):
         right_on='country'
     )
     del population['country']
+    population = population.rename(columns={'name': 'CountryName'})
+    print(population.columns)
     population.to_csv(join(dest_dir, 'population.csv'), index=False)
     source_mort_paths = [
         join(source_dir, fname)
         for fname in listdir(source_dir)
         if fname.endswith('.csv') and fname.startswith('Morticd10')
     ]
-    mortality = _prepare_mortality_df(source_mort_paths)
+
+    #mortality = _prepare_mortality_df(source_mort_paths, dest_dir)
     
     
     '''

@@ -3,7 +3,7 @@
 from yaml import safe_load
 
 from utils.noaa_reader import group_NOAA, trim_NOAA
-from utils.who_reader import process_WHO
+from utils.who_reader import process_WHO_dead, process_WHO_pop
 
 
 if __name__ == '__main__':

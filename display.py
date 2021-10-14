@@ -92,15 +92,17 @@ def plot_NOAA_var(var, year, month):
 
 def plot_NOAA_samples():
     '''A collection of several NOAA datasets demonstrating data breadth.'''
+    '''
     plot_NOAA_var('PRCP', 1995, 10)
     plot_NOAA_var('EMNT', 2013, 7)
     plot_NOAA_var('TAVG', 1998, 8)
     plot_NOAA_var('TMIN', 2001, 11)
     plot_NOAA_var('TMAX', 1997, 9)
     plot_NOAA_var('EMXT', 1999, 4)
-    plot_NOAA_var('PRCP', 1995, 10)
-    plot_NOAA_var('TAVG', 1995, 10)
-    plot_NOAA_var('PRCP', 2015, 10)
+    '''
+    plot_NOAA_var('PRCP', 1995, 7)
+    plot_NOAA_var('TAVG', 1995, 7)
+    plot_NOAA_var('TAVG', 2015, 7)
 
 # WHO data
 
@@ -221,6 +223,6 @@ if __name__ == '__main__':
         settings = safe_load(fp)
 
     # Comment out plots which don't need to be regenerated.
-    # plot_NOAA_samples()
+    plot_NOAA_samples()
     # plot_WHO_samples()
-    plot_WHO_raw_death_bar(years=[2018])
+    # plot_WHO_raw_death_bar(years=[2018])

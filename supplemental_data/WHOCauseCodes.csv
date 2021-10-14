@@ -151,7 +151,7 @@ List,Code,ListCause,Detailed code,Cause
 07A,A149,07A-A149,"E964, E980-E985",Homicide and injury purposely inflicted by other persons (not in war)
 07A,A150,07A-A150,"E965, E990-E999",Injury resulting from operations of war
 07A,S47,07A-S47,"E800-E802, E840-E962","All other accidental causes  (only applied for Trinidad and Tobago, 1967 and 1968 where the data do not contain a breakdown of all other accidental causes (A139-A147)."
-07A,CH17,07A-CH17,E800-E999,"CHAPTER XVII Ð Accidents, Poisoning, and Violence (Only applied for some countries-years when the data do not contain a breakdown of all external causes (A138-A150)."
+07A,CH17,07A-CH17,E800-E999,"CHAPTER XVII ? Accidents, Poisoning, and Violence (Only applied for some countries-years when the data do not contain a breakdown of all external causes (A138-A150)."
 07A,140,07A-140,140,MN of lip
 07A,141,07A-141,141,MN of tongue
 07A,142,07A-142,142,MN of salivary gland
@@ -412,7 +412,7 @@ List,Code,ListCause,Detailed code,Cause
 08A,A149,08A-A149,E980-E989,Injury undetermined whether accidentally or purposely inflicted
 08A,A150,08A-A150,E990-E999,Injury resulting from operations of war
 08A,S47,08A-S47,E800-E949,All accidental causes  (Only applied for Poland 1972-1979 where the data do not contain a breakdown of all accidental causes by A138-A146).
-08A,CH17,08A-CH17,E800-E999,"CHAPTER XVII Ð Accidents, Poisoning, and Violence (Only applied for some countries-years when the data do not contain a breakdown of all external causes by A138-A150)."
+08A,CH17,08A-CH17,E800-E999,"CHAPTER XVII ? Accidents, Poisoning, and Violence (Only applied for some countries-years when the data do not contain a breakdown of all external causes by A138-A150)."
 08A,140,08A-140,140,MN of lip
 08A,141,08A-141,141,MN of tongue
 08A,142,08A-142,142,MN of salivary gland
@@ -905,7 +905,7 @@ List,Code,ListCause,Detailed code,Cause
 09A,B561,09A-B561,E990-E999,Injury resulting from operation of war
 09A,B569,09A-B569,,Remainder of B56
 09A,S47,09A-S47,,All accidental causes  (Only applied for Bahamas 1983 where the data do not contain a breakdown of all accidental causes by B47-B52).
-09A,CH17,09A-CH17,,CHAPTER XVII Ð Injury and Poisoning (Only applied for some countries-years when the data do not contain a breakdown of all external causes by B47-B56).
+09A,CH17,09A-CH17,,CHAPTER XVII ? Injury and Poisoning (Only applied for some countries-years when the data do not contain a breakdown of all external causes by B47-B56).
 09A,140,09A-140,140,MN OF LIP
 09A,141,09A-141,141,MN OF TONGUE
 09A,1410,09A-1410,1410,MN OF BASE OF TONGUE
@@ -1299,7 +1299,7 @@ List,Code,ListCause,Detailed code,Cause
 09B,B561,09B-B561,E990-E999,Injury resulting from operation of war
 09B,B569,09B-B569,,Remainder of B56
 09B,S47,09B-S47,,All accidental causes  (Only applied for Bahamas 1983 where the data do not contain a breakdown of all accidental causes by B47-B52).
-09B,CH17,09B-CH17,,CHAPTER XVII Ð Injury and Poisoning (Only applied for some countries-years when the data do not contain a breakdown of all external causes by B47-B56).
+09B,CH17,09B-CH17,,CHAPTER XVII ? Injury and Poisoning (Only applied for some countries-years when the data do not contain a breakdown of all external causes by B47-B56).
 09B,140,09B-140,140,MN OF LIP
 09B,141,09B-141,141,MN OF TONGUE
 09B,1410,09B-1410,1410,MN OF BASE OF TONGUE

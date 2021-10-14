@@ -106,7 +106,7 @@ def _prepare_mortality_df(source_mort_paths, dest_dir, population, causes):
     numerical_columns = [
         'Year',
         'Sex'
-    ] + ['Deaths{n}' for n in range(1, 27)]
+    ] + [f'Deaths{n}' for n in range(1, 27)]
     suffixes = [
         'All',
         '0',
@@ -125,32 +125,34 @@ def _prepare_mortality_df(source_mort_paths, dest_dir, population, causes):
     for country_num in set(population['Country']):
         country_name = set(
             population[population['Country']==country_num]['CountryName']
-        )
+        ).pop()
         print(f'Aggregating {country_name} (#{country_num}) data.')
         stdout.flush()
         records = []
         
-        for file in source_mort_paths:
-            with open(file, 'r') as fp:
+        for filename in source_mort_paths:
+            print(f'Checking {filename}')
+            
+            with open(filename, 'r') as fp:
                 reader = DictReader(fp)
                 
                 # Filter the source file and drop columns we don't need.
                 for row in reader:
-                    if row['Country'] == country_num:
+                    if int(row['Country']) == int(country_num):
                         list_cause = '{}-{}'.format(
-                                row['List'],
-                                row['Cause']
-                            )
+                            row['List'],
+                            row['Cause']
+                        )
                         row = { # convert blanks to 0
-                            k: float(v) if v else 0
-                            for k, v in row.items()
+                            k: float(row[k]) if row[k] else 0
+                            for k in numerical_columns
                         }
                         records.append({
                             'Country': country_num,
                             'CountryName': country_name,
                             'Year': row['Year'],
                             'ListCause': list_cause,
-                            'Gender': SEX_DICT[row['Sex']],
+                            'Gender': SEX_DICT.get(row['Sex'], 'Unspecified'),
                             'DeathsAll': row['Deaths1'],
                             'Deaths0': row['Deaths2'],
                             'Deaths1-4': row['Deaths3'] + row['Deaths4'] + row['Deaths5'] +row['Deaths6'],
@@ -164,24 +166,48 @@ def _prepare_mortality_df(source_mort_paths, dest_dir, population, causes):
                             'DeathsUnk': row['Deaths26']
                         })
         
-        dead = pd.DataFrame.from_dict(records)
-        dead = pd.merge(
-            left=dead,
-            on=('CountryName', 'Year', 'Country', 'Gender'),
-            right=population
-        )
-        dead.rename(
-            columns={'Pop1': 'PopAll', 'Pop2': 'Pop0', 'Pop26': 'PopUnk'},
-            inplace=True
-        )
-        for suffix in suffixes:
-            dead['Mort'+suffix] = dead['Deaths'+suffix]/dead['Pop'+suffix]
+        output_path = join(dest_dir, '{}_mortality.csv'.format(country_name))
 
-        dead = pd.merge(left=dead, on='ListCause', right=causes)
-        del dead['List']
-        del dead['Code']
-        del dead['Detailed code']
-        dead.write.csv(join(dest_dir, '{}_mortality.csv'.format(country_name)))
+        if len(records) > 0:
+            print(f'Found {len(records)} death records.')
+            dead = pd.DataFrame.from_dict(records)
+            dead = pd.merge(
+                left=dead,
+                on=('CountryName', 'Year', 'Country', 'Gender'),
+                right=population
+            )
+            dead.rename(
+                columns={'Pop1': 'PopAll', 'Pop2': 'Pop0', 'Pop26': 'PopUnk'},
+                inplace=True
+            )
+            
+            for suffix in suffixes:
+                dead['Mort'+suffix] = dead['Deaths'+suffix]/dead['Pop'+suffix]
+
+            mort = pd.merge(left=dead, on='ListCause', right=causes)
+            if mort.shape[0] > 0:
+                print(
+                    f'Writing {mort.shape[0]} records and {mort.shape[1]} columns.'
+                ) 
+                del mort['List']
+                del mort['Code']
+                del mort['Detailed code']
+                mort.to_csv(
+                    output_path,
+                    index=False
+                )
+            else:
+                print(
+                    'Failed to recognize any codes for {} (#{}): {}'.format(
+                        country_name,
+                        country_num,
+                        sorted(set(dead['ListCause']))
+                    )
+                )
+                remove(output_path)
+        else:
+            print(f'Found no records for {country_name}')
+            remove(output_path)
     # Need mortality['List'] to correctly interpret mortality['Cause']
     # TODO: Check sum against "all ages" column Pop1
     # TODO: Handle "IM" columns (infant mortality)

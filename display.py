@@ -206,7 +206,7 @@ def plot_WHO_raw_death_bar(years):
                 text=full[full['CauseLabel']==l][full['CountryName']==c]['TextMort']
             )
             for l in sorted(set(full['CauseLabel']))[:40] # TODO: limit is arbitrary; find a better limit
-            for c in ['Ukraine']#sorted(set(full['CountryName']))
+            for c in sorted(set(full['CountryName']))
         ],
         layout={
             'title': {'text': 'Mortality in Ukraine for various causes'},
@@ -214,7 +214,30 @@ def plot_WHO_raw_death_bar(years):
             'yaxis': {'type': 'log'}
         }
     ).show()
-    
+
+
+def plot_WHO_mortality_bar(years):
+    mort = pd.read_csv(
+        join(settings['who_output_dir'], 'Cyprus_mortality.csv')
+    )
+    mort = mort[mort['DeathsAll']>0][mort['Year'].isin(years)]
+    go.Figure(
+        data=[
+            go.Bar(
+                name=set(mort[mort['ListCause']==l][mort['CountryName']==c]['Cause']).pop()[:50],
+                x=mort[mort['ListCause']==l][mort['CountryName']==c]['Year'],
+                y=mort[mort['ListCause']==l][mort['CountryName']==c]['MortAll'],
+                text=mort[mort['ListCause']==l][mort['CountryName']==c]['Cause']
+            )
+            for l in sorted(set(mort['ListCause']))[:40] # TODO: limit is arbitrary; find a better limit
+            for c in sorted(set(full['CountryName']))
+        ],
+        layout={
+            'title': {'text': 'Mortality in Cyprus for various causes'},
+            'hoverlabel': {'namelength': -1},
+            'yaxis': {'type': 'log'}
+        }
+    ).show()
 
 ##### Script entry point #####
 
@@ -223,6 +246,8 @@ if __name__ == '__main__':
         settings = safe_load(fp)
 
     # Comment out plots which don't need to be regenerated.
-    plot_NOAA_samples()
+    # plot_NOAA_samples()
     # plot_WHO_samples()
     # plot_WHO_raw_death_bar(years=[2018])
+    plot_WHO_mortality_bar(years=[2018])
+    

@@ -5,7 +5,7 @@ import pandas as pd
 from csv import DictReader, DictWriter
 
 from os import listdir, remove
-from os.path import join
+from os.path import isfile, join
 
 from pprint import pformat
 from sys import stdout
@@ -184,7 +184,11 @@ def _prepare_mortality_df(source_mort_paths, dest_dir, population, causes):
             for suffix in suffixes:
                 dead['Mort'+suffix] = dead['Deaths'+suffix]/dead['Pop'+suffix]
 
-            mort = pd.merge(left=dead, on='ListCause', right=causes)
+            mort = pd.merge(left=dead, on='ListCause', right=causes, how='left')
+            mort['Cause'] = mort['Cause'].where(
+                mort['Cause'].notnull(),
+                other=mort['ListCause']
+            )
             if mort.shape[0] > 0:
                 print(
                     f'Writing {mort.shape[0]} records and {mort.shape[1]} columns.'
@@ -198,16 +202,18 @@ def _prepare_mortality_df(source_mort_paths, dest_dir, population, causes):
                 )
             else:
                 print(
-                    'Failed to recognize any codes for {} (#{}): {}'.format(
+                    'Failed to recognize any codes for {} (#{}): e.g. {}'.format(
                         country_name,
                         country_num,
-                        sorted(set(dead['ListCause']))
+                        list(set(dead['ListCause']))[:10]
                     )
                 )
-                remove(output_path)
+                if isfile(output_path):
+                    remove(output_path)
         else:
             print(f'Found no records for {country_name}')
-            remove(output_path)
+            if isfile(output_path):
+                remove(output_path)
     # Need mortality['List'] to correctly interpret mortality['Cause']
     # TODO: Check sum against "all ages" column Pop1
     # TODO: Handle "IM" columns (infant mortality)

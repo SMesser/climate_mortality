@@ -14,6 +14,7 @@ from os import listdir
 from os.path import join
 
 from string import whitespace
+from sys import stdout
 
 # Lower-level / independent functions are near the top.
 # Functions which depend on them are further down.
@@ -94,7 +95,7 @@ def asc_to_array(
             total += 1
             if item_str != fmt.null:
                 xpos = fmt.xllcorner + xn * fmt.cellsize
-                ypos = fmt.yllcorner + yn * fmt.cellsize
+                ypos = fmt.yllcorner + (fmt.nrows - yn) * fmt.cellsize
                 
                 if not (skip_this_ndx(xn, yn, xskip, yskip) or skip_this_pos(xpos, ypos, xmin=-180, xmax=180, ymin=-90, ymax=90)):
                     data_array.append(
@@ -160,7 +161,7 @@ def asc_to_filtered_csv(
     )
     
     with open(outfile, 'w') as outf:
-        outf.write('x, y, {}\n'.format(label))
+        outf.write('LONGITUDE,LATITUDE,{}\n'.format(label))
         for ln in arr:
             outf.write('{}, {}, {}\n'.format(ln[0], ln[1], ln[2]))
 
@@ -193,7 +194,10 @@ def filter_asc_dir(
     for fname in listdir(source_dir):
         if fname.endswith('.asc'):
             source_fn = join(source_dir, fname)
-            dest_fn = join(dest_dir, fname)
+            name_parts = fname.split('.')
+            name_parts[-1] = 'csv'
+            dest_name = '.'.join(name_parts)
+            dest_fn = join(dest_dir, dest_name)
             print(f'Processing {source_fn} -> {dest_fn}')
             asc_to_filtered_csv(
                 source_fn,
@@ -206,6 +210,7 @@ def filter_asc_dir(
                 ymin=-90,
                 ymax=90
             )
+            stdout.flush()
 
 # Classes
 

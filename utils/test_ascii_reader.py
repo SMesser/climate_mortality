@@ -110,9 +110,16 @@ class ASCIITest(TestCase):
         # Check first elementin detail
         self.assertEqual(len(arr[0]), 3)
         self.assertAlmostEqual(arr[0][0], -119.99999687076, 4)
-        self.assertAlmostEqual(arr[0][1], -9.9999973922968, 4)
         self.assertAlmostEqual(arr[0][2], 79.0, 4)
+        
+        with open(TEST_ASC, 'r') as fp:
+            fmt = ASCIIFormat(fp)
 
+        longitude = [loc[0] for loc in arr]
+        self.assertGreaterEqual(min(longitude), fmt.xllcorner)
+        latitude = [loc[1] for loc in arr]
+        self.assertGreaterEqual(min(latitude), fmt.yllcorner)
+        
     # Test classes.
 
     def test_init_ASCIIFormat(self):

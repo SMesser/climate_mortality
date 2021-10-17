@@ -43,12 +43,16 @@ if __name__ == '__main__':
     
     filter_asc_dir(
         join(
-            settings['ccafs_input_dir'],
-            'cccma_canesm2_rcp4_5_2030s_prec_30s_r1i1p1_b2_asc'
+            settings['cmip5_input_dir'],
+            'cccma_canesm2_rcp4_5_2030s_prec_30s_r1i1p1_b2_asc',
+            'prec_b2'
         ),
-        
         join(
-            settings['ccafs_output_dir'],
-            'cccma_canesm2_rcp4_5_2030s_prec_30s_r1i1p1_b2_asc'
+            settings['cmip5_output_dir'],
+            'cccma_canesm2_rcp4_5_2030s_prec_30s_r1i1p1_b2_asc',
+            'prec_b2'
         ),
+        xskip=100,
+        yskip=100,
+        label='PRCP'
     )

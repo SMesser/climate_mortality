@@ -9,6 +9,10 @@ Output format is CSV, and can be filtered during read.
 import sys
 
 from math import ceil, floor
+
+from os import listdir
+from os.path import join
+
 from string import whitespace
 
 # Lower-level / independent functions are near the top.
@@ -159,6 +163,49 @@ def asc_to_filtered_csv(
         outf.write('x, y, {}\n'.format(label))
         for ln in arr:
             outf.write('{}, {}, {}\n'.format(ln[0], ln[1], ln[2]))
+
+
+def filter_asc_dir(
+    source_dir,
+    dest_dir,
+    xskip=0,
+    yskip=0,
+    label='value',
+    xmin=-180,
+    xmax=180,
+    ymin=-90,
+    ymax=90
+):
+    '''Process all ASC files in the source directory.
+
+    Inputs:
+        source_dir   directory of the ASCII file source
+        dest_dir     directory of the CSV file destination
+        xskip=0     number of x columns to skip between retained values
+        yskip=0     number of y rows to skip between retained values
+        label="value" name of the "value" column in the output CSV
+        xmin=-180   minimum x position
+        xmax=180    maximum x position
+        ymin=-90    minimum y position
+        ymax=90     maximum y position
+    '''
+    
+    for fname in listdir(source_dir):
+        if fname.endswith('.asc'):
+            source_fn = join(source_dir, fname)
+            dest_fn = join(dest_dir, fname)
+            print(f'Processing {source_fn} -> {dest_fn}')
+            asc_to_filtered_csv(
+                source_fn,
+                dest_fn,
+                xskip=xskip,
+                yskip=yskip,
+                label=label,
+                xmin=-180,
+                xmax=180,
+                ymin=-90,
+                ymax=90
+            )
 
 # Classes
 

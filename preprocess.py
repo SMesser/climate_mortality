@@ -3,7 +3,7 @@
 from os.path import join
 from yaml import safe_load
 
-from utils.ascii_reader import filter_asc_dir
+from utils.ascii_reader import filter_tree
 from utils.noaa_reader import group_NOAA, trim_NOAA
 from utils.who_reader import process_WHO_dead, process_WHO_pop
 
@@ -41,18 +41,4 @@ if __name__ == '__main__':
     '''
     print('\n###########  BEGINNING PROCESSING OF CMIP5 DATA  ############\n')
     
-    filter_asc_dir(
-        join(
-            settings['cmip5_input_dir'],
-            'cccma_canesm2_rcp4_5_2030s_prec_30s_r1i1p1_b2_asc',
-            'prec_b2'
-        ),
-        join(
-            settings['cmip5_output_dir'],
-            'cccma_canesm2_rcp4_5_2030s_prec_30s_r1i1p1_b2_asc',
-            'prec_b2'
-        ),
-        xskip=100,
-        yskip=100,
-        label='PRCP'
-    )
+    filter_tree(skip=4)

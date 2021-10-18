@@ -10,15 +10,27 @@ import sys
 
 from math import ceil, floor
 
-from os import listdir
-from os.path import join
+from os import listdir, mkdir
+from os.path import isdir, join
 
 from string import whitespace
 from sys import stdout
+from yaml import safe_load
 
 # Lower-level / independent functions are near the top.
 # Functions which depend on them are further down.
 # Classes are at the bottom.
+
+FILE2VAR = {
+    'prec': 'PRCP',
+    'tmax': 'TMAX',
+    'tmean': 'TAVG',
+    'tmin': 'TMIN',
+}
+
+with open('./files.yaml', 'r') as fp:
+    settings = safe_load(fp)
+
 
 # Functions with only external dependencies
 
@@ -97,7 +109,7 @@ def asc_to_array(
                 xpos = fmt.xllcorner + xn * fmt.cellsize
                 ypos = fmt.yllcorner + (fmt.nrows - yn) * fmt.cellsize
                 
-                if not (skip_this_ndx(xn, yn, xskip, yskip) or skip_this_pos(xpos, ypos, xmin=-180, xmax=180, ymin=-90, ymax=90)):
+                if not (skip_this_ndx(xn, yn, xskip, yskip) or skip_this_pos(xpos, ypos, xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax)):
                     data_array.append(
                         (
                             xpos,
@@ -171,7 +183,7 @@ def filter_asc_dir(
     dest_dir,
     xskip=0,
     yskip=0,
-    label='value',
+    label=None,
     xmin=-180,
     xmax=180,
     ymin=-90,
@@ -198,19 +210,50 @@ def filter_asc_dir(
             name_parts[-1] = 'csv'
             dest_name = '.'.join(name_parts)
             dest_fn = join(dest_dir, dest_name)
-            print(f'Processing {source_fn} -> {dest_fn}')
+            
+            if label is None:
+                this_label = FILE2VAR[name_parts[0].split('_')[0]]
+            else:
+                this_label = label
+    
+            print(f'Processing {source_fn} -> {dest_fn} for {this_label}')
             asc_to_filtered_csv(
                 source_fn,
                 dest_fn,
                 xskip=xskip,
                 yskip=yskip,
-                label=label,
-                xmin=-180,
-                xmax=180,
-                ymin=-90,
-                ymax=90
+                label=this_label,
+                xmin=xmin,
+                xmax=xmax,
+                ymin=ymin,
+                ymax=ymax
             )
             stdout.flush()
+
+def filter_tree(skip=0):
+    source_dir = settings['cmip5_input_dir']
+    dest_dir = settings['cmip5_output_dir']
+    
+    for datadir in listdir(source_dir):
+        in_dir = join(source_dir, datadir)
+        if isdir(in_dir):
+            print(f'Processing {datadir}')
+            out_dir = join(dest_dir, datadir)
+            try:
+                mkdir(out_dir)
+            except FileExistsError:
+                pass # Just need to make sure it's here; don't need to empty it.
+
+            filter_asc_dir(
+                in_dir,
+                out_dir,
+                xskip=skip,
+                yskip=skip,
+                xmin=-125,
+                xmax=-65,
+                ymin=24,
+                ymax=50
+            )
 
 # Classes
 

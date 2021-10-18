@@ -11,6 +11,9 @@ from yaml import safe_load
 
 VAR2FILE = {
     'PRCP': 'prec_{month}.csv',
+    'TMIN': 'tmin_{month}.csv',
+    'TMAX': 'tmax_{month}.csv',
+    'TAVG': 'tmean_{month}.csv',
 }
 
 with open('./files.yaml', 'r') as fp:

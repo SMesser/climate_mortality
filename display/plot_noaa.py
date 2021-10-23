@@ -6,8 +6,9 @@ them programmatically requires installing an "orca" executable.
 import pandas as pd
 import plotly.graph_objects as go
 
+from numpy import array
 from os.path import join
-from scipy.interpolate import interp2d
+from scipy.interpolate import griddata
 from yaml import safe_load
 
 with open('./files.yaml', 'r') as fp:
@@ -30,7 +31,7 @@ def make_NOAA_title(var, year, month):
         "EMXT": 'Highest recorded temperature for {month} {year} in degrees Celsius',
         "TMAX": 'Average daily high temperature for {month} {year} in degrees Celsius',
         "TMIN": 'Average daily low temperature for {month} {year} in degrees Celsius',
-        "HUMID": 'Proxy for humidity from average temperature * precipitation in mm-degrees',
+        "HUMID": 'Proxy for humidity from average temperature * precipitation in mm-degrees for {month} {year}',
     }
     month_dict = [
         'January',
@@ -95,51 +96,52 @@ def plot_NOAA_samples():
 
 def _interpolate_HUMID(year, month, kind):
     '''Generate a HUMIDITY proxy in mm-degrees Celsius.'''
-    tavg_df = load_NOAA(var='TAVG', month=month, year=year)
-    prcp_df = load_NOAA(var='PRCP', month=month, year=year)
-    interp_tavg = interp2d(
-        tavg_df['LONGITUDE'],
-        tavg_df['LATITUDE'],
-        tavg_df['TAVG'],
-        kind=kind,
-        copy=True,
-    )
-    interp_prcp = interp2d(
-        prcp_df['LONGITUDE'],
-        prcp_df['LATITUDE'],
-        prcp_df['PRCP'],
-        kind=kind,
-        copy=True,
-    )
-    return pd.DataFrame.from_dict([
-        {'LONGITUDE': x, 'LATITUDE': y, 'HUMID': interp_tavg(x,y)*interp_prcp(x,y)}
-        for x in range(-175, 175)
-        for y in range(-60, 60)
-    ])
+    tavg_df = _interpolate_NOAA(var='TAVG', year=year, month=month, kind=kind)
+    prcp_df = _interpolate_NOAA(var='PRCP', year=year, month=month, kind=kind)
+    humid_df = tavg_df.merge(prcp_df, on=['LONGITUDE', 'LATITUDE'])
+    humid_df['HUMID'] = humid_df['TAVG']*humid_df['TAVG']
+    return humid_df
 
 
 def _interpolate_NOAA(var, year, month, kind):
-    '''Generate a map of NOAA data .'''
-    source_df = load_NOAA(var=var, month=month, year=year).sort_values(by=['LATITUDE', 'LONGITUDE'])
-    interpolated = interp2d(
-        source_df['LONGITUDE'],
-        source_df['LATITUDE'],
-        source_df[var],
-        kind=kind,
-        copy=True,
+    '''Generate a map of NOAA data .
+
+    Possible enhancement to get better coverage of mid-Pacific and high latitudes would be to extend
+    the data set to east and west by copying it over with +360 and -360 degree adjustments to the longitude.
+    However, since the affected areas have low populations, the effect this would have on predictions for cities is minimal.
+    Also, the resulting values for the affected areas would be interpolated between a small number of independent,
+    widely-separated points.
+    '''
+    source_df = load_NOAA(var=var, month=month, year=year).to_dict('records')
+    points = array([
+        [record['LONGITUDE'], record['LATITUDE']]
+        for record in source_df
+    ])
+    values = array([
+        record[var]
+        for record in source_df
+    ])
+    xi = array([
+        [x, y]
+        for x in range(-180, 180)
+        for y in range(-90, 90)
+    ])
+    interpolated = griddata(
+        points,
+        values,
+        xi,
+        method=kind,
     )
     return pd.DataFrame.from_dict([
-        {'LONGITUDE': x, 'LATITUDE': y, var: interpolated(x,y)}
-        for x in range(-175, 175)
-        for y in range(-60, 60)
+        {'LONGITUDE': xi[n][0], 'LATITUDE': xi[n][1], var: interpolated[n]}
+        for n in range(len(xi))
     ])
-
 
 def interpolate_NOAA(var, year, month, kind='linear'):
     '''Create 2D interpolated map across available observations.
 
-    <kind> is one of {'linear', 'cubic', 'quintic'}, according to the desired
-    order of the interpolating spline. The default is 'linear'.
+    <kind> is one of {'nearest', 'linear', 'cubic'}, according to the desired
+    order of the interpolating piecewise polynomial. The default is 'linear'.
     
     https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp2d.html
     '''
@@ -151,9 +153,9 @@ def interpolate_NOAA(var, year, month, kind='linear'):
         return _interpolate_NOAA(var, year, month, kind=kind)
 
 
-def plot_interpolated(var, month, year):
+def plot_interpolated(var, month, year, kind='linear'):
     '''Plot interpolated NOAA data.'''
-    df = interpolate_NOAA(var, year=year, month=month, kind='linear')
+    df = interpolate_NOAA(var, year=year, month=month, kind=kind)
     fig = go.Figure(
         data=go.Scattergeo(
             lon=df['LONGITUDE'],
@@ -165,16 +167,20 @@ def plot_interpolated(var, month, year):
                 'colorscale': get_NOAA_colorscale(var),
                 'showscale': True
             },
+            opacity=0.7,
         ),
         layout={
-            'title': {'text': make_NOAA_title(var, year, month)}
+            'title': {'text': make_NOAA_title(var, year, month)},
         }
     ).show()
     
 
 def plot_NOAA_interp():
-    plot_interpolated('TAVG', year=2015, month=7)
-    #plot_interpolated('EMNT', year=2015, month=7)
-    #plot_interpolated('EMXT', year=2015, month=7)
-    #plot_interpolated('HUMID', year=2015, month=7)
+    # Choose linear interpolation because cubic gives some wild swings outside the observed range,
+    # to average temperatures as high as 2500 and as low as -2000 Celsius. These are presumably due
+    # to closely-spaced observations with different climates, such as near the top and foot of high mountains.
+    plot_interpolated('TAVG', year=2015, month=7, kind='linear')
+    plot_interpolated('EMNT', year=2015, month=7)
+    plot_interpolated('EMXT', year=2015, month=7)
+    plot_interpolated('HUMID', year=2015, month=7)
 

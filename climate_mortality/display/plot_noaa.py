@@ -11,16 +11,18 @@ from os.path import join
 from scipy.interpolate import griddata
 from yaml import safe_load
 
+from ..utils import load_compiled_NOAA
+
 with open('./files.yaml', 'r') as fp:
     settings = safe_load(fp)
 
 ##### utility functions #####
 
-def load_NOAA(var, year, month):
-    '''Load NOAA data for a single variable in a given month.'''
-    return pd.read_csv(
-        join(settings['noaa_output_dir'], f'{var}{year}-{month}.csv')
-    )
+#def load_compiled_NOAA(var, year, month):
+#    '''Load NOAA data for a single variable in a given month.'''
+#    return pd.read_csv(
+#        join(settings['noaa_compiled_dir'], f'{var}{year}-{month}.csv')
+#    )
 
 
 def make_NOAA_title(var, year, month):
@@ -62,7 +64,7 @@ def get_NOAA_colorscale(var):
 
 def plot_NOAA_var(var, year, month):
     '''Plot global NOAA data for a single variable in a given month.'''
-    df = load_NOAA(var, year, month)
+    df = load_compiled_NOAA(var, year, month)
     fig = go.Figure(
         data=go.Scattergeo(
             lon=df['LONGITUDE'],
@@ -99,7 +101,14 @@ def _interpolate_HUMID(year, month, kind):
     tavg_df = _interpolate_NOAA(var='TAVG', year=year, month=month, kind=kind)
     prcp_df = _interpolate_NOAA(var='PRCP', year=year, month=month, kind=kind)
     humid_df = tavg_df.merge(prcp_df, on=['LONGITUDE', 'LATITUDE'])
-    humid_df['HUMID'] = humid_df['TAVG']*humid_df['TAVG']
+    # Not much difference if we use TAVG or Kelvin as proxy for humidity.
+    #humid_df['Kelvin'] = humid_df['TAVG']+273.15
+    #humid_df['HUMID'] = humid_df['PRCP']*humid_df['Kelvin']
+    # humid_df['HUMID'] = humid_df['PRCP']*humid_df['TAVG']
+    # Actual important variable is human heat stress - may want to subtract a temperature
+    # like 20 Celsius
+    humid_df['human'] = humid_df['TAVG']-20 # Approx optimal human environment temperature
+    humid_df['HUMID'] = humid_df['PRCP']*humid_df['human']
     return humid_df
 
 
@@ -112,7 +121,7 @@ def _interpolate_NOAA(var, year, month, kind):
     Also, the resulting values for the affected areas would be interpolated between a small number of independent,
     widely-separated points.
     '''
-    source_df = load_NOAA(var=var, month=month, year=year).to_dict('records')
+    source_df = load_compiled_NOAA(var=var, month=month, year=year).to_dict('records')
     points = array([
         [record['LONGITUDE'], record['LATITUDE']]
         for record in source_df
@@ -179,8 +188,8 @@ def plot_NOAA_interp():
     # Choose linear interpolation because cubic gives some wild swings outside the observed range,
     # to average temperatures as high as 2500 and as low as -2000 Celsius. These are presumably due
     # to closely-spaced observations with different climates, such as near the top and foot of high mountains.
-    plot_interpolated('TAVG', year=2015, month=7, kind='linear')
-    plot_interpolated('EMNT', year=2015, month=7)
-    plot_interpolated('EMXT', year=2015, month=7)
+    #plot_interpolated('TAVG', year=2015, month=7, kind='linear')
+    #plot_interpolated('EMNT', year=2015, month=7)
+    #plot_interpolated('EMXT', year=2015, month=7)
     plot_interpolated('HUMID', year=2015, month=7)
 

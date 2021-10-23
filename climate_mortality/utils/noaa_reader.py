@@ -15,6 +15,7 @@ absolute humidity.
 * Spatially average the annualized maps across each country to estimate climate
 via (low, avg, high) values for precipitation and temperature. 
 '''
+import pandas as pd
 
 from csv import DictReader, DictWriter
 
@@ -23,6 +24,7 @@ from os.path import join
 
 from pprint import pformat
 from sys import stdout
+from yaml import safe_load
 
 # Lower-level / independent functions are near the top.
 # Functions which depend on them are further down.
@@ -54,6 +56,9 @@ DATA_COLUMNS = {
 #    "TMIN_ATTRIBUTES",
 }
 
+with open('./files.yaml', 'r') as fp:
+    settings = safe_load(fp)
+
 # Functions with only external dependencies
 
 def read_source_header(source_file, id_fields, data_fields):
@@ -79,6 +84,12 @@ def _to_be_written(var, source_row, date_str):
         return False
     return (source_row['DATE']==date_str)
 
+
+def load_compiled_NOAA(var, year, month):
+    '''Load NOAA data for a single variable in a given month.'''
+    return pd.read_csv(
+        join(settings['noaa_compiled_dir'], f'{var}{year}-{month}.csv')
+    )
 
 # Functions with internal dependencies
 

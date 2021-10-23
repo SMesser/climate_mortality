@@ -9,10 +9,14 @@ import plotly.graph_objects as go
 from os.path import join
 from yaml import safe_load
 
-from display.plot_cmip5 import plot_CMIP5_samples
-from display.plot_noaa import plot_NOAA_interp, plot_NOAA_samples
-from display.plot_who import (
-    plot_WHO_samples, plot_WHO_raw_death_bar, plot_WHO_mortality_bar
+from climate_mortality.display.plot_cmip5 import plot_CMIP5_samples
+from climate_mortality.display.plot_noaa import (
+    plot_NOAA_interp,
+    plot_NOAA_samples
+)
+from climate_mortality.display.plot_who import (
+    plot_WHO_mortality_bar, plot_WHO_raw_death_bar,
+    plot_WHO_samples
 )
 
 

@@ -30,6 +30,7 @@ def make_NOAA_title(var, year, month):
         "EMXT": 'Highest recorded temperature for {month} {year} in degrees Celsius',
         "TMAX": 'Average daily high temperature for {month} {year} in degrees Celsius',
         "TMIN": 'Average daily low temperature for {month} {year} in degrees Celsius',
+        "HUMID": 'Proxy for humidity from average temperature * precipitation in mm-degrees',
     }
     month_dict = [
         'January',
@@ -79,27 +80,6 @@ def plot_NOAA_var(var, year, month):
     ).show()
 
 
-def plot_interpolated(var, month, year):
-    '''Plot interpolated NOAA data.'''
-    df = interpolate_NOAA(var, year=year, month=month, kind='cubic')
-    fig = go.Figure(
-        data=go.Scattergeo(
-            lon=df['LONGITUDE'],
-            lat=df['LATITUDE'],
-            text=df[var],
-            mode='markers',
-            marker_color=df[var],
-            marker={
-                'colorscale': get_NOAA_colorscale(var),
-                'showscale': True
-            },
-        ),
-        layout={
-            'title': {'text': make_NOAA_title(var, year, month)}
-        }
-    ).show()
-    
-
 def plot_NOAA_samples():
     '''A collection of several NOAA datasets demonstrating data breadth.'''
     plot_NOAA_var('PRCP', 1995, 10)
@@ -120,19 +100,19 @@ def _interpolate_HUMID(year, month, kind):
     interp_tavg = interp2d(
         tavg_df['LONGITUDE'],
         tavg_df['LATITUDE'],
-        tavg_df[var],
+        tavg_df['TAVG'],
         kind=kind,
         copy=True,
     )
     interp_prcp = interp2d(
         prcp_df['LONGITUDE'],
         prcp_df['LATITUDE'],
-        prcp_df[var],
+        prcp_df['PRCP'],
         kind=kind,
         copy=True,
     )
     return pd.DataFrame.from_dict([
-        {'LONGITUDE': x, 'LATITUDE': y, var: interp_tavg(x,y)*interp_prcp(x,y)}
+        {'LONGITUDE': x, 'LATITUDE': y, 'HUMID': interp_tavg(x,y)*interp_prcp(x,y)}
         for x in range(-175, 175)
         for y in range(-60, 60)
     ])
@@ -140,7 +120,7 @@ def _interpolate_HUMID(year, month, kind):
 
 def _interpolate_NOAA(var, year, month, kind):
     '''Generate a map of NOAA data .'''
-    source_df = load_NOAA(var=var, month=month, year=year)
+    source_df = load_NOAA(var=var, month=month, year=year).sort_values(by=['LATITUDE', 'LONGITUDE'])
     interpolated = interp2d(
         source_df['LONGITUDE'],
         source_df['LATITUDE'],
@@ -163,15 +143,38 @@ def interpolate_NOAA(var, year, month, kind='linear'):
     
     https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp2d.html
     '''
+    # TODO: SOMETHING HERE IS CAUSING VERY LARGE VALUES TO BE RETURNED AND
+    # CONSUMING RIDICULOUS AMOUNTS OF MEMORY.  WHY?
     if var=='HUMID':
         return _interpolate_HUMID(year, month, kind=kind)
     else:
         return _interpolate_NOAA(var, year, month, kind=kind)
 
 
+def plot_interpolated(var, month, year):
+    '''Plot interpolated NOAA data.'''
+    df = interpolate_NOAA(var, year=year, month=month, kind='linear')
+    fig = go.Figure(
+        data=go.Scattergeo(
+            lon=df['LONGITUDE'],
+            lat=df['LATITUDE'],
+            text=df[var],
+            mode='markers',
+            marker_color=df[var],
+            marker={
+                'colorscale': get_NOAA_colorscale(var),
+                'showscale': True
+            },
+        ),
+        layout={
+            'title': {'text': make_NOAA_title(var, year, month)}
+        }
+    ).show()
+    
+
 def plot_NOAA_interp():
     plot_interpolated('TAVG', year=2015, month=7)
-    plot_interpolated('EMNT', year=2015, month=7)
-    plot_interpolated('EMXT', year=2015, month=7)
-    plot_interpolated('HUMID', year=2015, month=7)
+    #plot_interpolated('EMNT', year=2015, month=7)
+    #plot_interpolated('EMXT', year=2015, month=7)
+    #plot_interpolated('HUMID', year=2015, month=7)
 

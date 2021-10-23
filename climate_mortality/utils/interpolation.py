@@ -10,6 +10,12 @@ from os.path import join
 from scipy.interpolate import griddata
 from yaml import safe_load
 
+from .noaa_reader import DATA_COLUMNS, load_compiled_NOAA
+
+
+INTERPOLATION_COLUMNS = DATA_COLUMNS.union({'HUMID'})
+
+
 with open('./files.yaml', 'r') as fp:
     settings = safe_load(fp)
 
@@ -82,34 +88,25 @@ def interpolate_NOAA(var, year, month, kind='linear'):
         return _interpolate_NOAA(var, year, month, kind=kind)
 
 
-def plot_interpolated(var, month, year, kind='linear'):
-    '''Plot interpolated NOAA data.'''
-    df = interpolate_NOAA(var, year=year, month=month, kind=kind)
-    fig = go.Figure(
-        data=go.Scattergeo(
-            lon=df['LONGITUDE'],
-            lat=df['LATITUDE'],
-            text=df[var],
-            mode='markers',
-            marker_color=df[var],
-            marker={
-                'colorscale': get_NOAA_colorscale(var),
-                'showscale': True
-            },
-            opacity=0.7,
-        ),
-        layout={
-            'title': {'text': make_NOAA_title(var, year, month)},
-        }
-    ).show()
-    
+def interpolate_all_NOAA(method='linear'):
+    '''Loop over NOAA data, doing interpolation stage of processing.
 
-def plot_NOAA_interp():
-    # Choose linear interpolation because cubic gives some wild swings outside the observed range,
-    # to average temperatures as high as 2500 and as low as -2000 Celsius. These are presumably due
-    # to closely-spaced observations with different climates, such as near the top and foot of high mountains.
-    #plot_interpolated('TAVG', year=2015, month=7, kind='linear')
-    #plot_interpolated('EMNT', year=2015, month=7)
-    #plot_interpolated('EMXT', year=2015, month=7)
-    plot_interpolated('HUMID', year=2015, month=7)
-
+    Loop over all variables, months, and years to interpolate and store all NOAA
+    data.
+    '''
+    for var in INTERPOLATION_COLUMNS:
+        for year in range(1995, 2022):
+            for month in range(13):
+                interpolated = interpolate_NOAA(
+                    var=var,
+                    year=year,
+                    month=month,
+                    kind=method
+                )
+                interpolated.to_csv(
+                    join(
+                        settings['noaa_interpolated_dir'],
+                        f'{var}{year}-{month}.csv'
+                    ),
+                    index=False
+                )

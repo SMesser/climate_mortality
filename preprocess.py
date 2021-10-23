@@ -34,7 +34,7 @@ def process_NOAA():
     print('\n###########  BEGINNING PROCESSING OF NOAA DATA  ############\n')
     # trim_NOAA(settings['noaa_input_dir'], settings['noaa_filtered_dir'])
     # group_NOAA(settings['noaa_filtered_dir'], settings['noaa_compiled_dir'])
-    compile_NOAA(
+    interpolate_all_NOAA(
         settings['noaa_compiled_dir'],
         settings['noaa_interpolated_dir']
     )

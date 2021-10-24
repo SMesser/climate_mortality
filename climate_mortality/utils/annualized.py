@@ -1,7 +1,10 @@
-'''This file includes scripts intended to generate plots for output.
+'''This file includes scripts intended to annualize NOAA interpolations.
 
-Plotly figures can be saved to JPG interactively through the browser, but saving
-them programmatically requires installing an "orca" executable.
+The primary purpose of interpolation is to make Northern- and Southern-
+-hemisphere climates look the same when the only difference between them is
+the timing of their peak & nadir temperatures. It also reduces the amount of
+redundant data, as temperature and precipitation shift smoothly between
+extremes.
 '''
 import pandas as pd
 
@@ -10,16 +13,16 @@ from os.path import join
 from sys import stdout
 from yaml import safe_load
 
-from .interpolation import INTERPOLATION_COLUMNS
+from .interpolation import INTERPOLATION_COLUMNS, load_interpolated_NOAA
 
 with open('./files.yaml', 'r') as fp:
     settings = safe_load(fp)
 
 
-def load_interpolated_NOAA(var, year, month):
-    '''Load NOAA data for a single variable in a given month.'''
+def load_annualized_NOAA(var, year):
+    '''Load NOAA data for a single variable in a given year.'''
     return pd.read_csv(
-        join(settings['noaa']['interpolated_dir'], f'{var}{year}-{month}.csv')
+        join(settings['noaa']['annualized_dir'], f'{var}{year}.csv')
     )
 
 
@@ -58,8 +61,6 @@ def annualize_NOAA(var, year):
     for col in columns:
         del base[col]
 
-    # Write the result to a file
-    base.to_csv(join(settings['noaa']['annualized_dir'], f'{year}'))
     return base
 
 

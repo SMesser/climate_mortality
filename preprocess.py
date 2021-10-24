@@ -38,7 +38,7 @@ def process_NOAA():
     #   settings['noaa']['filtered_dir'],
     #   settings['noaa']['compiled_dir']
     # )
-    # interpolate_all_NOAA(method='linear', offset=20)
+    interpolate_all_NOAA(method='linear')
     annualize_all_NOAA()
 
 

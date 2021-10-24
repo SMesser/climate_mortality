@@ -1,7 +1,9 @@
-'''This file includes scripts intended to generate plots for output.
+'''This file includes scripts intended to interpolate NOAA data.
 
-Plotly figures can be saved to JPG interactively through the browser, but saving
-them programmatically requires installing an "orca" executable.
+Choose linear interpolation because cubic gives some wild swings outside the
+observed range, to average temperatures as high as 2500 and as low as -2000
+Celsius. These are presumably due to closely-spaced observations with different
+climates, such as near the top and foot of high mountains.
 '''
 import pandas as pd
 
@@ -14,16 +16,20 @@ from yaml import safe_load
 from .noaa_reader import DATA_COLUMNS, load_compiled_NOAA
 
 
-INTERPOLATION_COLUMNS = DATA_COLUMNS.union({'HUMID'})
-
+INTERPOLATION_COLUMNS = DATA_COLUMNS.union({'HUMID', 'HETSTRS'})
 
 with open('./files.yaml', 'r') as fp:
     settings = safe_load(fp)
 
-##### utility functions #####
+
+def load_interpolated_NOAA(var, year, month):
+    '''Load NOAA data for a single variable in a given month.'''
+    return pd.read_csv(
+        join(settings['noaa']['interpolated_dir'], f'{var}{year}-{month}.csv')
+    )
 
 
-def _interpolate_HUMID(year, month, kind, offset):
+def _interpolate_HUMID(year, month, kind):
     '''Generate a HUMIDITY proxy in mm-degrees Celsius.'''
     tavg_df = _interpolate_NOAA(var='TAVG', year=year, month=month, kind=kind)
     prcp_df = _interpolate_NOAA(var='PRCP', year=year, month=month, kind=kind)
@@ -35,9 +41,12 @@ def _interpolate_HUMID(year, month, kind, offset):
     # Actual important variable is human heat stress - may want to subtract a
     # temperature like 20 Celsius since that's approx optimal human environment
     # temperature.
-    humid_df['offset_t'] = humid_df['TAVG']-offset
-    humid_df['HUMID'] = humid_df['PRCP']*humid_df['offset_t']
-    del humid_df['offset_t']
+    humid_df['humid_t'] = humid_df['TAVG']+273.15
+    humid_df['stress_t'] = humid_df['TAVG']-20
+    humid_df['HUMID'] = humid_df['PRCP']*humid_df['humid_t']
+    humid_df['HETSTRS'] = humid_df['PRCP']*humid_df['stress_t']
+    del humid_df['humid_t']
+    del humid_df['stress_t']
     return humid_df
 
 
@@ -83,7 +92,7 @@ def interpolate_NOAA(var, year, month, kind='linear'):
     
     https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp2d.html
     '''
-    if var=='HUMID':
+    if var in {'HUMID', 'HETSTRS'}:
         return _interpolate_HUMID(year, month, kind=kind)
     else:
         return _interpolate_NOAA(var, year, month, kind=kind)

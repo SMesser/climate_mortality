@@ -15,7 +15,7 @@ with open('./files.yaml', 'r') as fp:
 ##### utility functions #####
 
 def _get_WHO_population_df():
-    processed_dir = settings['who_output_dir']
+    processed_dir = settings['who']['output_dir']
     population = pd.read_csv(join(processed_dir, 'population.csv'))
     del population['Sex']
     del population['Country']
@@ -93,20 +93,27 @@ def plot_WHO_death_bar(df, countries):
 def plot_WHO_raw_death_bar(years):
     '''Plot death counters with ambiguous labels'''
     raw_mort = pd.read_csv(
-        join(settings['who_input_dir'], 'Morticd10_part5.csv')
+        join(settings['who']['input_dir'], 'Morticd10_part5.csv')
     )
     raw_mort = raw_mort[['Country', 'Year', 'List', 'Cause', 'Deaths1']]
-    names = pd.read_csv(join(settings['who_input_dir'], 'country_codes.csv'))
-    df = pd.merge(left=raw_mort, left_on='Country', right=names, right_on='country')
+    names = pd.read_csv(join(settings['who']['input_dir'], 'country_codes.csv'))
+    df = pd.merge(
+        left=raw_mort,
+        left_on='Country',
+        right=names,
+        right_on='country'
+    )
     df = df.rename(columns={'name': 'CountryName'})
-    df = df.groupby(['CountryName', 'Year', 'List', 'Cause']).sum().reset_index()
+    df = df.groupby(
+        ['CountryName', 'Year', 'List', 'Cause']
+    ).sum().reset_index()
     df['CauseLabel'] = df['List'].map(str) + '-' + df['Cause'].map(str)
     df = df[['CountryName', 'Year', 'CauseLabel', 'Deaths1']][df['Deaths1'] > 0]
     print('There are {} causes and {} countries before merge with population data'.format(
         len(set(df['CauseLabel'])),
         len(set(df['CountryName']))
     ))
-    pop = pd.read_csv(join(settings['who_output_dir'], 'population.csv'))
+    pop = pd.read_csv(join(settings['who']['output_dir'], 'population.csv'))
     pop = pop[['CountryName', 'Year', 'Pop1']][pop['Pop1'] > 0]
     pop = pop.groupby(['CountryName', 'Year']).sum()
     full = pd.merge(left=df, on=('CountryName', 'Year'), right=pop)
@@ -138,7 +145,7 @@ def plot_WHO_raw_death_bar(years):
 
 def plot_WHO_mortality_bar(years):
     mort = pd.read_csv(
-        join(settings['who_output_dir'], 'Cyprus_mortality.csv')
+        join(settings['who']['output_dir'], 'Cyprus_mortality.csv')
     )
     mort = mort[mort['DeathsAll']>0][mort['Year'].isin(years)]
     go.Figure(

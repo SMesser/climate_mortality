@@ -23,7 +23,7 @@ with open('./files.yaml', 'r') as fp:
 ##### utility functions #####
 
 
-def _interpolate_HUMID(year, month, kind):
+def _interpolate_HUMID(year, month, kind, offset):
     '''Generate a HUMIDITY proxy in mm-degrees Celsius.'''
     tavg_df = _interpolate_NOAA(var='TAVG', year=year, month=month, kind=kind)
     prcp_df = _interpolate_NOAA(var='PRCP', year=year, month=month, kind=kind)
@@ -32,10 +32,12 @@ def _interpolate_HUMID(year, month, kind):
     #humid_df['Kelvin'] = humid_df['TAVG']+273.15
     #humid_df['HUMID'] = humid_df['PRCP']*humid_df['Kelvin']
     # humid_df['HUMID'] = humid_df['PRCP']*humid_df['TAVG']
-    # Actual important variable is human heat stress - may want to subtract a temperature
-    # like 20 Celsius
-    humid_df['human'] = humid_df['TAVG']-20 # Approx optimal human environment temperature
-    humid_df['HUMID'] = humid_df['PRCP']*humid_df['human']
+    # Actual important variable is human heat stress - may want to subtract a
+    # temperature like 20 Celsius since that's approx optimal human environment
+    # temperature.
+    humid_df['offset_t'] = humid_df['TAVG']-offset
+    humid_df['HUMID'] = humid_df['PRCP']*humid_df['offset_t']
+    del humid_df['offset_t']
     return humid_df
 
 
@@ -112,7 +114,7 @@ def interpolate_all_NOAA(method='linear'):
                 else:
                     interpolated.to_csv(
                         join(
-                            settings['noaa_interpolated_dir'],
+                            settings['noaa']['interpolated_dir'],
                             f'{var}{year}-{month}.csv'
                         ),
                         index=False

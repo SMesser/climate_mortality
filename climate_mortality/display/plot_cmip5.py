@@ -23,7 +23,7 @@ with open('./files.yaml', 'r') as fp:
 def load_CMIP5(directory, fname):
     '''Load CMIP5 data for a single variable in a given month.'''
     return pd.read_csv(
-        join(settings['cmip5_output_dir'], directory, fname)
+        join(settings['cmip5']['output_dir'], directory, fname)
     )
 
 
@@ -88,7 +88,7 @@ def plot_CMIP5_var(directory, var, month):
 def plot_CMIP5_samples():
     '''A collection of several CMIP5 datasets demonstrating data breadth.'''
     directory = join(
-        settings['cmip5_output_dir'],
+        settings['cmip5']['output_dir'],
         'cccma_canesm2_rcp4_5_2030s_prec_30s_r1i1p1_b2_asc',
         'prec_b2'
     )

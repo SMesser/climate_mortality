@@ -231,8 +231,8 @@ def filter_asc_dir(
             stdout.flush()
 
 def filter_tree(skip=0):
-    source_dir = settings['cmip5_input_dir']
-    dest_dir = settings['cmip5_output_dir']
+    source_dir = settings['cmip5']['input_dir']
+    dest_dir = settings['cmip5']['output_dir']
     
     for datadir in listdir(source_dir):
         in_dir = join(source_dir, datadir)

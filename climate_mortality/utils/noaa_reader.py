@@ -88,7 +88,7 @@ def _to_be_written(var, source_row, date_str):
 def load_compiled_NOAA(var, year, month):
     '''Load NOAA data for a single variable in a given month.'''
     return pd.read_csv(
-        join(settings['noaa_compiled_dir'], f'{var}{year}-{month}.csv')
+        join(settings['noaa']['compiled_dir'], f'{var}{year}-{month}.csv')
     )
 
 # Functions with internal dependencies

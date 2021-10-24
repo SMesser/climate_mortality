@@ -3,6 +3,7 @@
 from os.path import join
 from yaml import safe_load
 
+from climate_mortality.utils.annualized import annualize_all_NOAA
 from climate_mortality.utils.ascii_reader import filter_tree
 from climate_mortality.utils.noaa_reader import group_NOAA, trim_NOAA
 from climate_mortality.utils.interpolation import interpolate_all_NOAA
@@ -17,14 +18,14 @@ def process_WHO():
     print('\n###########  BEGINNING PROCESSING OF WHO DATA  ############\n')
     
     process_WHO_pop(
-        settings['who_input_dir'],
-        settings['who_output_dir'],
+        settings['who']['input_dir'],
+        settings['who']['output_dir'],
         settings['custom_input_dir']
     )
     
     process_WHO_dead(
-        settings['who_input_dir'],
-        settings['who_output_dir'],
+        settings['who']['input_dir'],
+        settings['who']['output_dir'],
         settings['custom_input_dir']
     )
 
@@ -32,9 +33,13 @@ def process_WHO():
 def process_NOAA():
     '''Process NOAA climate observations.'''
     print('\n###########  BEGINNING PROCESSING OF NOAA DATA  ############\n')
-    # trim_NOAA(settings['noaa_input_dir'], settings['noaa_filtered_dir'])
-    # group_NOAA(settings['noaa_filtered_dir'], settings['noaa_compiled_dir'])
-    interpolate_all_NOAA(method='linear')
+    # trim_NOAA(settings['noaa']['input_dir'], settings['noaa']['filtered_dir'])
+    # group_NOAA(
+    #   settings['noaa']['filtered_dir'],
+    #   settings['noaa']['compiled_dir']
+    # )
+    # interpolate_all_NOAA(method='linear', offset=20)
+    annualize_all_NOAA()
 
 
 def process_CMIP5():

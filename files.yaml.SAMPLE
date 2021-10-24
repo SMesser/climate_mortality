@@ -1,10 +1,14 @@
-noaa_input_dir: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\NOAA GSOM Current Climate\\'
-noaa_filtered_dir: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\filtered NOAA\\'
-noaa_compiled_dir: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\processed NOAA\\'
-noaa_interpolated_dir: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\interpolated NOAA\\'
-who_input_dir:  'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\WHO Mortality ICD-10\\'
-who_filtered_dir: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\filtered WHO\\'
-who_output_dir:  'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\processed WHO\\'
-cmip5_input_dir:  'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\CCAFS Future Climate\\'
-cmip5_output_dir:  'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\processed CMIP5\\'
+noaa:
+    input_dir: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\NOAA GSOM Current Climate\\'
+    filtered_dir: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\filtered NOAA\\'
+    compiled_dir: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\processed NOAA\\'
+    interpolated_dir: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\interpolated NOAA\\'
+    annualized_dir: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\annualized NOAA\\'
+who:
+    input_dir:  'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\WHO Mortality ICD-10\\'
+    filtered_dir: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\filtered WHO\\'
+    output_dir:  'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\processed WHO\\'
+cmip5:
+    input_dir:  'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\CCAFS Future Climate\\'
+    output_dir:  'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\processed CMIP5\\'
 custom_input_dir: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\climate_mortality\\supplemental_data\\'

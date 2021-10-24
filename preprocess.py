@@ -34,13 +34,10 @@ def process_NOAA():
     print('\n###########  BEGINNING PROCESSING OF NOAA DATA  ############\n')
     # trim_NOAA(settings['noaa_input_dir'], settings['noaa_filtered_dir'])
     # group_NOAA(settings['noaa_filtered_dir'], settings['noaa_compiled_dir'])
-    interpolate_all_NOAA(
-        settings['noaa_compiled_dir'],
-        settings['noaa_interpolated_dir']
-    )
+    interpolate_all_NOAA(method='linear')
 
 
-def process CMIP5():
+def process_CMIP5():
     '''Process CMIP5 climate predictions.'''
     print('\n###########  BEGINNING PROCESSING OF CMIP5 DATA  ############\n')
     filter_tree(skip=4)

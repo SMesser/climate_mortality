@@ -5,9 +5,10 @@ them programmatically requires installing an "orca" executable.
 '''
 import pandas as pd
 
-from numpy import array
+from numpy import array, nan
 from os.path import join
 from scipy.interpolate import griddata
+from sys import stdout
 from yaml import safe_load
 
 from .noaa_reader import DATA_COLUMNS, load_compiled_NOAA
@@ -70,7 +71,7 @@ def _interpolate_NOAA(var, year, month, kind):
     return pd.DataFrame.from_dict([
         {'LONGITUDE': xi[n][0], 'LATITUDE': xi[n][1], var: interpolated[n]}
         for n in range(len(xi))
-    ])
+    ]).dropna()
 
 def interpolate_NOAA(var, year, month, kind='linear'):
     '''Create 2D interpolated map across available observations.
@@ -80,8 +81,6 @@ def interpolate_NOAA(var, year, month, kind='linear'):
     
     https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp2d.html
     '''
-    # TODO: SOMETHING HERE IS CAUSING VERY LARGE VALUES TO BE RETURNED AND
-    # CONSUMING RIDICULOUS AMOUNTS OF MEMORY.  WHY?
     if var=='HUMID':
         return _interpolate_HUMID(year, month, kind=kind)
     else:
@@ -95,18 +94,26 @@ def interpolate_all_NOAA(method='linear'):
     data.
     '''
     for var in INTERPOLATION_COLUMNS:
+        print(f'------Interpolating for {var}')
         for year in range(1995, 2022):
-            for month in range(13):
-                interpolated = interpolate_NOAA(
-                    var=var,
-                    year=year,
-                    month=month,
-                    kind=method
-                )
-                interpolated.to_csv(
-                    join(
-                        settings['noaa_interpolated_dir'],
-                        f'{var}{year}-{month}.csv'
-                    ),
-                    index=False
-                )
+            print(f'##Interpolating for {var}{year}')
+            for month in range(1, 13):
+                print(f'Interpolating for {var}{year}-{month}')
+                stdout.flush()
+                try:
+                    interpolated = interpolate_NOAA(
+                        var=var,
+                        year=year,
+                        month=month,
+                        kind=method
+                    )
+                except FileNotFoundError as exc:
+                    print(f'Missing data for {var}{year}-{month}: {exc}')
+                else:
+                    interpolated.to_csv(
+                        join(
+                            settings['noaa_interpolated_dir'],
+                            f'{var}{year}-{month}.csv'
+                        ),
+                        index=False
+                    )

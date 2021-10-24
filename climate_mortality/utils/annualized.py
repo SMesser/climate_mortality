@@ -10,7 +10,7 @@ from os.path import join
 from sys import stdout
 from yaml import safe_load
 
-from .noaa_reader import DATA_COLUMNS, load_compiled_NOAA
+from .interpolation import INTERPOLATION_COLUMNS
 
 with open('./files.yaml', 'r') as fp:
     settings = safe_load(fp)
@@ -39,12 +39,15 @@ def annualize_NOAA(var, year):
     ).rename(columns={var: f'{var}_1'})
     
     for month in range(2, 13):
-        additional = load_interpolated_NOAA(var=var, year=year, month=month)
+        additional = load_interpolated_NOAA(
+            var=var,
+            year=year,
+            month=month
+        ).rename(columns={var: f'{var}_{month}'})
         base = pd.merge(
             left=base,
             right=additional,
             on=['LONGITUDE', 'LATITUDE'],
-            suffixes=[None, f'_{month}']
         )
 
     base['min'] = base[columns].apply(min, axis=1)
@@ -67,9 +70,9 @@ def annualize_all_NOAA():
     data.
     '''
     for var in INTERPOLATION_COLUMNS:
-        print(f'------Annualizing for {var}')
+        print(f'------ Annualizing for {var}')
         for year in range(1995, 2022):
-            print(f'##Annualizing for {var}{year}')
+            print(f'## Annualizing for {var}{year}')
             stdout.flush()
             try:
                 annualized = annualize_NOAA(var, year)
@@ -79,7 +82,7 @@ def annualize_all_NOAA():
                 annualized.to_csv(
                     join(
                         settings['noaa']['annualized_dir'],
-                        f'{var}{year}-{month}.csv'
+                        f'{var}{year}.csv'
                     ),
                     index=False
                 )

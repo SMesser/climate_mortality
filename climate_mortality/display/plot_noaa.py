@@ -70,9 +70,9 @@ def make_NOAA_annual_title(var, year, column):
         ("HUMID", 'min'): 'Min Proxy for humidity from temperature * precipitation in mm-degrees for {year}',
         ("HUMID", 'mean'): 'Average Proxy for humidity from temperature * precipitation in mm-degrees for {year}',
         ("HUMID", 'max'): 'Max Proxy for humidity from temperature * precipitation in mm-degrees for {year}',
-        ("HETSTRS", 'min'): 'Min Proxy for humidity from temperature * precipitation in mm-degrees for {year}',
-        ("HETSTRS", 'mean'): 'Average Proxy for humidity from temperature * precipitation in mm-degrees for {year}',
-        ("HETSTRS", 'max'): 'Max Proxy for humidity from temperature * precipitation in mm-degrees for {year}',
+        ("HETSTRS", 'min'): 'Min Proxy for heat stress from temperature * precipitation in mm-degrees for {year}',
+        ("HETSTRS", 'mean'): 'Average Proxy for heat stress from temperature * precipitation in mm-degrees for {year}',
+        ("HETSTRS", 'max'): 'Max Proxy for heat stress from temperature * precipitation in mm-degrees for {year}',
     }
     return fmt_dict[(var, column)].format(year=year)
 
@@ -150,6 +150,7 @@ def plot_NOAA_interp():
     plot_interpolated('EMNT', year=2015, month=7)
     plot_interpolated('EMXT', year=2015, month=7)
     plot_interpolated('HUMID', year=2015, month=7)
+    plot_interpolated('HETSTRS', year=2015, month=7)
 
 
 def plot_annualized(var, year, column):
@@ -182,4 +183,5 @@ def plot_NOAA_annualized():
     plot_annualized('EMNT', year=2015, column='mean')
     plot_annualized('EMXT', year=2015, column='max')
     plot_annualized('HUMID', year=2015, column='mean')
+    plot_annualized('HETSTRS', year=2015, column='max')
 

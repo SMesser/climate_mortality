@@ -26,16 +26,34 @@ with open('./files.yaml', 'r') as fp:
     settings = safe_load(fp)
 
 
-def load_cause(cause, year):
+def load_cause_for_file(path, cause):
+    '''Create a DF with the overall mortality''' 
+    base = pd.read_csv(path)
+    base = base[base['Cause']==cause]
+    # Sum over values of Sex and return the result
+    return base[['CountryName', 'MortAll', 'Year']].groupby(
+        by=('CountryName', 'Year'),
+        as_index=False
+    ).sum()
+    
+
+def load_WHO_mortality(country, years):
+    mort = pd.read_csv(
+        join(settings['who']['output_dir'], f'{country}_mortality.csv')
+    )
+
+
+def load_cause(cause):
+    '''Load the full set of mortality metrics for a given cause of death.'''
     mort_dir = settings['who']['output_dir']
-    file_list = [
-        fn
+    df_list = [
+        load_cause_for_file(join(mort_dir, fn))
         for fn in listdir(mort_dir)
         if fn.endswith('_mortality.csv')
     ]
-    base = pd.read_csv(join(mort_dir, file_list[0]))
-    base = base[(base['Year']==year) & (base['Cause']==cause)]
-    base = base[['CountryName', 'DeathsAll']]
+    return pd.concat(df_list)
+
+    
     # TODO: Finish aggregating
 
 # Functions with only external dependencies

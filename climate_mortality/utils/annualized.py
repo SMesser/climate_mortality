@@ -10,6 +10,7 @@ import pandas as pd
 
 from numpy import mean
 from os.path import join
+from scipy.interpolate import interp2d
 from sys import stdout
 from yaml import safe_load
 
@@ -24,6 +25,38 @@ def load_annualized_NOAA(var, year):
     return pd.read_csv(
         join(settings['noaa']['annualized_dir'], f'{var}{year}.csv')
     )
+
+
+def interpolate_annualized_NOAA(var, year, points, kind='linear'):
+    sample_df = load_annualized_NOAA(var, year)
+    func_min = interp2d(
+        x=sample_df['LONGITUDE'],
+        y=sample_df['LATITUDE'],
+        z=sample_df['min'],
+        kind=kind,
+    )
+    func_mean = interp2d(
+        x=sample_df['LONGITUDE'],
+        y=sample_df['LATITUDE'],
+        z=sample_df['mean'],
+        kind=kind,
+    )
+    func_max = interp2d(
+        x=sample_df['LONGITUDE'],
+        y=sample_df['LATITUDE'],
+        z=sample_df['max'],
+        kind=kind,
+    )
+    return pd.DataFrame.from_dict([
+        {
+            'LONGITUDE': p[0],
+            'LATITUDE': p[1],
+            var+ '_min': func_min(p[0], p[1]),
+            var+ '_mean': func_mean(p[0], p[1]),
+            var+ '_max': func_max(p[0], p[1]),
+        }
+        for p in points
+    ])
 
 
 def annualize_NOAA(var, year):

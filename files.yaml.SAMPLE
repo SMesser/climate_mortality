@@ -6,8 +6,8 @@ noaa:
     annualized_dir: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\annualized NOAA\\'
 who:
     input_dir:  'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\WHO Mortality ICD-10\\'
-    filtered_dir: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\filtered WHO\\'
     output_dir:  'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\processed WHO\\'
+country_shapes: 'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\koordinates\\world-country-boundaries.shp'
 cmip5:
     input_dir:  'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\CCAFS Future Climate\\'
     output_dir:  'C:\\Users\\Sarah\\Documents\\UMUC\\DATA 670\\datasets\\processed CMIP5\\'

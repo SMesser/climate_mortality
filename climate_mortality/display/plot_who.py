@@ -9,6 +9,7 @@ import plotly.graph_objects as go
 from os.path import join
 from yaml import safe_load
 
+from ..utils import 
 with open('./files.yaml', 'r') as fp:
     settings = safe_load(fp)
 
@@ -165,16 +166,4 @@ def plot_WHO_mortality_bar(years):
             'yaxis': {'type': 'log'}
         }
     ).show()
-
-##### Script entry point #####
-
-if __name__ == '__main__':
-    with open('./files.yaml', 'r') as fp:
-        settings = safe_load(fp)
-
-    # Comment out plots which don't need to be regenerated.
-    # plot_NOAA_samples()
-    # plot_WHO_samples()
-    # plot_WHO_raw_death_bar(years=[2018])
-    plot_WHO_mortality_bar(years=[2018])
-    
+   

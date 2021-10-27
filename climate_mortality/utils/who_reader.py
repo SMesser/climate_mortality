@@ -9,6 +9,7 @@ from os.path import isfile, join
 
 from pprint import pformat
 from sys import stdout
+from yaml import safe_load
 
 SEX_DICT = {
     1: 'Male',
@@ -19,6 +20,23 @@ SEX = pd.DataFrame.from_dict([
     {'Sex': n, 'Gender': s}
     for n, s in SEX_DICT.items()
 ])
+
+
+with open('./files.yaml', 'r') as fp:
+    settings = safe_load(fp)
+
+
+def load_cause(cause, year):
+    mort_dir = settings['who']['output_dir']
+    file_list = [
+        fn
+        for fn in listdir(mort_dir)
+        if fn.endswith('_mortality.csv')
+    ]
+    base = pd.read_csv(join(mort_dir, file_list[0]))
+    base = base[(base['Year']==year) & (base['Cause']==cause)]
+    base = base[['CountryName', 'DeathsAll']]
+    # TODO: Finish aggregating
 
 # Functions with only external dependencies
 

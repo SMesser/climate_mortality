@@ -5,6 +5,8 @@ from .ascii_reader import (
     ASCIIFormat,
     asc_to_array,
     asc_to_filtered_csv,
+    check_bounds,
+    DataOutOfBoundsError,
     read_token,
     skip_this_ndx,
     skip_this_pos
@@ -16,6 +18,23 @@ TEST_ASC = './test_cases/prec_1.asc'
 class ASCIITest(TestCase):
 
     # Test functions with only external dependencies.
+
+    def test_bounds(self):
+        # Check temperature range
+        self.assertTrue(check_bounds(23.0, 'Celsius'))
+        self.assertTrue(check_bounds(0.0, 'Celsius'))
+        self.assertTrue(check_bounds(-2.0, 'Celsius'))
+        with self.assertRaises(DataOutOfBoundsError):
+            check_bounds(-280.0, 'Celsius')
+        with self.assertRaises(DataOutOfBoundsError):
+            check_bounds(800.0, 'Celsius')
+        self.assertTrue(check_bounds(23.0, 'mm'))
+        self.assertTrue(check_bounds(223.0, 'mm'))
+        self.assertTrue(check_bounds(4023.0, 'mm'))
+        with self.assertRaises(DataOutOfBoundsError):
+            check_bounds(-2.0, 'mm')
+        with self.assertRaises(DataOutOfBoundsError):
+            check_bounds(200000.0, 'mm')
     
     def test_read_token(self):
         expected_first =             [
@@ -96,13 +115,13 @@ class ASCIITest(TestCase):
     # Test functions with internal dependencies.
 
     def test_asc_to_array(self):
-        arr = asc_to_array(TEST_ASC)
+        arr = asc_to_array(TEST_ASC, dimension='mm')
         self.assertTrue(len(arr) <= 100 * 101)
         
         # The smaller the values of xskip & yskip, the longer the test runs.s
         xskip = 3
         yskip = 3
-        arr = asc_to_array(TEST_ASC, xskip=xskip, yskip=yskip)
+        arr = asc_to_array(TEST_ASC, xskip=xskip, yskip=yskip, dimension='mm')
         self.assertTrue(len(arr) > 0)  # Confirm we read _something_
         self.assertTrue(  # Confirm we didn't read more than max expected
             len(arr) <= (100 * 101 / ((xskip+1) * (yskip+1)))

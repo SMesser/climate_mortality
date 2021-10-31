@@ -9,7 +9,6 @@ import plotly.graph_objects as go
 from os.path import join
 from yaml import safe_load
 
-from ..utils import 
 with open('./files.yaml', 'r') as fp:
     settings = safe_load(fp)
 

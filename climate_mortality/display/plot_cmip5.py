@@ -85,11 +85,22 @@ def plot_CMIP5_var(directory, var, month):
     ).show()
 
 
-def plot_CMIP5_samples():
-    '''A collection of several CMIP5 datasets demonstrating data breadth.'''
+def _plot_one_CMIP5_sample(dataset, var, month):
     directory = join(
         settings['cmip5']['output_dir'],
-        'cccma_canesm2_rcp4_5_2030s_prec_30s_r1i1p1_b2_asc',
-        'prec_b2'
+        dataset,
     )
-    plot_CMIP5_var(directory, 'PRCP', 7)
+    plot_CMIP5_var(directory, var, month)
+
+def plot_CMIP5_samples():
+    '''A collection of several CMIP5 datasets demonstrating data breadth.'''
+    _plot_one_CMIP5_sample(
+        'cccma_canesm2_rcp4_5_2030s_prec_30s_r1i1p1_b2_asc\\prec_b2',
+        'PRCP',
+        7
+    )
+    _plot_one_CMIP5_sample(
+        'cccma_canesm2_rcp8_5_2050s_tmax_10min_r1i1p1_no_tile_asc',
+        'TMAX',
+        7
+    )

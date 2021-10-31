@@ -28,6 +28,26 @@ FILE2VAR = {
     'tmin': 'TMIN',
 }
 
+
+DIMENSION_LOOKUP = {
+    'prcp': 'mm',
+    'tmin': 'Celsius',
+    'tavg': 'Celsius',
+    'tmax': 'Celsius',
+    'value': 'unknown'
+}
+
+# Scale from
+# https://cgspace.cgiar.org/bitstream/handle/10568/90730/abbreviations_used_in_ccafs_climate.pdf?sequence=1&isAllowed=y
+SCALE_LOOKUP = {
+    'prcp': 1.0,
+    'tmin': 0.1,
+    'tavg': 0.1,
+    'tmax': 0.1,
+    'value': 1.0
+}
+
+
 with open('./files.yaml', 'r') as fp:
     settings = safe_load(fp)
 
@@ -52,7 +72,7 @@ def read_token(fp):
     while c and (c not in whitespace):
         token = token + c
         c = fp.read(1)
-        
+
     return token
 
     
@@ -70,6 +90,17 @@ def skip_this_pos(xpos, ypos, xmin=-180, xmax=180, ymin=-90, ymax=90):
 
 # Functions with internal dependencies
 
+def check_bounds(value, dimension='Celsius'):
+    '''Determines whether the given value is unrealistic for is dimension.'''
+    if dimension == 'Celsius':
+        if -95.0 <= value <= 65.0:
+            return True
+    elif dimension == 'mm':
+        if 0.0 <= value <= 30000:
+            return True
+    raise DataOutOfBoundsError(f'Found unrealistic value {value} for dimension {dimension}.')
+    
+
 def asc_to_array(
     filepath,
     xskip=0,
@@ -77,7 +108,9 @@ def asc_to_array(
     xmin=-180,
     xmax=180,
     ymin=-90,
-    ymax=90
+    ymax=90,
+    dimension='Celsius',
+    scale=1.0
 ):
     '''This function downsamples a GIS ASCII file into a Python array of tuples.
 
@@ -110,13 +143,9 @@ def asc_to_array(
                 ypos = fmt.yllcorner + (fmt.nrows - yn) * fmt.cellsize
                 
                 if not (skip_this_ndx(xn, yn, xskip, yskip) or skip_this_pos(xpos, ypos, xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax)):
-                    data_array.append(
-                        (
-                            xpos,
-                            ypos,
-                            float(item_str)
-                        )
-                    )
+                    val = float(item_str) * scale
+                    check_bounds(val, dimension=dimension)
+                    data_array.append((xpos, ypos, val))
                     if len(data_array) % 100000 == 0:
                         print(
                             'Reading {} in progress.  {} non-null values read so far.'.format(
@@ -161,21 +190,26 @@ def asc_to_filtered_csv(
         ymin=-90    minimum y position
         ymax=90     maximum y position
     '''
-    
-    arr = asc_to_array(
-        infile,
-        xskip=xskip,
-        yskip=yskip,
-        xmin=xmin,
-        xmax=xmax,
-        ymin=ymin,
-        ymax=ymax
-    )
-    
-    with open(outfile, 'w') as outf:
-        outf.write('LONGITUDE,LATITUDE,{}\n'.format(label))
-        for ln in arr:
-            outf.write('{}, {}, {}\n'.format(ln[0], ln[1], ln[2]))
+
+    try:
+        arr = asc_to_array(
+            infile,
+            xskip=xskip,
+            yskip=yskip,
+            xmin=xmin,
+            xmax=xmax,
+            ymin=ymin,
+            ymax=ymax,
+            dimension=DIMENSION_LOOKUP[label.lower()],
+            scale=SCALE_LOOKUP[label.lower()],
+        )
+    except DataOutOfBoundsError as exc:
+        print(f'Skipping output from {infile}: {exc}')
+    else: 
+        with open(outfile, 'w') as outf:
+            outf.write('LONGITUDE,LATITUDE,{}\n'.format(label))
+            for ln in arr:
+                outf.write('{}, {}, {}\n'.format(ln[0], ln[1], ln[2]))
 
 
 def filter_asc_dir(
@@ -256,6 +290,10 @@ def filter_tree(skip=0):
             )
 
 # Classes
+
+class DataOutOfBoundsError(ValueError):
+    pass
+
 
 class ASCIIFormat(object):
     '''This class encapsulates format information for an ASCII file.'''

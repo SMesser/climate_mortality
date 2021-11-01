@@ -9,22 +9,33 @@ import plotly.graph_objects as go
 from os.path import join
 from yaml import safe_load
 
+VAR2DIR =  {
+    'PRCP': 'prec',
+    'TMIN': 'tmin',
+    'TMAX': 'tmax',
+    'TAVG': 'tmean',
+}
+
 VAR2FILE = {
-    'PRCP': 'prec_{month}.csv',
-    'TMIN': 'tmin_{month}.csv',
-    'TMAX': 'tmax_{month}.csv',
-    'TAVG': 'tmean_{month}.csv',
+    var: '{dir}_{{month}}.csv'.format(dir=dirname)
+    for var, dirname in VAR2DIR.items()
 }
 
 with open('./files.yaml', 'r') as fp:
     settings = safe_load(fp)
 
 ##### utility functions #####
+
 def load_CMIP5(directory, fname):
     '''Load CMIP5 data for a single variable in a given month.'''
     return pd.read_csv(
         join(settings['cmip5']['output_dir'], directory, fname)
     )
+
+
+def mk_CMIP5_dir_name(model, scenario, decade, var):
+    dirvar = VAR2DIR[var]
+    return f'{model}_rcp{scenario}_{decade}s_{dirvar}_10min_r1i1p1_no_tile_asc'
 
 
 def make_CMIP5_title(var, decade, month):
@@ -63,7 +74,7 @@ def get_CMIP5_colorscale(var):
 
 ##### direct-output data-plot functions #####
 
-def plot_CMIP5_var(directory, var, month):
+def plot_CMIP5_var(directory, decade, var, month):
     '''Plot global CMIP5 data for a single variable in a given month.'''
     fname = VAR2FILE[var].format(month=month)
     df = load_CMIP5(directory, fname)
@@ -80,10 +91,10 @@ def plot_CMIP5_var(directory, var, month):
             },
         ),
         layout={
-            'title': {'text': make_CMIP5_title(var, '2030', month)},
-            'xaxis': {'range': [-65, -125]},
-            'yaxis': {'range': [24, 50]},
-            'margin': {"r":0,"t":0,"l":0,"b":0},
+            'title': {'text': make_CMIP5_title(var, decade, month)},
+            #'xaxis': {'range': [-65, -125]},
+            #'yaxis': {'range': [24, 50]},
+            #'margin': {"r":0,"t":0,"l":0,"b":0},
             'geo': {
                 'lonaxis_range': [-126, -64],
                 'lataxis_range': [23, 51],
@@ -94,12 +105,14 @@ def plot_CMIP5_var(directory, var, month):
     ).show()
 
 
-def _plot_one_CMIP5_sample(dataset, var, month):
+def _plot_one_CMIP5_sample(model, scenario, decade, var, month):
+    dataset = mk_CMIP5_dir_name(model, scenario, decade, var)
     directory = join(
         settings['cmip5']['output_dir'],
         dataset,
     )
-    plot_CMIP5_var(directory, var, month)
+    plot_CMIP5_var(directory, decade, var, month)
+
 
 def plot_CMIP5_samples():
     '''A collection of several CMIP5 datasets demonstrating data breadth.'''
@@ -112,22 +125,30 @@ def plot_CMIP5_samples():
     #    7
     #)
     _plot_one_CMIP5_sample(
-        'cesm1_cam5_rcp4_5_2030s_prec_10min_r1i1p1_no_tile_asc',
-        'PRCP',
-        6
+        model='cesm1_cam5',
+        scenario='4_5',
+        decade='2030',
+        var='PRCP',
+        month=6
     )
     _plot_one_CMIP5_sample(
-        'cccma_canesm2_rcp8_5_2050s_tmax_10min_r1i1p1_no_tile_asc',
-        'TMAX',
-        7
+        model='cccma_canesm2',
+        scenario='8_5',
+        decade='2050',
+        var='TMAX',
+        month=7
     )
     _plot_one_CMIP5_sample(
-        'csiro_mk3_6_0_rcp4_5_2050s_tmin_10min_r1i1p1_no_tile_asc',
-        'TMIN',
-        8
+        model='csiro_mk3_6_0',
+        scenario='4_5',
+        decade='2050',
+        var='TMIN',
+        month=8
     )
     _plot_one_CMIP5_sample(
-        'gfdl_esm2g_rcp8_5_2050s_tmean_10min_r1i1p1_no_tile_asc',
-        'TAVG',
-        9
+        model='gfdl_esm2g',
+        scenario='8_5',
+        decade='2050',
+        var='TAVG',
+        month=9
     )

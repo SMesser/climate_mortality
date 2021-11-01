@@ -148,7 +148,7 @@ def asc_to_array(
                     check_bounds(val, dimension=dimension)
                     data_array.append((xpos, ypos, val))
 
-                    if len(data_array) % 1000 == 0:
+                    if len(data_array) % 4000 == 0:
                         print(
                             'Reading {} in progress.  {} non-null values read so far.'.format(
                                 filepath,

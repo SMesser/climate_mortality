@@ -31,10 +31,10 @@ def make_CMIP5_title(var, decade, month):
     fmt_dict = {
         "EMNT": 'Lowest recorded temperature for {month} in Celsius during the {decade}s',
         "PRCP": 'Total precipitation for {month} in mm during the {decade}s',
-        "TAVG": 'Average temperature for {month} {year} in degrees Celsius',
+        "TAVG": 'Average temperature for {month} in degrees Celsius during the {decade}s',
         "EMXT": 'Highest recorded temperature for {month} in Celsius during the {decade}s',
         "TMAX": 'Average daily high temperature for {month} in Celsius during the {decade}s',
-        "TMIN": 'Average daily low temperature for {month} {in Celsius during the {decade}s',
+        "TMIN": 'Average daily low temperature for {month} in Celsius during the {decade}s',
     }
     month_dict = [
         'January',
@@ -80,7 +80,16 @@ def plot_CMIP5_var(directory, var, month):
             },
         ),
         layout={
-            'title': {'text': make_CMIP5_title(var, '2030', month)}
+            'title': {'text': make_CMIP5_title(var, '2030', month)},
+            'xaxis': {'range': [-65, -125]},
+            'yaxis': {'range': [24, 50]},
+            'margin': {"r":0,"t":0,"l":0,"b":0},
+            'geo': {
+                'lonaxis_range': [-126, -64],
+                'lataxis_range': [23, 51],
+                'showlakes': True,
+                'showrivers': True,
+            },
         }
     ).show()
 
@@ -94,13 +103,31 @@ def _plot_one_CMIP5_sample(dataset, var, month):
 
 def plot_CMIP5_samples():
     '''A collection of several CMIP5 datasets demonstrating data breadth.'''
+    # cccma_canesm2_rcp4_5_2030s_prec_30s_r1i1p1_b2_asc dataset was used in
+    # early drafts, but hs been dropped due to excessively high resolution
+    # and the resulting large size of the dataset.
+    #_plot_one_CMIP5_sample(
+    #    'cccma_canesm2_rcp4_5_2030s_prec_30s_r1i1p1_b2_asc\\prec_b2',
+    #    'PRCP',
+    #    7
+    #)
     _plot_one_CMIP5_sample(
-        'cccma_canesm2_rcp4_5_2030s_prec_30s_r1i1p1_b2_asc\\prec_b2',
+        'cesm1_cam5_rcp4_5_2030s_prec_10min_r1i1p1_no_tile_asc',
         'PRCP',
-        7
+        6
     )
     _plot_one_CMIP5_sample(
         'cccma_canesm2_rcp8_5_2050s_tmax_10min_r1i1p1_no_tile_asc',
         'TMAX',
         7
+    )
+    _plot_one_CMIP5_sample(
+        'csiro_mk3_6_0_rcp4_5_2050s_tmin_10min_r1i1p1_no_tile_asc',
+        'TMIN',
+        8
+    )
+    _plot_one_CMIP5_sample(
+        'gfdl_esm2g_rcp8_5_2050s_tmean_10min_r1i1p1_no_tile_asc',
+        'TAVG',
+        9
     )

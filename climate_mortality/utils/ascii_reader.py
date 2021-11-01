@@ -138,6 +138,7 @@ def asc_to_array(
         
         while item_str:
             total += 1
+
             if item_str != fmt.null:
                 xpos = fmt.xllcorner + xn * fmt.cellsize
                 ypos = fmt.yllcorner + (fmt.nrows - yn) * fmt.cellsize
@@ -146,7 +147,8 @@ def asc_to_array(
                     val = float(item_str) * scale
                     check_bounds(val, dimension=dimension)
                     data_array.append((xpos, ypos, val))
-                    if len(data_array) % 100000 == 0:
+
+                    if len(data_array) % 1000 == 0:
                         print(
                             'Reading {} in progress.  {} non-null values read so far.'.format(
                                 filepath,

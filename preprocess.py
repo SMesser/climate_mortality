@@ -46,7 +46,7 @@ def process_NOAA():
 def process_CMIP5():
     '''Process CMIP5 climate predictions.'''
     print('\n###########  BEGINNING PROCESSING OF CMIP5 DATA  ############\n')
-    filter_tree(skip=4)
+    filter_tree(skip=1)
         
 
 if __name__ == '__main__':

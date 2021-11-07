@@ -35,6 +35,6 @@ if __name__ == '__main__':
     # plot_WHO_samples()
     # plot_WHO_raw_death_bar(years=[2018])
     # plot_WHO_mortality_bar(years=[2018])
-    plot_CMIP5_samples()
+    # plot_CMIP5_samples()
     # plot_NOAA_interp()
-    # plot_NOAA_annualized()
+    plot_NOAA_annualized()

@@ -57,5 +57,5 @@ if __name__ == '__main__':
     # TODO: Create command-line parameters to allow piecemeal processing.
     # process_NOAA()
     # process_WHO() # This has been completely run once
-    process_CMIP5() # This has been completely run once
-    # build_composite_df()
+    # process_CMIP5() # This has been completely run once
+    build_composite_df()

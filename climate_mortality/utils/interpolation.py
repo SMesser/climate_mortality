@@ -74,13 +74,6 @@ def _interpolate_HUMID_points(year, month, kind, xi):
         xi=xi
     )
     humid_df = tavg_df.merge(prcp_df, on=['LONGITUDE', 'LATITUDE'])
-    # Not much difference if we use TAVG or Kelvin as proxy for humidity.
-    #humid_df['Kelvin'] = humid_df['TAVG']+273.15
-    #humid_df['HUMID'] = humid_df['PRCP']*humid_df['Kelvin']
-    # humid_df['HUMID'] = humid_df['PRCP']*humid_df['TAVG']
-    # Actual important variable is human heat stress - may want to subtract a
-    # temperature like 20 Celsius since that's approx optimal human environment
-    # temperature.
     humid_df['humid_t'] = humid_df['TAVG']+273.15
     humid_df['HUMID'] = humid_df['PRCP']*humid_df['humid_t']
     del humid_df['humid_t']

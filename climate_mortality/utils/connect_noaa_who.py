@@ -3,14 +3,23 @@ import pandas as pd
 
 from numpy import array
 from shapefile import Reader
+from sys import stdout
 from yaml import safe_load
 
-from .annualized import interpolate_annualized_NOAA
-from .interpolation import INTERPOLATION_COLUMNS
+from .annualized import load_annualized_NOAA
 
 with open('./files.yaml', 'r') as fp:
     settings = safe_load(fp)
 
+MODEL_CLIMATE_VARS = [
+    # Omit EMNT and EMXT since those have no counterpart in predicted climates.
+    "TMIN",
+    "TAVG",
+    "TMAX",
+    "PRCP",
+    "HUMID",
+    "HETSTRS"
+]
 
 
 def _get_center_of_shp(shape):
@@ -25,6 +34,15 @@ def _get_center_of_shp(shape):
 
 
 def _get_country_centers():
+    '''Return an approximate center for each country based on its perimeter.
+
+    Currently, this average is weighted toward complex coastlines and high
+    latitudes because it simply averages the (longitude, latitude) of every
+    point _specified_ on the perimeter.
+
+    TODO: Use actual geometry to get a better estimate of the centers, or
+    replace this function entirely.
+    '''
     source_path = settings['country_shapes']
     reader = Reader(source_path)
     available_country_shapes = [record.NAME for record in reader.records()]
@@ -43,23 +61,47 @@ def _get_country_centers():
     )
 
 
+def _spatial_climate_average(raw_df, points):
+    '''Spatially average gridded-map dataframe of annualized data.
+
+    Returns a dictionary with the mean of each column. Resolution of the grid
+    used in the spatial average matches that of the input raw_df.
+    '''
+    min_long = min(p[0] for p in points) - 1
+    max_long = max(p[0] for p in points) + 1
+    min_lat = min(p[1] for p in points) - 1
+    max_lat = max(p[1] for p in points) + 1
+    return raw_df[
+        (min_long <= raw_df['LONGITUDE']) & (raw_df['LONGITUDE'] <= max_long) & (min_lat <= raw_df['LATITUDE']) & (raw_df['LATITUDE'] <= max_lat)
+    ].mean().to_dict()
+
+
 def _load_country_climate(var, year):
-    name_df, centers = _get_country_centers()
-    # TODO: Instead of return data near middle of each shape, average over the shape.
-    climate_df = interpolate_annualized_NOAA(var, year, points=centers)
-    merged = pd.merge(
-        left=name_df,
-        on=('LONGITUDE', 'LATITUDE'),
-        right=climate_df
-    )
-    del merged['LONGITUDE']
-    del merged['LATITUDE']
-    return merged
+    print(f'Averaging per-country climates for {var} in {year}')
+    source_path = settings['country_shapes']
+    reader = Reader(source_path)
+    names = [record.NAME for record in reader.records()]
+    annualized_var = load_annualized_NOAA(var, year)
+    climates = [
+        _spatial_climate_average(raw_df=annualized_var, points=shape.points)
+        for shape in reader.shapes()
+    ]
+    return pd.DataFrame.from_dict([
+        {
+            'country': names[n],
+            var + '_min': climates[n]['min'],
+            var + '_mean': climates[n]['mean'],
+            var + '_max': climates[n]['max'],
+        }
+        for n in range(len(names))
+    ])
 
 
 def _load_climate_year(year):
     '''Load all annualized climate data for one year'''
-    interp_vars = sorted(INTERPOLATION_COLUMNS)
+    print(f'Averaging all climate variables in {year}.')
+    stdout.flush()
+    interp_vars = sorted(MODEL_CLIMATE_VARS)
     base = _load_country_climate(interp_vars[0], year)
     
     for var in interp_vars[1:]: # 0th var already loaded
@@ -71,6 +113,7 @@ def _load_climate_year(year):
         
     base['Year'] = year
     return base
+
 
 def build_composite_df():
     '''Combine the annualized climate data from all vars and countries.'''

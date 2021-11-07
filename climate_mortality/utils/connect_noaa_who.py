@@ -2,6 +2,7 @@
 import pandas as pd
 
 from numpy import array
+from os.path import join
 from shapefile import Reader
 from sys import stdout
 from yaml import safe_load
@@ -77,6 +78,7 @@ def _spatial_climate_average(raw_df, points):
 
 
 def _load_country_climate(var, year):
+    '''Load country-labelled climate data for a particular variable and year.'''
     print(f'Averaging per-country climates for {var} in {year}')
     source_path = settings['country_shapes']
     reader = Reader(source_path)
@@ -115,7 +117,7 @@ def _load_climate_year(year):
     return base
 
 
-def build_composite_df():
+def build_composite_climate_df():
     '''Combine the annualized climate data from all vars and countries.'''
     country_climate = pd.concat([
       _load_climate_year(year)

@@ -8,7 +8,7 @@ from climate_mortality.utils.ascii_reader import filter_tree
 from climate_mortality.utils.noaa_reader import group_NOAA, trim_NOAA
 from climate_mortality.utils.interpolation import interpolate_all_NOAA
 from climate_mortality.utils.who_reader import process_WHO_dead, process_WHO_pop
-from climate_mortality.utils.connect_noaa_who import build_composite_df
+from climate_mortality.utils.connect_noaa_who import build_composite_climate_df
 
 with open('./files.yaml', 'r') as fp:
     settings = safe_load(fp)
@@ -58,4 +58,4 @@ if __name__ == '__main__':
     # process_NOAA()
     # process_WHO() # This has been completely run once
     # process_CMIP5() # This has been completely run once
-    build_composite_df()
+    build_composite_climate_df()

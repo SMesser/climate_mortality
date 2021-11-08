@@ -23,6 +23,13 @@ MODEL_CLIMATE_VARS = [
 ]
 
 
+def load_country_climate_df():
+    '''Load a previously-calculated dataframe for per-country-year climates.'''
+    return pd.read_csv(
+        join(settings['combined'], 'country_center_climates.csv')
+    )
+
+
 def _get_center_of_shp(shape):
     '''Yield a very hacky approximation to the middle of the shape
 
@@ -124,5 +131,6 @@ def build_composite_climate_df():
       for year in range(1995, 2021)
     ])
     country_climate.to_csv(
-        join(settings['combined'], 'country_center_climates.csv')
+        join(settings['combined'], 'country_center_climates.csv'),
+        index=False
     )

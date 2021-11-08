@@ -19,6 +19,10 @@ from climate_mortality.display.plot_who import (
     plot_WHO_mortality_bar, plot_WHO_raw_death_bar,
     plot_WHO_samples
 )
+from climate_mortality.display.plot_mixed import (
+    compare_countries,
+    plot_country_var_histories,
+)
 
 
 with open('./files.yaml', 'r') as fp:
@@ -37,4 +41,6 @@ if __name__ == '__main__':
     # plot_WHO_mortality_bar(years=[2018])
     # plot_CMIP5_samples()
     # plot_NOAA_interp()
-    plot_NOAA_annualized()
+    # plot_NOAA_annualized()
+    plot_country_var_histories()
+    compare_countries()

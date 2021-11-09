@@ -32,8 +32,9 @@ def _collect_causes():
     causes = set()
     
     for fname in listdir(country_dir):
-        print(f'Scanning {fname}')
-        causes = causes | set(pd.read_csv(join(country_dir, fname))['Cause'])
+        if fname.endswith('_mortality.csv'):
+            print(f'Scanning {fname}')
+            causes |= set(pd.read_csv(join(country_dir, fname))['Cause'])
 
     return sorted(causes)
     
@@ -43,6 +44,7 @@ def _trim_country_file_to_cause(country_file, cause):
     raw_df = pd.read_csv(country_file)
     return raw_df[raw_df['Cause']==cause][[
         'CountryName',
+        'Year',
         'Gender',
         'MortAll',
         'Mort0',
@@ -55,7 +57,7 @@ def _trim_country_file_to_cause(country_file, cause):
         'Mort55-64',
         'Mort65+',
         'MortUnk',
-    ]]
+    ]].fillna(0)
     
 
 def convert_country_tables_to_causes():
@@ -64,11 +66,15 @@ def convert_country_tables_to_causes():
     country_dir = settings['who']['country_output_dir']
     cause_dir = settings['who']['cause_output_dir']
     country_files = listdir(country_dir)
+    print(f'Collected {len(causes)} distinct causes of death.')
     
     for cause in causes:
+        print(f'Collecting {cause} records')
+        stdout.flush()
         cause_df = pd.concat([
             _trim_country_file_to_cause(join(country_dir, fname), cause)
             for fname in country_files
+            if fname.endswith('_mortality.csv')
         ])
         cause_df.to_csv(join(cause_dir, cause + '_mortality.csv'), index=False)
 

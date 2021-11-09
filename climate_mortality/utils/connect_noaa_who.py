@@ -8,6 +8,7 @@ from sys import stdout
 from yaml import safe_load
 
 from .annualized import load_annualized_NOAA
+from .who_reader import load_WHO_mortality
 
 with open('./files.yaml', 'r') as fp:
     settings = safe_load(fp)
@@ -28,6 +29,13 @@ def load_country_climate_df():
     return pd.read_csv(
         join(settings['combined'], 'country_center_climates.csv')
     )
+
+
+def join_mortality_climate():
+    '''Join the mortality and climate data.'''
+    climate_df = load_country_climate_df()
+    mortality_df = load_WHO_cause()
+    raise NotImplementedError()
 
 
 def _get_center_of_shp(shape):

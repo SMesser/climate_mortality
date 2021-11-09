@@ -26,6 +26,53 @@ with open('./files.yaml', 'r') as fp:
     settings = safe_load(fp)
 
 
+def _collect_causes():
+    '''Scan all processed WHO country files to assemble distinct causes.'''
+    country_dir = settings['who']['country_output_dir']
+    causes = set()
+    
+    for fname in listdir(country_dir):
+        print(f'Scanning {fname}')
+        causes = causes | set(pd.read_csv(join(country_dir, fname))['Cause'])
+
+    return sorted(causes)
+    
+
+def _trim_country_file_to_cause(country_file, cause):
+    '''Remove all columns and records not matchnig the cause from the file.'''
+    raw_df = pd.read_csv(country_file)
+    return raw_df[raw_df['Cause']==cause][[
+        'CountryName',
+        'Gender',
+        'MortAll',
+        'Mort0',
+        'Mort1-4',
+        'Mort5-14',
+        'Mort15-24',
+        'Mort25-34',
+        'Mort35-44',
+        'Mort45-54',
+        'Mort55-64',
+        'Mort65+',
+        'MortUnk',
+    ]]
+    
+
+def convert_country_tables_to_causes():
+    '''Convert country_output_dir files to cause_output_dir.'''
+    causes = _collect_causes()
+    country_dir = settings['who']['country_output_dir']
+    cause_dir = settings['who']['cause_output_dir']
+    country_files = listdir(country_dir)
+    
+    for cause in causes:
+        cause_df = pd.concat([
+            _trim_country_file_to_cause(join(country_dir, fname), cause)
+            for fname in country_files
+        ])
+        cause_df.to_csv(join(cause_dir, cause + '_mortality.csv'), index=False)
+
+    
 def load_cause_for_file(path, cause):
     '''Create a DF with the overall mortality''' 
     base = pd.read_csv(path)
@@ -39,13 +86,13 @@ def load_cause_for_file(path, cause):
 
 def load_WHO_mortality(country, years):
     mort = pd.read_csv(
-        join(settings['who']['output_dir'], f'{country}_mortality.csv')
+        join(settings['who']['country_output_dir'], f'{country}_mortality.csv')
     )
 
 
 def load_cause(cause):
     '''Load the full set of mortality metrics for a given cause of death.'''
-    mort_dir = settings['who']['output_dir']
+    mort_dir = settings['who']['country_output_dir']
     df_list = [
         load_cause_for_file(join(mort_dir, fn))
         for fn in listdir(mort_dir)
@@ -53,8 +100,6 @@ def load_cause(cause):
     ]
     return pd.concat(df_list)
 
-    
-    # TODO: Finish aggregating
 
 # Functions with only external dependencies
 

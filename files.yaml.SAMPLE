@@ -6,7 +6,8 @@ noaa:
     annualized_dir: '\\MyDataDir\\annualized NOAA\\'
 who:
     input_dir:  '\\MyDataDir\\WHO Mortality ICD-10\\'
-    output_dir:  '\\MyDataDir\\processed WHO\\'
+    country_output_dir: '\\MyDataDir\\country WHO\\'
+    cause_output_dir: '\\MyDataDir\\cause WHO\\'
 country_shapes: '\\MyDataDir\\koordinates\\world-country-boundaries.shp'
 cmip5:
     input_dir:  '\\MyDataDir\\CCAFS Future Climate\\'

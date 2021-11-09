@@ -15,7 +15,7 @@ with open('./files.yaml', 'r') as fp:
 ##### utility functions #####
 
 def _get_WHO_population_df():
-    processed_dir = settings['who']['output_dir']
+    processed_dir = settings['who']['country_output_dir']
     population = pd.read_csv(join(processed_dir, 'population.csv'))
     del population['Sex']
     del population['Country']
@@ -113,7 +113,9 @@ def plot_WHO_raw_death_bar(years):
         len(set(df['CauseLabel'])),
         len(set(df['CountryName']))
     ))
-    pop = pd.read_csv(join(settings['who']['output_dir'], 'population.csv'))
+    pop = pd.read_csv(
+        join(settings['who']['country_output_dir'], 'population.csv')
+    )
     pop = pop[['CountryName', 'Year', 'Pop1']][pop['Pop1'] > 0]
     pop = pop.groupby(['CountryName', 'Year']).sum()
     full = pd.merge(left=df, on=('CountryName', 'Year'), right=pop)
@@ -145,7 +147,7 @@ def plot_WHO_raw_death_bar(years):
 
 def plot_WHO_mortality_bar(years):
     mort = pd.read_csv(
-        join(settings['who']['output_dir'], 'Cyprus_mortality.csv')
+        join(settings['who']['country_output_dir'], 'Cyprus_mortality.csv')
     )
     mort = mort[mort['DeathsAll']>0][mort['Year'].isin(years)]
     go.Figure(

@@ -60,6 +60,10 @@ def _trim_country_file_to_cause(country_file, cause):
     ]].fillna(0)
     
 
+def _safe_file_name(raw):
+    '''Replace inconvenient characters in filenames.'''
+    return raw.replace(' ', '_').replace('\\', '_').replace('/', '_')
+
 def convert_country_tables_to_causes():
     '''Convert country_output_dir files to cause_output_dir.'''
     causes = _collect_causes()
@@ -76,7 +80,10 @@ def convert_country_tables_to_causes():
             for fname in country_files
             if fname.endswith('_mortality.csv')
         ])
-        cause_df.to_csv(join(cause_dir, cause + '_mortality.csv'), index=False)
+        cause_df.to_csv(
+            join(cause_dir, _safe_file_name(cause + '_mortality.csv')),
+            index=False
+        )
 
     
 def load_cause_for_file(path, cause):
